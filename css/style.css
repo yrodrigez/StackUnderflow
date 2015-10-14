@@ -1,0 +1,156 @@
+#loginButton {
+	background: #000000;
+	color: #ffffff;
+	font-family: 'Press Start 2P';
+	font-size: 25px;
+	border-radius:0;
+	height:100%;
+	width:100%;
+}
+
+#loginButtonMobile{
+	background: #000000;
+	color: #ffffff;
+	font-family: 'Press Start 2P';
+	font-size: 25px;
+	width:100%;
+}
+
+#loginButton:hover, #loginButtonMobile:hover{
+	color: gray;
+	text-decoration: none;
+}
+
+#head {
+	position:relative;
+}
+#busqueda{
+	border-radius: 0px;
+	border-style: solid 1px;
+	color:#000000;
+}
+
+a{
+	color: black;
+}
+a:hover{
+	color: gray;
+	text-decoration: none;
+}
+
+#halp:hover{
+	font-size: 110px;
+}
+
+#searchBar, #sideBar {
+	margin-top: 25px;
+}
+
+#sideBar{
+	text-align: center;
+}
+
+
+
+.loginContainer{
+	position:absolute;
+	padding-right: 0; 
+	right:0%; 
+	bottom:0%;
+}
+
+.pregunta {
+	background-color: #FAFAFA;
+	margin-top: 20px;
+}
+
+.elemPregunta {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.compSideBar{
+	font-family:'Press Start 2P';
+}
+
+.verticalSeparator {
+	border-left: 1px solid black;
+	height: 25px;
+}
+
+.fire {
+	margin-left: 15px;
+}
+
+.botonera {
+	text-align: center;
+}
+
+.botonera-xs {
+	text-align: right;
+}
+
+.form-control::-webkit-input-placeholder {
+	font-family: 'Press Start 2P';
+	color: black;
+}
+
+.form-control::-moz-placeholder { /* Firefox 18- */
+	font-family: 'Press Start 2P';
+	color: black;  
+}
+
+.form-control::-moz-placeholder {  /* Firefox 19+ */
+	font-family: 'Press Start 2P';
+	color: black;  
+}
+
+.tags{
+	text-align: right;
+}
+span.tag {
+	text-align: right;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 1px solid #D8D8D8;
+	background-color: #CEF6F5;
+	-webkit-box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
+	box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
+}
+
+.form-control::-ms-input-placeholder {  
+	font-family: 'Press Start 2P';
+	color: black;  
+}
+/*Mobile*/
+@media (min-width: 1px) {
+	#loginContainer {
+		display: none;
+	}
+	#loginButtonMobile{
+		display: inline;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 991px) { 
+	#loginButtonMobile{
+		display: none;
+	}
+	#loginContainer {
+		display: inline;
+	}
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+	#loginButtonMobile{
+		display: none;
+	}
+	#loginContainer {
+		display: inline;
+	}
+}
