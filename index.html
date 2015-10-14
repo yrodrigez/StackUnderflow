@@ -2,190 +2,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-  <title>Stack Underflow</title>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="css/css/bootstrap.min.css">
+	<title>Stack Underflow</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="css/css/bootstrap.min.css">
 
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="css/css/bootstrap-theme.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="css/css/bootstrap-theme.min.css">
 
-  <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style.css">
 
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="css/js/bootstrap.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="css/js/bootstrap.min.js"></script>
 
 </head>
 
 <body>
 
-  <div class="container">
+	<div class="container">
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div id="head">
-     <div class="container">
-      <div class= "row">
-       <img class="img-responsive" src="stackunderflow_logo.png">
-        <div id="loginContainer" class="loginContainer col-md-3">
-          <button id="loginButton" type="button" class="btn btn-primary">Login</button>
-        </div> 
-      </div>
-      
-    </div>
-  </div>
+		<!-- Main jumbotron for a primary marketing message or call to action -->
+		<div id="head">
+			<div class="container">
+				<div class= "row">
+					<img class="img-responsive" src="stackunderflow_logo.png">
+					<div id="loginContainer" class="loginContainer col-md-3">
+						<button id="loginButton" type="button" class="btn btn-primary">Login</button>
+					</div> 
+				</div>
 
-  <div class="container">
-    <!-- Example row of columns -->
-    <div class="row">
-      <div id="body" class="col-md-9">
+			</div>
+		</div>
+
+		<div class="container">
+			<!-- Example row of columns -->
+			<div class="row">
+				<div id="body" class="col-md-9">
 
 
-      <!--BOTONAZO PAL MOVIL PAPAS-->
-      
-      <div class="row">
-        <div id="loginButtonMobile" class="loginContainerMobile col-lg-12">
-          <button id="loginButton" type="button" class="btn btn-primary">Login</button>
-        </div>
-      </div>
-      <!--FIN BOTONAZO PAL MOVIL PAPAS-->
+					<!--BOTONAZO PAL MOVIL PAPAS-->
 
-      <!--SEARCHBAR-->
-      <div class= "row">
-        <div id="searchBar" class="input-group">
-          <input id="busqueda" type="text" class="form-control" placeholder="Search for...">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-          </span>
-        </div>
-      </div>
-      <!--FIN SEARCHBAR-->
-      <div class="row">
-        <h2>Hot Questions</h2>
-        
-      </div>
-      <!-- PREGUNTA PLANTILLA-->
-        <hr/>
-        <div class="pregunta row">
-          <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 botonera hidden-xs">
-            <span class="glyphicon glyphicon-eye-open elemPregunta"></span>
-            <span class="elemPregunta">799k</span> 
-            <span class="verticalSeparator"></span>
-            <span class="glyphicon glyphicon-fire elemPregunta fire"></span>
-          </div>
-          <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
-            <p>
-              ¿Donec id elit non mi porta gravida at eget metus dapibus Donec id elit non mi?
-            </p>
-          </div>
-          <div class="row tags col-lg-12 col-md-12 col-sm-3 col-xs-12 hidden-xs">
-              <a href="#"><span class="tag">&nbspC++&nbsp</span></a>
-              <a href="#"><span class="tag">&nbspJava&nbsp</span></a>
-              <a href="#"><span class="tag">&nbspBison&nbsp</span></a>
-          </div>
-          <div class="tags col-lg-12 col-md-12 col-sm-12 col-xs-12 visible-xs hidden-md hidden-lg">
-              <a href="#"><span class="tag">&nbspC++&nbsp</span></a>
-              <a href="#"><span class="tag">&nbspJava&nbsp</span></a>
-              <a href="#"><span class="tag">&nbspBison&nbsp</span></a>
-          </div>
-          <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12 botonera-xs visible-xs">
-            <span class="glyphicon glyphicon-eye-open elemPregunta"></span>
-            <span class="elemPregunta">799k</span> 
-            <span class="verticalSeparator"></span>
-            <span class="glyphicon glyphicon-fire elemPregunta fire"></span>
-          </div>
-        </div>
-        <!-- FIN PREGUNTA PLANTILLA-->
-        <!-- PREGUNTA PLANTILLA-->
-        <div class="pregunta row">
-          <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 botonera hidden-xs">
-            <span class="glyphicon glyphicon-eye-open elemPregunta"></span>
-            <span class="elemPregunta">799k</span> 
-            <span class="verticalSeparator"></span>
-            <span class="glyphicon glyphicon-fire elemPregunta fire"></span>
-          </div>
-          <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
-            <p>
-              ¿Donec id elit non mi porta gravida at eget metus dapibus Donec id elit non mi?
-            </p>
-          </div>
-          <div class="row tags col-lg-12 col-md-12 col-sm-3 col-xs-12 hidden-xs">
-              <a href="#"><span class="tag">&nbspC++&nbsp</span></a>
-              <a href="#"><span class="tag">&nbspJava&nbsp</span></a>
-              <a href="#"><span class="tag">&nbspBison&nbsp</span></a>
-          </div>
-          <div class="tags col-lg-12 col-md-12 col-sm-12 col-xs-12 visible-xs hidden-md hidden-lg">
-              <a href="#"><span class="tag">&nbspC++&nbsp</span></a>
-              <a href="#"><span class="tag">&nbspJava&nbsp</span></a>
-              <a href="#"><span class="tag">&nbspBison&nbsp</span></a>
-          </div>
-          <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12 botonera-xs visible-xs">
-            <span class="glyphicon glyphicon-eye-open elemPregunta"></span>
-            <span class="elemPregunta">799k</span> 
-            <span class="verticalSeparator"></span>
-            <span class="glyphicon glyphicon-fire elemPregunta fire"></span>
-          </div>
-        </div>
-        <!-- FIN PREGUNTA PLANTILLA-->
-        <!-- PREGUNTA PLANTILLA-->
-        <div class="pregunta row">
-          <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 botonera hidden-xs">
-            <span class="glyphicon glyphicon-eye-open elemPregunta"></span>
-            <span class="elemPregunta">799k</span> 
-            <span class="verticalSeparator"></span>
-            <span class="glyphicon glyphicon-fire elemPregunta fire"></span>
-          </div>
-          <div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
-            <p>
-              ¿Donec id elit non mi porta gravida at eget metus dapibus Donec id elit non mi?
-            </p>
-          </div>
-          <div class="row tags col-lg-12 col-md-12 col-sm-3 col-xs-12 hidden-xs">
-              <a href="#"><span class="tag">&nbspC++&nbsp</span></a>
-              <a href="#"><span class="tag">&nbspJava&nbsp</span></a>
-              <a href="#"><span class="tag">&nbspBison&nbsp</span></a>
-          </div>
-          <div class="tags col-lg-12 col-md-12 col-sm-12 col-xs-12 visible-xs hidden-md hidden-lg">
-              <a href="#"><span class="tag">&nbspC++&nbsp</span></a>
-              <a href="#"><span class="tag">&nbspJava&nbsp</span></a>
-              <a href="#"><span class="tag">&nbspBison&nbsp</span></a>
-          </div>
-          <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12 botonera-xs visible-xs">
-            <span class="glyphicon glyphicon-eye-open elemPregunta"></span>
-            <span class="elemPregunta">799k</span> 
-            <span class="verticalSeparator"></span>
-            <span class="glyphicon glyphicon-fire elemPregunta fire"></span>
-          </div>
-        </div>
-        <!-- FIN PREGUNTA PLANTILLA-->
-        <button id="preguntaButton" type="button" class="btn btn-primary preguntaButton">Pregunta</button>
-      </div>
-      <div id="sideBar" class="col-md-3">
-        <div class="compSideBar"><a class="enlaceSideBar" href="#">Home</a></div>
-        <hr>
-        <div class="compSideBar"><a href="#">Sin Contestar<a></div>
-        <hr>
-        <div class="compSideBar"><a href="#">Usuarios<a></div>
-        <hr>
-        <div class="compSideBar"><a href="#">Categorias</a></div>
-        <hr>
-        <div class="compSideBar"><a href="#">Ayuda<span id="halp">(HALP!)<span></a></div>
-        <hr>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-md-12">
-          <footer>
-            <p>&copy; Company, 2014</p>
-          </footer>
-        </div>
-      </div>
-    </div> <!-- /container -->
+					<div class="row">
+						<div id="loginButtonMobile" class="loginContainerMobile col-lg-12">
+							<button id="loginButton" type="button" class="btn btn-primary">Login</button>
+						</div>
+					</div>
+					<!--FIN BOTONAZO PAL MOVIL PAPAS-->
+
+					<!--SEARCHBAR-->
+					<div class= "row">
+						<div id="searchBar" class="input-group">
+							<input id="busqueda" type="text" class="form-control" placeholder="Search for...">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+							</span>
+						</div>
+					</div>
+					<!--FIN SEARCHBAR-->
+					<div class="row">
+						<h2>Hot Questions</h2>
+
+					</div>
+					<!-- PREGUNTA PLANTILLA-->
+					<hr/>
+					<div class="pregunta row">
+						<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 botonera hidden-xs">
+							<span class="glyphicon glyphicon-eye-open elemPregunta"></span>
+							<span class="elemPregunta">799k</span> 
+							<span class="verticalSeparator"></span>
+							<span class="glyphicon glyphicon-fire elemPregunta fire"></span>
+						</div>
+						<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
+							<p>
+								¿Donec id elit non mi porta gravida at eget metus dapibus Donec id elit non mi?
+							</p>
+						</div>
+						<div class="row tags col-lg-12 col-md-12 col-sm-3 col-xs-12 hidden-xs">
+							<a href="#"><span class="tag">&nbspC++&nbsp</span></a>
+							<a href="#"><span class="tag">&nbspJava&nbsp</span></a>
+							<a href="#"><span class="tag">&nbspBison&nbsp</span></a>
+						</div>
+						<div class="tags col-lg-12 col-md-12 col-sm-12 col-xs-12 visible-xs hidden-md hidden-lg">
+							<a href="#"><span class="tag">&nbspC++&nbsp</span></a>
+							<a href="#"><span class="tag">&nbspJava&nbsp</span></a>
+							<a href="#"><span class="tag">&nbspBison&nbsp</span></a>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12 botonera-xs visible-xs">
+							<span class="glyphicon glyphicon-eye-open elemPregunta"></span>
+							<span class="elemPregunta">799k</span> 
+							<span class="verticalSeparator"></span>
+							<span class="glyphicon glyphicon-fire elemPregunta fire"></span>
+						</div>
+					</div>
+					<!-- FIN PREGUNTA PLANTILLA-->
+					<!-- PREGUNTA PLANTILLA-->
+					<div class="pregunta row">
+						<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 botonera hidden-xs">
+							<span class="glyphicon glyphicon-eye-open elemPregunta"></span>
+							<span class="elemPregunta">799k</span> 
+							<span class="verticalSeparator"></span>
+							<span class="glyphicon glyphicon-fire elemPregunta fire"></span>
+						</div>
+						<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
+							<p>
+								¿Donec id elit non mi porta gravida at eget metus dapibus Donec id elit non mi?
+							</p>
+						</div>
+						<div class="row tags col-lg-12 col-md-12 col-sm-3 col-xs-12 hidden-xs">
+							<a href="#"><span class="tag">&nbspC++&nbsp</span></a>
+							<a href="#"><span class="tag">&nbspJava&nbsp</span></a>
+							<a href="#"><span class="tag">&nbspBison&nbsp</span></a>
+						</div>
+						<div class="tags col-lg-12 col-md-12 col-sm-12 col-xs-12 visible-xs hidden-md hidden-lg">
+							<a href="#"><span class="tag">&nbspC++&nbsp</span></a>
+							<a href="#"><span class="tag">&nbspJava&nbsp</span></a>
+							<a href="#"><span class="tag">&nbspBison&nbsp</span></a>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12 botonera-xs visible-xs">
+							<span class="glyphicon glyphicon-eye-open elemPregunta"></span>
+							<span class="elemPregunta">799k</span> 
+							<span class="verticalSeparator"></span>
+							<span class="glyphicon glyphicon-fire elemPregunta fire"></span>
+						</div>
+					</div>
+					<!-- FIN PREGUNTA PLANTILLA-->
+					<!-- PREGUNTA PLANTILLA-->
+					<div class="pregunta row">
+						<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 botonera hidden-xs">
+							<span class="glyphicon glyphicon-eye-open elemPregunta"></span>
+							<span class="elemPregunta">799k</span> 
+							<span class="verticalSeparator"></span>
+							<span class="glyphicon glyphicon-fire elemPregunta fire"></span>
+						</div>
+						<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
+							<p>
+								¿Donec id elit non mi porta gravida at eget metus dapibus Donec id elit non mi?
+							</p>
+						</div>
+						<div class="row tags col-lg-12 col-md-12 col-sm-3 col-xs-12 hidden-xs">
+							<a href="#"><span class="tag">&nbspC++&nbsp</span></a>
+							<a href="#"><span class="tag">&nbspJava&nbsp</span></a>
+							<a href="#"><span class="tag">&nbspBison&nbsp</span></a>
+						</div>
+						<div class="tags col-lg-12 col-md-12 col-sm-12 col-xs-12 visible-xs hidden-md hidden-lg">
+							<a href="#"><span class="tag">&nbspC++&nbsp</span></a>
+							<a href="#"><span class="tag">&nbspJava&nbsp</span></a>
+							<a href="#"><span class="tag">&nbspBison&nbsp</span></a>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12 botonera-xs visible-xs">
+							<span class="glyphicon glyphicon-eye-open elemPregunta"></span>
+							<span class="elemPregunta">799k</span> 
+							<span class="verticalSeparator"></span>
+							<span class="glyphicon glyphicon-fire elemPregunta fire"></span>
+						</div>
+					</div>
+					<!-- FIN PREGUNTA PLANTILLA-->
+					<!-- Boton pregunta -->
+					<div  class ="row">
+						<div id="preguntaDiv" class="preguntaContainer col-lg-3 col-md-3 col-sm-3 col-xs-4">
+							<button id="preguntaButton" type="button" class="btn btn-primary preguntaButton">Pregunta</button>
+						</div>
+					</div>
+					<!-- fin boton pregunta-->
+				</div>
+				<div id="sideBar" class="col-md-3">
+					<div class="compSideBar"><a class="enlaceSideBar" href="#">Home</a></div>
+					<hr>
+					<div class="compSideBar"><a href="#">Sin Contestar<a></div>
+					<hr>
+					<div class="compSideBar"><a href="#">Usuarios<a></div>
+					<hr>
+					<div class="compSideBar"><a href="#">Categorias</a></div>
+					<hr>
+					<div class="compSideBar"><a href="#">Ayuda<span id="halp">(HALP!)<span></a></div>
+					<hr>
+				</div>
+			</div>
+			<!-- inicio del footer-->
+			<div class ="finalPagina">
+				<div class="row">
+					<div class="linksFooter col-md-12">
+						<span class="elemFooter"><a href='#'>Empleos</a></span>
+						<span class="verticalSeparator"></span>
+						<span class="elemFooter"><a href='#'>Informacion</a></span>
+						<span class="verticalSeparator"></span>
+						<span class="elemFooter"><a href='#'>Privacidad</a></span>
+						<span class="verticalSeparator"></span>
+						<span class="elemFooter"><a href='#'>Terminos</a></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="company col-md-12">
+						<footer>
+							<p>&copy; Schrödinger Inc, 2015</p>
+						</footer>
+					</div>
+				</div>
+			</div>
+			<!-- final del footer -->
+		</div> 
+
+	</div>
+	<!-- /container -->
 
 
     <!-- Bootstrap core JavaScript
@@ -195,5 +219,5 @@
     <script src="../../dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
-  </html>
+</body>
+</html>

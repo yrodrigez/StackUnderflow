@@ -21,7 +21,7 @@
 	text-decoration: none;
 }
 
-#head {
+#head{
 	position:relative;
 }
 #busqueda{
@@ -51,109 +51,210 @@ a:hover{
 }
 
 .preguntaButton{
-	
-}
-
-.loginContainer{
-	position:absolute;
-	padding-right: 0; 
-	right:0%; 
-	bottom:0%;
-}
-
-.pregunta {
-	background-color: #FAFAFA;
-	margin-top: 20px;
-
-}
-
-.elemPregunta {
-	margin-left: 5px;
-	margin-right: 5px;
-}
-
-.compSideBar{
-	font-family:'Press Start 2P';
-}
-
-.verticalSeparator {
-	border-left: 1px solid black;
-	height: 25px;
-}
-
-.fire {
-	margin-left: 15px;
-}
-
-.botonera {
-	text-align: center;
-}
-
-.botonera-xs {
-	text-align: right;
-}
-
-.form-control::-webkit-input-placeholder {
+	background: #585858;
+	color: #ffffff;
 	font-family: 'Press Start 2P';
+	border-radius:0;
+	font-size: 13px;
+	width:100%;
+	height: 100%;
+}
+
+.finalPagina {
+	margin-top:5%;
+}
+
+.company {
+	margin-top:2%;
+	text-align:right;
+	font-family: 'Press Start 2P';
+	font-size: 10px;
+}
+
+.preguntaButton:hover{
 	color: black;
+	background:#585858;
 }
 
-.form-control::-moz-placeholder { /* Firefox 18- */
-	font-family: 'Press Start 2P';
-	color: black;  
-}
+/*.preguntaContainer{
+	margin-top: 3%;
+	margin-left: 75%; /*MEJOR FORMA PA HACERLO!???
+	}*/
 
-.form-control::-moz-placeholder {  /* Firefox 19+ */
-	font-family: 'Press Start 2P';
-	color: black;  
-}
-
-.tags{
-	text-align: right;
-}
-span.tag {
-	text-align: right;
-	border-radius: 10px 10px 10px 10px;
-	-moz-border-radius: 10px 10px 10px 10px;
-	-webkit-border-radius: 10px 10px 10px 10px;
-	border: 1px solid #D8D8D8;
-	background-color: #CEF6F5;
-	-webkit-box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
-	box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
-}
-
-.form-control::-ms-input-placeholder {  
-	font-family: 'Press Start 2P';
-	color: black;  
-}
-/*Mobile*/
-@media (min-width: 1px) {
-	#loginContainer {
-		display: none;
-	}
-	#loginButtonMobile{
-		display: inline;
-	}
-}
-
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: 991px) { 
-	#loginButtonMobile{
-		display: none;
-	}
-	#loginContainer {
-		display: inline;
+	.loginContainer{
+		position:absolute;
+		padding-right: 0; 
+		right:0%; 
+		bottom:0%;
 	}
 
-}
+	.pregunta {
+		background-color: #FAFAFA;
+		margin-top: 20px;
 
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-	#loginButtonMobile{
-		display: none;
 	}
-	#loginContainer {
-		display: inline;
+
+	.elemPregunta {
+		margin-left: 5px;
+		margin-right: 5px;
 	}
-}
+
+	.compSideBar{
+		font-family:'Press Start 2P';
+	}
+
+	.verticalSeparator {
+		border-left: 1px solid black;
+		height: 25px;
+	}
+
+	.fire {
+		margin-left: 15px;
+	}
+
+	.botonera {
+		text-align: center;
+	}
+
+	.botonera-xs {
+		text-align: right;
+	}
+
+	.form-control::-webkit-input-placeholder {
+		font-family: 'Press Start 2P';
+		color: black;
+	}
+
+	.form-control::-moz-placeholder { /* Firefox 18- */
+		font-family: 'Press Start 2P';
+		color: black;  
+	}
+
+	.form-control::-moz-placeholder {  /* Firefox 19+ */
+		font-family: 'Press Start 2P';
+		color: black;  
+	}
+
+	.tags{
+		text-align: right;
+		margin-bottom: 2%; 
+	}
+	span.tag {
+		text-align: right;
+		border-radius: 10px 10px 10px 10px;
+		-moz-border-radius: 10px 10px 10px 10px;
+		-webkit-border-radius: 10px 10px 10px 10px;
+		border: 1px solid #D8D8D8;
+		background-color: #CEF6F5;
+		-webkit-box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
+		box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
+	}
+
+	.form-control::-ms-input-placeholder {  
+		font-family: 'Press Start 2P';
+		color: black;  
+	}
+	/*Mobile*/
+	@media (min-width: 1px) {
+		#loginContainer {
+			display: none;
+		}
+		#loginButtonMobile{
+			display: inline;
+		}
+
+		.preguntaContainer{
+			margin-top: 3%;
+			margin-left: 70%; /*MEJOR FORMA PA HACERLO!???*/
+		}
+
+		.elemFooter {
+			margin-left: 10px;
+			margin-right: 5px;
+			font-family: 'Press Start 2P';
+			font-size:10px;
+		}
+
+		.linksFooter {
+			text-align: center;
+		}
+	}
+
+	@media (min-width: 778px) {
+		#loginContainer {
+			display: none;
+		}
+		#loginButtonMobile{
+			display: inline;
+		}
+
+		.preguntaContainer{
+			margin-top: 3%;
+			margin-left: 76.5%; /*MEJOR FORMA PA HACERLO!???*/
+		}
+
+		.elemFooter {
+			margin-left: 10px;
+			margin-right: 5px;
+			font-family: 'Press Start 2P';
+			font-size: 15px;
+		}
+
+		.linksFooter {
+			text-align: center;
+		}
+	}
+
+	/* Medium devices (desktops, 992px and up) */
+	@media (min-width: 991px) { 
+		#loginButtonMobile{
+			display: none;
+		}
+		#loginContainer {
+			display: inline;
+		}
+
+
+		.preguntaContainer{
+			margin-top: 3%;
+			margin-left: 75%; /*MEJOR FORMA PA HACERLO!???*/
+		}
+
+		.elemFooter {
+			margin-left: 10px;
+			margin-right: 5px;
+			font-family: 'Press Start 2P';
+			font-size: 15px;
+		}
+
+		.linksFooter {
+			text-align: left;
+		}
+	}
+
+	/* Large devices (large desktops, 1200px and up) */
+	@media (min-width: 1200px) {
+		#loginButtonMobile{
+			display: none;
+		}
+		#loginContainer {
+			display: inline;
+		}
+
+		.preguntaContainer{
+			margin-top: 3%;
+			margin-left: 75%; /*MEJOR FORMA PA HACERLO!???*/
+		}
+
+		.elemFooter {
+			margin-left: 5%;
+			margin-right: 5%;
+			font-family: 'Press Start 2P';
+			font-size: 15px;
+		}
+
+		.linksFooter {
+			text-align: left;
+		}
+	}
