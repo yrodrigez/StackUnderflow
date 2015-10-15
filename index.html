@@ -30,21 +30,16 @@
 
 	<div class="container">
 
-		<!-- Main jumbotron for a primary marketing message or call to action -->
-		<div id="head">
-			<div class="container">
-				<div class= "row">
-					<img class="img-responsive" src="stackunderflow_logo.png">
-					<div id="loginContainer" class="loginContainer col-md-3">
-						<button id="loginButton" type="button" class="btn btn-primary">Login</button>
-					</div> 
-				</div>
-
-			</div>
+		<div id="head" class="row">
+			<div class= "col-md-9">
+				<img class="img-responsive" src="stackunderflow_logo.png">
+			</div>	
+			<div id="loginContainer" class="loginContainer col-md-3">
+				<button id="loginButton" type="button" class="btn btn-primary">Login</button>
+			</div> 
 		</div>
 
 		<div class="container">
-			<!-- Example row of columns -->
 			<div class="row">
 				<div id="body" class="col-md-9">
 
@@ -52,7 +47,7 @@
 					<!--BOTONAZO PAL MOVIL PAPAS-->
 
 					<div class="row">
-						<div id="loginButtonMobile" class="loginContainerMobile col-lg-12">
+						<div id="loginButtonMobile" class="loginContainerMobile col-md-12">
 							<button id="loginButton" type="button" class="btn btn-primary">Login</button>
 						</div>
 					</div>
@@ -64,10 +59,10 @@
 					<nav class="navbar menuVisible">
 						<div class="container-fluid">
 							<div class="row ">
-								<div id="menuContainerMobile" class="menuContainerMobile col-lg-12">
-									<ul class="nav navbar-nav">
+								<div id="menuContainerMobile" class="col-md-12">
+									<ul class="nav navbar-nav listaMenu">
 										<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="dropdownMenu">Menu</span><span class="caret"></span></a>
-											<ul class="dropdown-menu dropdownMenu">
+											<ul class="dropdown-menu dropdownMenu listaMenu">
 												<li><a href="#">Home</a></li>
 												<li><a href="#">Sin contestar</a></li>
 												<li><a href="#">Usuarios</a></li>
@@ -80,11 +75,11 @@
 							</div>
 						</div>
 					</nav>
-					<!--FIN BMENU PAL MOVIL PAPAS-->
+					<!--FIN MENU PAL MOVIL PAPAS-->
 
 					<!--SEARCHBAR-->
 					<div class= "row">
-						<div id="searchBar" class="input-group">
+						<div id="searchBar" class="input-group col-md-12">
 							<input id="busqueda" type="text" class="form-control" placeholder="Search for...">
 							<span class="input-group-btn">
 								<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
@@ -93,8 +88,7 @@
 					</div>
 					<!--FIN SEARCHBAR-->
 					<div class="row">
-						<h2>Hot Questions</h2>
-
+						<span class="col-md-12"><h2>Hot Questions</h2></span>
 					</div>
 					<!-- PREGUNTA PLANTILLA-->
 					<hr/>

@@ -9,7 +9,7 @@
 }
 
 #loginButtonMobile{
-	background: #000000;
+	/*	background: #000000;*/
 	color: #ffffff;
 	font-family: 'Press Start 2P';
 	font-size: 25px;
@@ -43,15 +43,16 @@ a:hover{
 	font-size: 110px;
 }
 
-#searchBar, #sideBar {
-	margin-top: 25px;
-}
-
 #sideBar{
 	text-align: center;
 }
 
-.preguntaButton{
+.listaMenu{
+	width: 100%;
+	text-align: center;
+}
+
+.preguntaButton {
 	background: #585858;
 	color: #ffffff;
 	font-family: 'Press Start 2P';
@@ -61,11 +62,20 @@ a:hover{
 	height: 100%;
 }
 
+/*Necesario para pseudoestados del boton, cuando haciamos click se ponia fondo azul raro*/
+.preguntaButton:active, .preguntaButton:focus {
+	background-color: #585858 !important;
+}
+
 .dropdownMenu {
 	font-family: 'Press Start 2P';
 	text-align: center;
 }
 
+#menuContainerMobile .dropdown {
+	float:none;
+
+}
 .finalPagina {
 	margin-top:5%;
 }
@@ -82,208 +92,222 @@ a:hover{
 	background:#585858;
 }
 
-/*.preguntaContainer{
-	margin-top: 3%;
-	margin-left: 75%; /*MEJOR FORMA PA HACERLO!???
-	}*/
 
-	.loginContainer{
-		position:absolute;
-		padding-right: 0; 
-		right:0%; 
-		bottom:0%;
+
+.loginContainer{
+	position:absolute;
+	padding-right: 0; 
+	right:0%; 
+	bottom:0%;
+}
+
+.pregunta {
+	background-color: #FAFAFA;
+	margin-top: 20px;
+
+}
+
+.elemPregunta {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.compSideBar{
+	font-family:'Press Start 2P';
+}
+
+.verticalSeparator {
+	border-left: 1px solid black;
+	height: 25px;
+}
+
+.fire {
+	margin-left: 15px;
+}
+
+.botonera {
+	text-align: center;
+}
+
+.botonera-xs {
+	text-align: right;
+}
+
+.form-control::-webkit-input-placeholder {
+	font-family: 'Press Start 2P';
+	color: black;
+}
+
+.form-control::-moz-placeholder { /* Firefox 18- */
+	font-family: 'Press Start 2P';
+	color: black;  
+}
+
+.form-control::-moz-placeholder {  /* Firefox 19+ */
+	font-family: 'Press Start 2P';
+	color: black;  
+}
+
+.tags{
+	text-align: right;
+	margin-bottom: 2%; 
+}
+span.tag {
+	text-align: right;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 1px solid #D8D8D8;
+	background-color: #CEF6F5;
+	-webkit-box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
+	box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
+}
+
+.form-control::-ms-input-placeholder {  
+	font-family: 'Press Start 2P';
+	color: black;  
+}
+/*Mobile*/
+@media (min-width: 1px) {
+	#loginContainer {
+		display: none;
+	}
+	#loginButtonMobile{
+		display: inline;
 	}
 
-	.pregunta {
-		background-color: #FAFAFA;
-		margin-top: 20px;
-
+	#sideBar{
+		display:none;
 	}
 
-	.elemPregunta {
-		margin-left: 5px;
+	#searchBar, #sideBar {
+		margin-top: 10px;
+	}
+
+	.preguntaContainer{
+		margin-top: 3%;
+		margin-left: 70%; /*MEJOR FORMA PA HACERLO!???*/
+	}
+
+	.elemFooter {
+		margin-left: 10px;
 		margin-right: 5px;
+		font-family: 'Press Start 2P';
+		font-size:10px;
 	}
 
-	.compSideBar{
-		font-family:'Press Start 2P';
-	}
-
-	.verticalSeparator {
-		border-left: 1px solid black;
-		height: 25px;
-	}
-
-	.fire {
-		margin-left: 15px;
-	}
-
-	.botonera {
+	.linksFooter {
 		text-align: center;
 	}
+}
 
-	.botonera-xs {
-		text-align: right;
+@media (min-width: 768px) {
+
+	#loginContainer {
+		display: none;
+	}
+	#loginButtonMobile{
+		display: inline;
 	}
 
-	.form-control::-webkit-input-placeholder {
+	#sideBar{
+		display:none;
+	}
+
+	#searchBar, #sideBar {
+		margin-top: 10px;
+	}
+
+	.preguntaContainer{
+		margin-top: 3%;
+		margin-left: 76.5%; /*MEJOR FORMA PA HACERLO!???*/
+	}
+
+	.elemFooter {
+		margin-left: 10px;
+		margin-right: 5px;
 		font-family: 'Press Start 2P';
-		color: black;
+		font-size: 15px;
 	}
 
-	.form-control::-moz-placeholder { /* Firefox 18- */
+	.linksFooter {
+		text-align: center;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 991px) { 
+	#loginButtonMobile{
+		display: none;
+	}
+	#loginContainer {
+		display: inline;
+	}
+
+	#sideBar{
+		display:inline;
+	}
+
+	.menuVisible {
+		display:none;
+	}
+
+	#searchBar, #sideBar {
+		margin-top: 25px;
+	}
+
+	.preguntaContainer{
+		margin-top: 3%;
+		margin-left: 75%; /*MEJOR FORMA PA HACERLO!???*/
+	}
+
+	.elemFooter {
+		margin-left: 10px;
+		margin-right: 5px;
 		font-family: 'Press Start 2P';
-		color: black;  
+		font-size: 15px;
 	}
 
-	.form-control::-moz-placeholder {  /* Firefox 19+ */
+	.linksFooter {
+		text-align: left;
+	}
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+	#loginButtonMobile{
+		display: none;
+	}
+	#loginContainer {
+		display: inline;
+	}
+
+	#sideBar{
+		display:inline;
+	}
+
+	.menuVisible {
+		display:none;
+	}
+
+	#searchBar, #sideBar {
+		margin-top: 25px;
+	}
+
+	.preguntaContainer{
+		margin-top: 3%;
+		margin-left: 75%; /*MEJOR FORMA PA HACERLO!???*/
+	}
+
+	.elemFooter {
+		margin-left: 5%;
+		margin-right: 5%;
 		font-family: 'Press Start 2P';
-		color: black;  
+		font-size: 15px;
 	}
 
-	.tags{
-		text-align: right;
-		margin-bottom: 2%; 
+	.linksFooter {
+		text-align: left;
 	}
-	span.tag {
-		text-align: right;
-		border-radius: 10px 10px 10px 10px;
-		-moz-border-radius: 10px 10px 10px 10px;
-		-webkit-border-radius: 10px 10px 10px 10px;
-		border: 1px solid #D8D8D8;
-		background-color: #CEF6F5;
-		-webkit-box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
-		-moz-box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
-		box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
-	}
-
-	.form-control::-ms-input-placeholder {  
-		font-family: 'Press Start 2P';
-		color: black;  
-	}
-	/*Mobile*/
-	@media (min-width: 1px) {
-		#loginContainer {
-			display: none;
-		}
-		#loginButtonMobile{
-			display: inline;
-		}
-
-		#sideBar{
-			display:none;
-		}
-
-		.preguntaContainer{
-			margin-top: 3%;
-			margin-left: 70%; /*MEJOR FORMA PA HACERLO!???*/
-		}
-
-		.elemFooter {
-			margin-left: 10px;
-			margin-right: 5px;
-			font-family: 'Press Start 2P';
-			font-size:10px;
-		}
-
-		.linksFooter {
-			text-align: center;
-		}
-	}
-
-	@media (min-width: 778px) {
-		#loginContainer {
-			display: none;
-		}
-		#loginButtonMobile{
-			display: inline;
-		}
-
-		#sideBar{
-			display:none;
-		}
-
-		.preguntaContainer{
-			margin-top: 3%;
-			margin-left: 76.5%; /*MEJOR FORMA PA HACERLO!???*/
-		}
-
-		.elemFooter {
-			margin-left: 10px;
-			margin-right: 5px;
-			font-family: 'Press Start 2P';
-			font-size: 15px;
-		}
-
-		.linksFooter {
-			text-align: center;
-		}
-	}
-
-	/* Medium devices (desktops, 992px and up) */
-	@media (min-width: 991px) { 
-		#loginButtonMobile{
-			display: none;
-		}
-		#loginContainer {
-			display: inline;
-		}
-
-		#sideBar{
-			display:inline;
-		}
-
-		.menuVisible {
-			display:none;
-		}
-
-		.preguntaContainer{
-			margin-top: 3%;
-			margin-left: 75%; /*MEJOR FORMA PA HACERLO!???*/
-		}
-
-		.elemFooter {
-			margin-left: 10px;
-			margin-right: 5px;
-			font-family: 'Press Start 2P';
-			font-size: 15px;
-		}
-
-		.linksFooter {
-			text-align: left;
-		}
-	}
-
-	/* Large devices (large desktops, 1200px and up) */
-	@media (min-width: 1200px) {
-		#loginButtonMobile{
-			display: none;
-		}
-		#loginContainer {
-			display: inline;
-		}
-
-		#sideBar{
-			display:inline;
-		}
-
-		.menuVisible {
-			display:none;
-		}
-
-		.preguntaContainer{
-			margin-top: 3%;
-			margin-left: 75%; /*MEJOR FORMA PA HACERLO!???*/
-		}
-
-		.elemFooter {
-			margin-left: 5%;
-			margin-right: 5%;
-			font-family: 'Press Start 2P';
-			font-size: 15px;
-		}
-
-		.linksFooter {
-			text-align: left;
-		}
-	}
+}
