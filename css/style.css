@@ -23,6 +23,7 @@
 
 #head{
 	position:relative;
+	background-color: gray; 
 }
 
 #busqueda{
@@ -173,9 +174,6 @@ span.tag {
 	#loginContainer {
 		display: none;
 	}
-	#loginButtonMobile{
-		display: inline;
-	}
 
 	#sideBar{
 		display:none;
@@ -206,9 +204,6 @@ span.tag {
 
 	#loginContainer {
 		display: none;
-	}
-	#loginButtonMobile{
-		display: inline;
 	}
 
 	#sideBar{
