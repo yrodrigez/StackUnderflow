@@ -1,0 +1,58 @@
+
+
+#container {
+	
+
+}
+
+#header, #footer{
+	background-color: #E319D5
+}
+#links, #main{
+	
+}
+#main {
+	position: relative;	
+}
+#footer{
+}
+
+#logindialog{
+	height: 300px;
+	width: 100%;
+	background-color: yellow;
+	
+}
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+	#container {
+		background-image: url('background-750.png');
+	}
+	#logindialog {
+		position:absolute;
+		height: 300px;
+	width: 300px;
+	right: 0;
+	top: 0;
+	}
+ }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+	#container {
+		background-image: url('background-992.png');
+
+	}
+	
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+	#container {
+		background-image: url('background-1200.png');
+	}
+}

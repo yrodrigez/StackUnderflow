@@ -34,8 +34,19 @@
 			<div class= "col-md-9">
 				<img class="img-responsive" src="stackunderflow_logo.png">
 			</div>	
-			<div id="loginContainer" class="loginContainer col-md-3 visible-lg visible-md">
-				<button id="loginButton" type="button" class="btn btn-primary">Login</button>
+			<div id="navbar loginContainer" class="loginContainer col-md-3 visible-lg visible-md">
+				<ul class="nav pull-right">
+					<li class="dropdown" id="menuLogin">
+					<a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
+						<div class="dropdown-menu" style="padding:17px;">
+							<form class="form" id="formLogin"> 
+								<input name="username" id="username" placeholder="Username" type="text"> 
+								<input name="password" id="password" placeholder="Password" type="password"><br>
+								<button type="button" id="btnLogin" class="btn">Login</button>
+							</form>
+						</div>
+					</li>
+				</ul>
 			</div> 
 		</div>
 
@@ -88,7 +99,6 @@
 				<div class="row ">
 					<nav class="navbar menuVisible col-md-12">
 						<div class="container-fluid">
-
 							<div id="menuContainerMobile">
 								<ul class="nav navbar-nav listaMenu">
 									<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="dropdownMenu">Menu</span><span class="caret"></span></a>

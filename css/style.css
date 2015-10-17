@@ -6,6 +6,7 @@
 	border-radius:0;
 	height:100%;
 	width:100%;
+	border-color: #000000;
 }
 #containerLoginMobile{
 	padding:0px !important;
@@ -32,7 +33,7 @@
 
 #loginButton:hover, #loginButtonMobile:hover{
 	color: gray;
-	text-decoration: none;
+	text-decoration: none;f
 }
 
 #head{
@@ -183,6 +184,16 @@ span.tag {
 
 /*Mobile*/
 @media (min-width: 1px) {
+
+	.buttonStack{
+		background: #000000;
+		color: #ffffff;
+		font-family: 'Press Start 2P';
+		font-size: 10px;
+		border-radius:0;
+		width: 25%;
+	}
+
 	#loginContainer {
 		display: none;
 	}
@@ -219,6 +230,15 @@ span.tag {
 }
 
 @media (min-width: 768px) {
+	.buttonStack{
+		background: #000000;
+		color: #ffffff;
+		font-family: 'Press Start 2P';
+		font-size: 15px;
+		border-radius:0;
+		width: 25%;
+	}
+
 
 	#loginContainer {
 		display: none;
