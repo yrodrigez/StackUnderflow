@@ -13,12 +13,10 @@
 #username, #password{
 	color: #000000;
 	width: 100%;
+	font-size: 15px;
 }
 
-/*AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa*/
-.nav .open > a, .nav .open > a:focus, .nav .open > a:hover, .nav > li > a:hover, .nav > li > a:focus{
-	background-color: #000000 !important;/*isimoo*/
-}
+
 
 a.loginButton{
 	background: #000000;
@@ -97,9 +95,11 @@ a.loginButton:hover{
 	color:#000000;
 }
 
-a{
+a, a:hover, a:focus, a:active{
+	text-decoration: none;
 	color: black;
 }
+
 
 #halp:hover{
 	font-size: 110px;
@@ -205,6 +205,11 @@ a{
 	color: black;  
 }
 
+.form-control::-ms-input-placeholder {  
+	font-family: 'Press Start 2P';
+	color: black;  
+}
+
 .tags{
 	text-align: right;
 	margin-bottom: 2%; 
@@ -221,21 +226,18 @@ span.tag {
 	box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
 }
 
-.form-control::-ms-input-placeholder {  
-	font-family: 'Press Start 2P';
-	color: black;  
-}
+
 
 hr {
-  -moz-border-bottom-colors: none;
-  -moz-border-image: none;
-  -moz-border-left-colors: none;
-  -moz-border-right-colors: none;
-  -moz-border-top-colors: none;
-  border-color: #EEEEEE -moz-use-text-color #FFFFFF;
-  border-style: solid none;
-  border-width: 1px 0;
-  margin: 18px 0;
+	-moz-border-bottom-colors: none;
+	-moz-border-image: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	border-color: #EEEEEE -moz-use-text-color #FFFFFF;
+	border-style: solid none;
+	border-width: 1px 0;
+	margin: 18px 0;
 }
 
 /* CSS para query */
@@ -383,6 +385,11 @@ textarea {
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 991px) { 
+	/*AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa*/
+	.nav .open > a, .nav .open > a:focus, .nav .open > a:hover, .nav > li > a:hover, .nav > li > a:focus{
+		background-color: #000000 !important;/*isimoo*/
+		color: white;
+	}
 	#loginButtonMobile{
 		display: none;
 	}
@@ -414,6 +421,11 @@ textarea {
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+	/*AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa*/
+	.nav .open > a, .nav .open > a:focus, .nav .open > a:hover, .nav > li > a:hover, .nav > li > a:focus{
+		background-color: #000000 !important;/*isimoo*/
+		color: white;
+	}
 	#loginButtonMobile{
 		display: none;
 	}
