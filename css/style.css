@@ -7,13 +7,27 @@
 	height:100%;
 	width:100%;
 }
+#containerLoginMobile{
+	padding:0px !important;
+}
 
 #loginButtonMobile{
-	/*	background: #000000;*/
+	background: #000000;
 	color: #ffffff;
 	font-family: 'Press Start 2P';
 	font-size: 25px;
 	width:100%;
+	border-radius: 0;
+	border-color:#000000;
+}
+
+.buttonStack{
+	background: #000000;
+	color: #ffffff;
+	font-family: 'Press Start 2P';
+	font-size: 15px;
+	border-radius:0;
+	width: 25%;
 }
 
 #loginButton:hover, #loginButtonMobile:hover{
@@ -48,11 +62,6 @@ a:hover{
 	text-align: center;
 }
 
-.listaMenu{
-	width: 100%;
-	text-align: center;
-}
-
 .preguntaButton {
 	background: #585858;
 	color: #ffffff;
@@ -61,6 +70,7 @@ a:hover{
 	font-size: 13px;
 	width:100%;
 	height: 100%;
+	border-color:#585858;
 }
 
 /*Necesario para pseudoestados del boton, cuando haciamos click se ponia fondo azul raro*/
@@ -79,6 +89,7 @@ a:hover{
 }
 .finalPagina {
 	margin-top:5%;
+	background-color:gray;
 }
 
 .company {
@@ -113,7 +124,7 @@ a:hover{
 	margin-right: 5px;
 }
 
-.compSideBar{
+.compSideBar, .modalTitle{
 	font-family:'Press Start 2P';
 }
 
@@ -169,6 +180,7 @@ span.tag {
 	font-family: 'Press Start 2P';
 	color: black;  
 }
+
 /*Mobile*/
 @media (min-width: 1px) {
 	#loginContainer {
@@ -177,6 +189,12 @@ span.tag {
 
 	#sideBar{
 		display:none;
+	}
+
+	.listaMenu{
+		width: 100%;
+		text-align: center;
+		padding-left: 20px;
 	}
 
 	#searchBar, #sideBar {
@@ -210,6 +228,12 @@ span.tag {
 		display:none;
 	}
 
+	.listaMenu{
+		width: 100%;
+		text-align: center;
+		margin-top: 10px;
+	}
+
 	#searchBar, #sideBar {
 		margin-top: 10px;
 	}
@@ -235,13 +259,6 @@ span.tag {
 @media (min-width: 991px) { 
 	#loginButtonMobile{
 		display: none;
-	}
-	#loginContainer {
-		display: inline;
-	}
-
-	#sideBar{
-		display:inline;
 	}
 
 	.menuVisible {
@@ -273,13 +290,6 @@ span.tag {
 @media (min-width: 1200px) {
 	#loginButtonMobile{
 		display: none;
-	}
-	#loginContainer {
-		display: inline;
-	}
-
-	#sideBar{
-		display:inline;
 	}
 
 	.menuVisible {
