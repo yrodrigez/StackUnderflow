@@ -1,4 +1,4 @@
-#loginButton {
+#navLogin {
 	background: #000000;
 	color: #ffffff;
 	font-family: 'Press Start 2P';
@@ -8,6 +8,15 @@
 	width:100%;
 	border-color: #000000;
 }
+
+.buttonStackLoginClicked{
+	background: #000000;
+	color: #ffffff;
+	font-family: 'Press Start 2P';
+	font-size: 10px;
+	border-radius: 0;
+}
+
 #containerLoginMobile{
 	padding:0px !important;
 }
@@ -104,8 +113,6 @@ a:hover{
 	color: black;
 	background:#585858;
 }
-
-
 
 .loginContainer{
 	position:absolute;
