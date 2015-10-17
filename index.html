@@ -29,19 +29,18 @@
 <body>
 
 	<div class="container">
-
 		<div id="head" class="row">
 			<div class= "col-md-9">
 				<img class="img-responsive" src="stackunderflow_logo.png">
 			</div>	
 			<div id="navbar loginContainer" class="loginContainer col-md-3 visible-lg visible-md">
-				<ul class="nav pull-left">
+				<ul class="nav pull-left " id="loginButton">
 					<li class="dropdown" id="menuLogin">
-					<a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">&nbspLogin&nbsp</a>
+					<a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
 						<div class="dropdown-menu" style="padding:17px;">
 							<form class="form" id="formLogin"> 
-								<input name="username" id="username" placeholder="Username" type="text"> 
-								<input name="password" id="password" placeholder="Password" type="password"><br>
+								<input name="username" id="username" placeholder="Usuario" type="text"> 
+								<input name="password" id="password" placeholder="Contraseña" type="password"><br>
 								<button type="button" id="btnLogin" class="btn buttonStackLoginClicked">Login</button>
 							</form>
 						</div>
