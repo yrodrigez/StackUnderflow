@@ -16,8 +16,6 @@
 	font-size: 15px;
 }
 
-
-
 a.loginButton{
 	background: #000000;
 	color: #ffffff !important;
@@ -69,16 +67,6 @@ a.loginButton:hover{
 	border-color:#000000;
 }
 
-.buttonStack{
-	background: #000000;
-	color: #ffffff;
-	font-family: 'Press Start 2P';
-	font-size: 15px;
-	border-radius:0;
-	width: 25%;
-}
-
-
 #loginButtonMobile:hover{
 	color: gray;
 	text-decoration: none;
@@ -107,6 +95,15 @@ a, a:hover, a:focus, a:active{
 
 #sideBar{
 	text-align: center;
+}
+
+.buttonStack{
+	background: #000000;
+	color: #ffffff;
+	font-family: 'Press Start 2P';
+	font-size: 15px;
+	border-radius:0;
+	width: 25%;
 }
 
 .preguntaButton {
@@ -398,8 +395,12 @@ textarea {
 		display:none;
 	}
 
-	#searchBar, #sideBar {
+	#searchBar{
 		margin-top: 25px;
+	}
+
+	#sideBar {
+		margin-top: 45px;
 	}
 
 	.preguntaContainer{
@@ -434,8 +435,12 @@ textarea {
 		display:none;
 	}
 
-	#searchBar, #sideBar {
+	#searchBar{
 		margin-top: 25px;
+	}
+
+	#sideBar {
+		margin-top: 45px;
 	}
 
 	.preguntaContainer{
