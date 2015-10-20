@@ -1,19 +1,18 @@
 #loginButton {
 	background: #000000;
 	color: #ffffff !important;
-	font-family: 'Press Start 2P';
 	font-size: 25px;
 	border-radius:0;
 	height:100%;
 	width:100%;
 	border-color: #000000;
-
 }
 
 #username, #password{
 	color: #000000;
 	width: 100%;
 	font-size: 15px;
+	margin-bottom: 5px;
 }
 
 a.loginButton{
@@ -44,6 +43,7 @@ a.loginButton:hover{
 	font-family: 'Press Start 2P';
 	font-size: 10px;
 	border-radius: 0;
+	width:45%;
 }
 .buttonStackLoginClicked:hover{
 	background: #000000!important;
@@ -235,6 +235,11 @@ hr {
 	border-style: solid none;
 	border-width: 1px 0;
 	margin: 18px 0;
+}
+
+.divBotonesLogin {
+	text-align: right;
+	margin-top: 5px;
 }
 
 /* CSS para query */
