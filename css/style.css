@@ -166,8 +166,18 @@ a, a:hover, a:focus, a:active{
 	margin-right: 5px;
 }
 
-.compSideBar, .modalTitle{
+.compSideBar{
 	font-family:'Press Start 2P';
+}
+
+.modal-title{
+margin-top: 5px;
+font-family:'Press Start 2P';
+text-align: center;
+}
+
+.modalCloseButton{
+	margin-top: -10px;
 }
 
 .verticalSeparator {
