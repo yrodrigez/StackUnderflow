@@ -1,5 +1,15 @@
+nav#sideBar{
+	margin-left: 15px;
+}
+
+#searchBar{
+	width: 98%;
+	margin-left: 5px;
+
+}
+
 #body{
-	background-color: white;
+	background-color: white !important;
 }
 
 #loginButton {
@@ -78,7 +88,7 @@ a.loginButton:hover{
 
 #head{
 	position:relative;
-	background-color: #2F4F4F; 
+	background-color:#2F4F4F;
 }
 
 #busqueda{
@@ -110,17 +120,6 @@ a, a:hover, a:focus, a:active{
 	width: 25%;
 }
 
-.preguntaButton {
-	background: #585858;
-	color: #ffffff;
-	font-family: 'Press Start 2P';
-	border-radius:0;
-	font-size: 13px;
-	width:100%;
-	height: 100%;
-	border-color:#585858;
-}
-
 /*Necesario para pseudoestados del boton, cuando haciamos click se ponia fondo azul raro*/
 .preguntaButton:active, .preguntaButton:focus {
 	background-color: #585858 !important;
@@ -138,6 +137,9 @@ a, a:hover, a:focus, a:active{
 .finalPagina {
 	padding-top:1.5%;
 	background-color:#2F4F4F;
+	border-radius: 0px 25px 25px 50px;
+	-moz-border-radius: 0px 25px 25px 50px;
+	-webkit-border-radius: 0px 25px 25px 50px;
 }
 
 .company {
@@ -339,6 +341,7 @@ textarea {
 	.preguntaContainer{
 		margin-top: 3%;
 		margin-left: 70%; /*MEJOR FORMA PA HACERLO!???*/
+		margin-bottom: 3%;
 	}
 
 	.elemFooter {
@@ -356,6 +359,24 @@ textarea {
 	.linksFooter {
 		text-align: center;
 	}
+
+	.finalPagina {
+		padding-top:1.5%;
+		background-color:#2F4F4F;
+		border-radius: 0px 0px 25px 25px;
+		-moz-border-radius: 0px 0px 25px 25px;
+		-webkit-border-radius: 0px 0px 25px 25px;
+	}
+	.preguntaButton {
+	background: #585858;
+	color: #ffffff;
+	font-family: 'Press Start 2P';
+	border-radius:0;
+	font-size: 10px;
+	width:100%;
+	height: 100%;
+	border-color:#585858;
+}
 }
 
 @media (min-width: 768px) {
@@ -390,6 +411,7 @@ textarea {
 	.preguntaContainer{
 		margin-top: 3%;
 		margin-left: 76.5%; /*MEJOR FORMA PA HACERLO!???*/
+		margin-bottom: 3%;
 	}
 
 	.elemFooter {
@@ -402,6 +424,25 @@ textarea {
 	.linksFooter {
 		text-align: center;
 	}
+
+	.finalPagina {
+		padding-top:1.5%;
+		background-color:#2F4F4F;
+		border-radius: 0px 0px 25px 25px;
+		-moz-border-radius: 0px 0px 25px 25px;
+		-webkit-border-radius: 0px 0px 25px 25px;
+	}
+
+	.preguntaButton {
+	background: #585858;
+	color: #ffffff;
+	font-family: 'Press Start 2P';
+	border-radius:0;
+	font-size: 13px;
+	width:100%;
+	height: 100%;
+	border-color:#585858;
+}
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -423,18 +464,27 @@ textarea {
 		margin-top: 25px;
 	}
 
-	#sideBar {
+	#sideBar, .affix, .affix-bottom {
 		background-color: white;
 		padding-top: 25px;
 		border-radius: 10px 10px 10px 10px;
 		-moz-border-radius: 10px 10px 10px 10px;
 		-webkit-border-radius: 10px 10px 10px 10px;	
-		right: 10;
+		-webkit-box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
+		box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
+		width: 225px;
 	}
+
+	.affix {
+		width:225px;
+		padding:10px;	
+	}	
 
 	.preguntaContainer{
 		margin-top: 3%;
 		margin-left: 75%; /*MEJOR FORMA PA HACERLO!???*/
+		margin-bottom: 3%;
 	}
 
 	.elemFooter {
@@ -447,6 +497,25 @@ textarea {
 	.linksFooter {
 		text-align: left;
 	}
+
+	.finalPagina {
+		padding-top:1.5%;
+		background-color:#2F4F4F;
+		border-radius: 0px 25px 25px 50px;
+		-moz-border-radius: 0px 25px 25px 50px;
+		-webkit-border-radius: 0px 25px 25px 50px;
+	}
+
+	.preguntaButton {
+	background: #585858;
+	color: #ffffff;
+	font-family: 'Press Start 2P';
+	border-radius:0;
+	font-size: 13px;
+	width:100%;
+	height: 100%;
+	border-color:#585858;
+}
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -468,19 +537,26 @@ textarea {
 		margin-top: 25px;
 	}
 
-	#sideBar {
-		background-color: white ;
+	#sideBar, .affix, .affix-bottom{
+		background-color: white;
 		padding-top: 25px;
 		border-radius: 10px 10px 10px 10px;
 		-moz-border-radius: 10px 10px 10px 10px;
 		-webkit-border-radius: 10px 10px 10px 10px;
-		width: 300px;
-		right: 170px;
+		-webkit-box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
+		box-shadow: 2px 2px 22px 0px rgba(0,0,0,0.75);
+		width: 270px;
+	}
+
+	.affix {
+		width:270px;
 	}
 
 	.preguntaContainer{
 		margin-top: 3%;
 		margin-left: 75%; /*MEJOR FORMA PA HACERLO!???*/
+		margin-bottom: 3%;
 	}
 
 	.elemFooter {
@@ -493,4 +569,24 @@ textarea {
 	.linksFooter {
 		text-align: left;
 	}
+
+	.finalPagina {
+		padding-top:1.5%;
+		background-color:#2F4F4F;
+		border-radius: 0px 25px 25px 50px;
+		-moz-border-radius: 0px 25px 25px 50px;
+		-webkit-border-radius: 0px 25px 25px 50px;
+	}
+
+	.preguntaButton {
+	background: #585858;
+	color: #ffffff;
+	font-family: 'Press Start 2P';
+	border-radius:0;
+	font-size: 13px;
+	width:100%;
+	height: 100%;
+	border-color:#585858;
+}
+
 }
