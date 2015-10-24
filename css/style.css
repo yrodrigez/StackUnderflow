@@ -1,5 +1,7 @@
 nav#sideBar{
 	margin-left: 15px;
+	text-align: center;
+	padding-bottom: 20px;
 }
 
 #searchBar{
@@ -105,10 +107,6 @@ a, a:hover, a:focus, a:active{
 
 #halp:hover{
 	font-size: 110px;
-}
-
-#sideBar{
-	text-align: center;
 }
 
 .buttonStack{
