@@ -1,3 +1,35 @@
+
+.paginador{
+	text-align: center;
+}
+
+.personicon {
+	font-size: 217px;
+	color:#F58723;
+}
+
+.address {
+	font-size: 37px;
+	text-decoration: underline;
+	padding-bottom: 10px;
+}
+
+a.list-group-item {
+	height: auto;
+	min-height: 250px;
+}
+
+a.list-group-item:hover, a.list-group-item:focus {
+	border-left:10px solid #2F4F4F;
+	border-right:10px solid #2F4F4F;
+}
+
+a.list-group-item {
+	border-left:10px solid transparent;
+	border-right:10px solid transparent;
+}
+
+
 /*Reglas solo para registro*/
 #registroBody{
 	padding-top: 15px;
@@ -136,11 +168,6 @@ a.loginButton:hover{
 a, a:hover, a:focus, a:active{
 	text-decoration: none;
 	color: black;
-}
-
-
-#halp:hover{
-	font-size: 110px;
 }
 
 .buttonStack{
