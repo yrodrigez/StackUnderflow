@@ -1,3 +1,24 @@
+/*Reglas para Pregunta*/
+
+#divButtonPreguntar {
+	text-align: right;
+	margin-top: 10px;
+}
+
+/*Fin reglas para Pregunta*/
+
+/*Reglas para usuarios*/
+
+.tamanhoFoto{
+	margin-left: auto;
+	margin-right: auto;
+	width: 180px;
+	height: 180px; 
+}
+
+/*Fin reglas para usuarios*/
+
+
 
 .paginador{
 	text-align: center;
