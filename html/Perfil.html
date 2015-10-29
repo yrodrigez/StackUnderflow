@@ -23,10 +23,6 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<!-- you need to include the shieldui css and js assets in order for the charts to work -->
-	<link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/shieldui-all.min.css" />
-	<link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
-	<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 
 </head>
 
@@ -136,154 +132,60 @@
 					</div>
 				</div>
 				<!--FIN SEARCHBAR-->
-				<!-- USUARIOS -->
+				<!--INICIO REGISTRO-->
+				<div id="registroBody" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<form class="form-horizontal" action='#' method="POST">
+						<fieldset>
+							<div id="legend">
+								<h2>Regístrese Señor/a</h2>
+								<hr/>
+							</div>
+							<div class="control-group">
+								<!-- Username -->
+								<label class="control-label"  for="username">Nombre de usuario</label>
+								<div class="controls">
+									<input type="text" id="nombreUsuario" name="username" placeholder="" class="input-xlarge">
+									<p class="help-block">El nombre de usuario puede contener letras y numeros, sin espacios</p>
+								</div>
+							</div>
 
+							<div class="control-group">
+								<!-- E-mail -->
+								<label class="control-label" for="email">E-mail</label>
+								<div class="controls">
+									<input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+									<p class="help-block">Por favor introduzca su e-mail</p>
+								</div>
+							</div>
 
+							<div class="control-group">
+								<!-- Password-->
+								<label class="control-label" for="password">Contraseña</label>
+								<div class="controls">
+									<input type="password" id="contraseña" name="password" placeholder="" class="input-xlarge">
+									<p class="help-block">La contraseña debe tener al menos 4 caracteres</p>
+								</div>
+							</div>
 
-				<div class="row">
-					<div class="well">
-						<h1 class="text-center">Los Usuarios</h1>
-						<div class="list-group">
+							<div class="control-group">
+								<!-- Password -->
+								<label class="control-label"  for="password_confirm">Repetir contraseña</label>
+								<div class="controls">
+									<input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
+									<p class="help-block">Confirme su contraseña</p>
+								</div>
+							</div>
 
-							<!--USUARIO NUEVO-->
-							<a href="#" class="list-group-item">
-								<div class="media col-md-3">
-									<!-- Sobra el fa fa-user?-->
-									<i class="fa fa-user personicon"><img class="img-responsive img-circle tamanhoFoto" src="../img/users/marie curie.jpg"/></i>
+							<div class="control-group">
+								<!-- Button -->
+								<div id="divButtonRegistro"class="controls">
+									<button class="btn btn-success buttonRegistro">Registrar</button>
 								</div>
-								<div class="col-md-9">
-									<h4 class="list-group-item-heading">Marie Curie</h4>
-									<p class="list-group-item-text">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec sem molestie, tempor libero eu, placerat purus. 
-										Donec eget iaculis elit. Nam eget consectetur quam. Nam viverra ornare diam. In a ornare diam. 
-										Quisque vestibulum nulla nec facilisis malesuada.
-									</p>
-								</div>
-							</a>
-							<!--FIN USUARIO NUEVO-->
-
-							<!--USUARIO NUEVO-->
-							<a href="#" class="list-group-item">
-								<div class="media col-md-3">
-									<i class="fa fa-user personicon"><img class="img-responsive img-circle tamanhoFoto" src="../img/users/Ratael.jpg"/></i>
-								</div>
-								<div class="col-md-9">
-									<h4 class="list-group-item-heading">La rata</h4>
-									<p class="list-group-item-text">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec sem molestie, tempor libero eu, placerat purus. 
-										Donec eget iaculis elit. Nam eget consectetur quam. Nam viverra ornare diam. In a ornare diam. 
-										Quisque vestibulum nulla nec facilisis malesuada.
-									</p>
-								</div>
-							</a>
-							<!--FIN USUARIO NUEVO-->
-
-							<!--USUARIO NUEVO-->
-							<a href="#" class="list-group-item">
-								<div class="media col-md-3">
-									<i class="fa fa-user personicon"><img class="img-responsive img-circle tamanhoFoto" src="../img/users/sabas.jpeg"/></i>
-								</div>
-								<div class="col-md-9">
-									<h4 class="list-group-item-heading">Pauli</h4>
-									<p class="list-group-item-text">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec sem molestie, tempor libero eu, placerat purus. 
-										Donec eget iaculis elit. Nam eget consectetur quam. Nam viverra ornare diam. In a ornare diam. 
-										Quisque vestibulum nulla nec facilisis malesuada.
-									</p>
-								</div>
-							</a>
-							<!--FIN USUARIO NUEVO-->
-							<!--USUARIO NUEVO-->
-							<a href="#" class="list-group-item">
-								<div class="media col-md-3">
-									<i class="fa fa-user personicon"><img class="img-responsive img-circle tamanhoFoto" src="../img/users/el papa.jpg"/></i>
-								</div>
-								<div class="col-md-9">
-									<h4 class="list-group-item-heading">Schrödinger</h4>
-									<p class="list-group-item-text">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec sem molestie, tempor libero eu, placerat purus. 
-										Donec eget iaculis elit. Nam eget consectetur quam. Nam viverra ornare diam. In a ornare diam. 
-										Quisque vestibulum nulla nec facilisis malesuada.
-									</p>
-								</div>
-							</a>
-							<!--FIN USUARIO NUEVO-->
-							<!--USUARIO NUEVO-->
-							<a href="#" class="list-group-item">
-								<div class="media col-md-3">
-									<i class="fa fa-user personicon"><img class="img-responsive img-circle tamanhoFoto" src="../img/users/BORT.jpg"/></i>
-								</div>
-								<div class="col-md-9">
-									<h4 class="list-group-item-heading">BORT</h4>
-									<p class="list-group-item-text">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec sem molestie, tempor libero eu, placerat purus. 
-										Donec eget iaculis elit. Nam eget consectetur quam. Nam viverra ornare diam. In a ornare diam. 
-										Quisque vestibulum nulla nec facilisis malesuada.
-									</p>
-								</div>
-							</a>
-							<!--FIN USUARIO NUEVO-->
-							<!--USUARIO NUEVO-->
-							<a href="#" class="list-group-item">
-								<div class="media col-md-3">
-									<i class="fa fa-user personicon"><img class="img-responsive img-circle tamanhoFoto" src="../img/users/MC.jpg"/></i>
-								</div>
-								<div class="col-md-9">
-									<h4 class="list-group-item-heading">MC-Hammer</h4>
-									<p class="list-group-item-text">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec sem molestie, tempor libero eu, placerat purus. 
-										Donec eget iaculis elit. Nam eget consectetur quam. Nam viverra ornare diam. In a ornare diam. 
-										Quisque vestibulum nulla nec facilisis malesuada.
-									</p>
-								</div>
-							</a>
-							<!--FIN USUARIO NUEVO-->
-							<!--USUARIO NUEVO-->
-							<a href="#" class="list-group-item">
-								<div class="media col-md-3">
-									<i class="fa fa-user personicon"><img class="img-responsive img-circle tamanhoFoto" src="../img/users/EL.jpg"/></i>
-								</div>
-								<div class="col-md-9">
-									<h4 class="list-group-item-heading">Einstein</h4>
-									<p class="list-group-item-text">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec sem molestie, tempor libero eu, placerat purus. 
-										Donec eget iaculis elit. Nam eget consectetur quam. Nam viverra ornare diam. In a ornare diam. 
-										Quisque vestibulum nulla nec facilisis malesuada.
-									</p>
-								</div>
-							</a>
-							<!--FIN USUARIO NUEVO-->
-						</div>
-					</div>
+							</div>
+						</fieldset>
+					</form>
 				</div>
-
-
-
-
-				<!-- FIN USUARIOS -->
-				<div class="row">
-					<div class="col-md-12 paginador">
-						<nav>
-							<ul class="pagination">
-								<li>
-									<a href="#" aria-label="Previous">
-										<span aria-hidden="true">&laquo;</span>
-									</a>
-								</li>
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li>
-									<a href="#" aria-label="Next">
-										<span aria-hidden="true">&raquo;</span>
-									</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
-				</div>
+				<!--FIN REGISTRO-->
 			</div>
 			<!-- Inicio sidebar -->
 			<nav class="col-md-2 col-lg-2  visible-lg visible-md" id="sideBar">
@@ -331,5 +233,5 @@
     <script src="../../dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-</body>
-</html>
+  </body>
+  </html>

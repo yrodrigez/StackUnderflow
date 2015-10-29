@@ -1,3 +1,17 @@
+/*Reglas para contacto*/
+.divContacto{
+	color: #36A0FF;
+	font-size: 27px;
+	padding: 10px;
+}
+
+.bigicon {
+	font-size: 35px;
+	color: #2F4F4F;
+}
+
+/*Fin reglas contacto*/
+
 /*Reglas para Pregunta*/
 
 #divButtonPreguntar {
@@ -360,8 +374,15 @@ hr {
 
 }
 
-.respuesta{
-	padding-left: 12.5%;
+.whiteBackground{
+	background-color: white;
+	-webkit-box-shadow: 1px 1px 22px 1px rgba(0,0,0,0.75);
+	-moz-box-shadow: 1px 1px 22px 1px rgba(0,0,0,0.75);
+	box-shadow: 1px 1px 22px 1px rgba(0,0,0,0.75);
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .usuarioRespuesta{
@@ -382,7 +403,13 @@ textarea {
 .tituloRespuesta {
 	font-size: 25px;
 	margin-top: 20px;
-	margin-bottom: -10px;
+	margin-bottom: 10px;
+}
+
+.sizePhotoAnswer {
+
+	width: 100px;
+	height: 100px; 
 }
 
 /* Fin Css para query */
