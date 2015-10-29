@@ -256,7 +256,6 @@ a, a:hover, a:focus, a:active{
 }
 
 .pregunta {
-	background-color: #FAFAFA;
 	margin-top: 20px;
 
 }
@@ -350,6 +349,18 @@ hr {
 .divBotonesLogin {
 	text-align: right;
 	margin-top: 5px;
+}
+
+.whiteBackgroundIndex{
+	background-color: white;
+	-webkit-box-shadow: 1px 1px 22px 1px rgba(0,0,0,0.75);
+	-moz-box-shadow: 1px 1px 22px 1px rgba(0,0,0,0.75);
+	box-shadow: 1px 1px 22px 1px rgba(0,0,0,0.75);
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-top: 10px;
 }
 
 /* CSS para query */
