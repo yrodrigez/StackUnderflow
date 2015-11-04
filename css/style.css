@@ -1,7 +1,13 @@
 /*Reglas para contacto*/
-.divContacto{
-	color: #36A0FF;
+.tituloContacto{
+	color: #2F4F4F;
 	font-size: 27px;
+	padding-top: 10px;
+}
+
+.tituloPaginaContacto{
+	color: #2F4F4F;
+	font-size: 25px;
 	padding: 10px;
 }
 
@@ -71,7 +77,7 @@ a.list-group-item {
 	padding-bottom: 20px;
 }
 
-.buttonRegistro{
+.buttonRegistro, .buttonEnviar{
 	background: #585858;
 	color: #ffffff;
 	font-family: 'Press Start 2P';
@@ -160,7 +166,7 @@ a.loginButton:hover{
 	font-family: 'Press Start 2P';
 	font-size: 10px;
 	border-radius: 0;
-	width:45%;
+	width:46%;
 }
 .buttonStackLoginClicked:hover{
 	background: #000000!important;
