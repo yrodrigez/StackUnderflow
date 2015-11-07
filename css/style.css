@@ -1,14 +1,15 @@
+/*Reglas para Perfil*/
+	
+
+
+/*Fin reglas para Perfil*/
+
 /*Reglas para contacto*/
-.tituloContacto{
+.tituloContacto, .tituloPaginaContacto, .tituloPosts{
 	color: #2F4F4F;
 	font-size: 27px;
 	padding-top: 10px;
-}
-
-.tituloPaginaContacto{
-	color: #2F4F4F;
-	font-size: 25px;
-	padding: 10px;
+	padding-left: 15px;
 }
 
 .bigicon {
