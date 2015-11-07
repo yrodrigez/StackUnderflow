@@ -24,8 +24,3 @@
     display: block;
 }
 
-.btn, .btn-primary, .btn-file, .btn:hover, .btn-primary:hover , .btn-file:hover, .btn:active, .btn-primary:active , .btn-file:active{
-	margin-top: 5px;
-	background: gray !important;
-	border-color: gray !important;
-}
