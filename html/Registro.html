@@ -11,15 +11,17 @@
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="../css/css/bootstrap.min.css">
 
+
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="../css/css/bootstrap-theme.min.css">
 
 	<link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" href="../css/style.css">
-
+	<link rel="stylesheet" href="../css/registroStyle.css">
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="../css/js/bootstrap.min.js"></script>
+	<script src="../css/js/registro.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -176,54 +178,74 @@
 								</div>
 							</div>
 
-							<div class="control-group">
-								<!-- Button -->
-								<div id="divButtonRegistro"class="controls">
-									<button class="btn btn-success buttonRegistro">Registrar</button>
-								</div>
-							</div>
-						</fieldset>
-					</form>
-				</div>
-				<!--FIN REGISTRO-->
-			</div>
-			<!-- Inicio sidebar -->
-			<nav class="col-md-2 col-lg-2  visible-lg visible-md" id="sideBar">
-				<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
-					<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Home</a></span></li>
-					<hr/>
-					<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Sin Contestar</a></span></li>
-					<hr/>
-					<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Usuarios</a></span></li>
-					<hr/>
-					<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Categorias</a></span></li>
-					<hr/>
-					<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Ayuda</a></span></li>	
-				</ul>
-			</nav>
-			<!--final sidebar-->
-		</div>
-		<!-- FOOTER -->
 
-		<div class="row finalPagina">
-			<div class="linksFooter col-md-12">
-				<span class="elemFooter"><a href='#'>Empleos</a></span>
-				<span class="verticalSeparator"></span>
-				<span class="elemFooter"><a href='#'>Informacion</a></span>
-				<span class="verticalSeparator"></span>
-				<span class="elemFooter"><a href='#'>Privacidad</a></span>
-				<span class="verticalSeparator"></span>
-				<span class="elemFooter"><a href='#'>Terminos</a></span>
+							<div class="file-input">
+								<div class="file-preview ">
+									<div class="file-drop-disabled">
+										<div class="file-preview-thumbnails">
+											<div class="file-default-preview">
+												<img src="../img/default_avatar_male.jpg" alt="Your Avatar" style="width:160px">
+											</div>
+										</div>
+										<div class="clearfix"></div>    
+										<div class="file-preview-status text-center text-success"></div>
+										<div class="kv-fileinput-error"></div>
+									</div>
+								</div> 
+								<button type="button" tabindex="500" title="Cancel or reset changes" class="btn btn-default fileinput-remove fileinput-remove-button"><span class="glyphicon glyphicon-remove"></span></button> 
+								
+								<div tabindex="500" class="btn btn-primary btn-file"><span class="glyphicon glyphicon-folder-open"><input id="avatar" name="avatar" type="file" class=""/></span></div>
+							</div>
+
+
+
+						<div class="control-group">
+							<div id="divButtonRegistro"class="controls">
+								<button class="btn btn-success buttonRegistro">Registrarse</button>
+							</div>
+						</div>
+					</fieldset>
+				</form>
 			</div>
-			<div class="company col-md-12">
-				<footer>
-					<span style="color:white">&copy; Schrödinger Inc, 2015</span>
-				</footer>
-			</div>
+			<!--FIN REGISTRO-->
 		</div>
-		<!-- FIN FOOTER -->
+		<!-- Inicio sidebar -->
+		<nav class="col-md-2 col-lg-2  visible-lg visible-md" id="sideBar">
+			<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
+				<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Home</a></span></li>
+				<hr/>
+				<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Sin Contestar</a></span></li>
+				<hr/>
+				<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Usuarios</a></span></li>
+				<hr/>
+				<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Categorias</a></span></li>
+				<hr/>
+				<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Ayuda</a></span></li>	
+			</ul>
+		</nav>
+		<!--final sidebar-->
 	</div>
-	<!-- /container -->
+	<!-- FOOTER -->
+
+	<div class="row finalPagina">
+		<div class="linksFooter col-md-12">
+			<span class="elemFooter"><a href='#'>Empleos</a></span>
+			<span class="verticalSeparator"></span>
+			<span class="elemFooter"><a href='#'>Informacion</a></span>
+			<span class="verticalSeparator"></span>
+			<span class="elemFooter"><a href='#'>Privacidad</a></span>
+			<span class="verticalSeparator"></span>
+			<span class="elemFooter"><a href='#'>Terminos</a></span>
+		</div>
+		<div class="company col-md-12">
+			<footer>
+				<span style="color:white">&copy; Schrödinger Inc, 2015</span>
+			</footer>
+		</div>
+	</div>
+	<!-- FIN FOOTER -->
+</div>
+<!-- /container -->
 
 
     <!-- Bootstrap core JavaScript
@@ -233,5 +255,5 @@
     <script src="../../dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
-  </html>
+</body>
+</html>

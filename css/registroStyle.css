@@ -1,0 +1,31 @@
+
+.kv-avatar .file-preview-frame,.kv-avatar .file-preview-frame:hover {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+}
+.kv-avatar .file-input {
+    display: table-cell;
+    max-width: 220px;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    text-align: right;
+    opacity: 0;
+    background: 0 0;
+    cursor: inherit;
+    display: block;
+}
+
+.btn, .btn-primary, .btn-file, .btn:hover, .btn-primary:hover , .btn-file:hover, .btn:active, .btn-primary:active , .btn-file:active{
+	margin-top: 5px;
+	background: gray !important;
+	border-color: gray !important;
+}
