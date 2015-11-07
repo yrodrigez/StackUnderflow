@@ -4,7 +4,9 @@
 	padding-left: 12px;
 }
 
-
+.fotoProfile {
+	margin-bottom: 15px; 
+}
 /*Fin reglas para Perfil*/
 
 /*Reglas para contacto*/
@@ -81,6 +83,30 @@ a.list-group-item {
 	padding-bottom: 20px;
 }
 
+.buttonEditar{
+	background: #585858;
+	color: #ffffff;
+	font-family: 'Press Start 2P';
+	font-size: 10px;
+	border-radius:0;
+	width: 20%;
+	border-color: #585858;
+	white-space:normal !important;
+	word-wrap:break-word; 
+}
+
+.buttonEditar:hover, .buttonEditar:active, .buttonEditar:focus{
+	background: #585858 !important;
+	color: #ffffff;
+	font-family: 'Press Start 2P';
+	font-size: 10px;
+	border-radius:0;
+	width: 20%;
+	border-color: #585858;
+	white-space:normal !important;
+	word-wrap:break-word; 
+}
+
 .buttonRegistro, .buttonEnviar{
 	background: #585858;
 	color: #ffffff;
@@ -93,7 +119,7 @@ a.list-group-item {
 	word-wrap:break-word; 
 }
 
-.buttonRegistro:hover, .buttonRegistro:active, .buttonRegistro:focus{
+.buttonRegistro:hover, .buttonRegistro:active, .buttonRegistro:focus, .buttonEnviar:hover, .buttonEnviar:active, .buttonEnviar:focus{
 	background: #000000 !important;
 	color: #ffffff;
 	font-family: 'Press Start 2P';
@@ -371,6 +397,7 @@ hr {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	padding-top: 10px;
+	border-radius: 5px;
 }
 
 /* CSS para query */
@@ -404,6 +431,18 @@ hr {
 	padding-right: 5px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	border-radius: 5px;
+}
+
+.whiteBackgroundPost{
+	background-color: white;
+	-webkit-box-shadow: 1px 1px 22px 1px rgba(0,0,0,0.75);
+	-moz-box-shadow: 1px 1px 22px 1px rgba(0,0,0,0.75);
+	box-shadow: 1px 1px 22px 1px rgba(0,0,0,0.75);
+	padding-left: 5px;
+	padding-right: 5px;
+	margin: 20px;
+	border-radius: 5px;
 }
 
 .usuarioRespuesta{
