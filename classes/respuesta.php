@@ -1,39 +1,25 @@
 <?php
-class Post 
+class Respuesta 
 {
-
-	private $titulo;
-	private $contestada;
+	/*Es necesario cambiar el idRespuesta???*/
+	private $idRespuesta
 	private $cuerpo;
-	private $numVisitas;
 	private $fechaCreacion;
 
-	public function __construct(
-		$titulo= NULL,
-		$contestada=NULL,
-		$cuerpo= NULL,
-		$numVisitas= NULL,
+	public function __construct( 
+		$idRespuesta=NULL,
+		$cuerpo=NULL,
 		$fechaCreacion= NULL
-		) {
-		$this->titulo = $titulo;
-		$this->contestada = $contestada; 
+	) {
 		$this->cuerpo= $cuerpo;
-		$this->numVisitas= $numVisitas;   
+		$this->idRespuesta= $idRespuesta;   
 		$this->fechaCreacion= $fechaCreacion;
 	}
+	public function getIdRespuesta()
+	{
+		return $this->idRespuesta;
+	}
 
-	public function getTitulo()
-	{
-		return $this->titulo;
-	}
-	public function getContestada()
-	{
-		return $this->contestada;
-	}
-	public function getNumVisitas()
-	{
-		return $this->numVisitas;
-	}
 	public function getCuerpo()
 	{
 		return $this->cuerpo;
@@ -42,27 +28,13 @@ class Post
 	{
 		return $this->fechaCreacion;
 	}
-	public function setTitulo(
-		$titulo= NULL
-		) {
-		$this->titulo= $titulo;
-	}
-	public function setContestada(
-		$contestada= NULL
-		) {
-		$this->contestada= $contestada;
-	}
-
+	
 	public function setCuerpo(
 		$cuerpo= NULL
 		) {
 		$this->cuerpo= $cuerpo;
 	}
-	public function setNumVisitas(
-		$numVisitas= NULL
-		) {
-		$this->numVisitas= $numVisitas;
-	}
+	
 	public function setFechaCreacion(
 		$fechaCreacion= NULL
 		) {
