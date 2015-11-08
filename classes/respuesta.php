@@ -2,7 +2,7 @@
 class Respuesta 
 {
 	/*Es necesario cambiar el idRespuesta???*/
-	private $idRespuesta
+	private $idRespuesta;
 	private $cuerpo;
 	private $fechaCreacion;
 

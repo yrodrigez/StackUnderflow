@@ -13,13 +13,13 @@ class Usuario
   	$username=NULL, 
   	$passwd=NULL, 
   	$tipoUsuario=NULL,
-  	$email= NULL
+  	$email= NULL,
   	$descripcion= NULL,
   	$fotoPath= NULL
   	) {
     $this->username = $username;
     $this->passwd = $passwd; 
-    $this->tipoUsuario= $tipoUsuario
+    $this->tipoUsuario= $tipoUsuario;
     $this->email= $email;
     $this->descripcion= $descripcion;
     $this->fotoPath= $fotoPath;
@@ -30,7 +30,7 @@ class Usuario
     return $this->username;
   }
   
-  public function getPasswd() 
+  public function getPassword()
   {
     return $this->passwd;
   }  
@@ -61,12 +61,6 @@ class Usuario
     $this->username = $username;
   }
 
-  public function setUsername(
-  	$username
-  ) {
-    $this->username = $username;
-  }
-
   public function setPassword(
   	$passwd
   ) {
@@ -89,6 +83,12 @@ class Usuario
   	$fotoPath
   ) {
   	$this->fotoPath= $fotoPath;
+  }
+
+  public function setTipo(
+      $tipoUsuario
+  ){
+    $this->tipoUsuario = $tipoUsuario;
   }
 
   /*
