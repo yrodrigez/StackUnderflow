@@ -53,7 +53,7 @@
 						<div class="dropdown-menu" style="padding:17px;">
 							<?php if(isset($_SESSION["username"])){
 								?>
-									<?php echo "<h2 style='color: #0f0f0f'>".$_SESSION["username"]."<br/>"; echo $_SESSION["tipoUsuario"]."<br/></h2>"; ?>
+									<?php echo "<h2 style='color: #0f0f0f'>Username: ".$_SESSION["username"]."<br/>codigo de Usuario: "; echo $_SESSION["tipoUsuario"]."<br/></h2>"; ?>
 									<button type="button" id="registro" class="btn buttonStackLoginClicked" onClick ="window.location.href ='controller/logout.php' ">Logout</button>
 
 								<?php
