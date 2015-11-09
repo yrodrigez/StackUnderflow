@@ -23,6 +23,9 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<?php
+		require_once("classes/usuario.php");
+	?>
 
 </head>
 
@@ -51,24 +54,29 @@
 							 ?>
 						</a>
 						<div class="dropdown-menu" style="padding:17px;">
-							<?php if(isset($_SESSION["username"])){
+							<?php if(isset($_SESSION["userInstance"])){
 								?>
-									<?php echo "<h2 style='color: #0f0f0f'>Username: ".$_SESSION["username"]."<br/>codigo de Usuario: "; echo $_SESSION["tipoUsuario"]."<br/></h2>"; ?>
-									<button type="button" id="registro" class="btn buttonStackLoginClicked" onClick ="window.location.href ='controller/logout.php' ">Logout</button>
-
+									<div class="containerLoged">
+										<span class="containerLogedItem"><?php echo $_SESSION["userInstance"]->getEmail();?></span>
+										<br><hr>
+										<a href="html/Perfil.html" <span class="containerLogedItem">Cuenta</span></a>
+										<br><hr>
+										<button type="button" id="registro" class="btn buttonStackLoginClicked" onClick ="window.location.href ='controller/logout.php' ">Logout</button>
+									</div>
 								<?php
 								}
 							else{
-							?><form class="form" id="formLogin" action="controller/login.php">
-								<input name="username" id="username" placeholder="Usuario" type="text"> 
-								<input name="password" id="password" placeholder="Contraseña" type="password">
-								<br>
-								<div class="divBotonesLogin">
-									<button type="button" id="registro" class="btn buttonStackLoginClicked">Registro</button>
-									<button type="submit" id="btnLogin" class="btn buttonStackLoginClicked">Entrar</button>
-								</div>
-							</form><?php
-							}?>
+							?>
+								<form class="form" id="formLogin" action="controller/login.php">
+									<input name="username" id="username" placeholder="Usuario" type="text">
+									<input name="password" id="password" placeholder="Contraseña" type="password">
+									<br>
+									<div class="divBotonesLogin">
+										<button type="button" id="registro" class="btn buttonStackLoginClicked">Registro</button>
+										<button type="submit" id="btnLogin" class="btn buttonStackLoginClicked">Entrar</button>
+									</div>
+								</form>
+							<?php } ?>
 						</div>
 					</li>
 				</ul>

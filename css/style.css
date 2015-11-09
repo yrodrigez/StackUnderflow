@@ -1,3 +1,16 @@
+.containerLoged{
+	padding: 20%;
+}
+
+.containerLogedItem{
+	color: #000000;
+	font-size: 15px;
+}
+.containerLogedItem:hover{
+	color: #ffffff;
+	background-color: #3c3c3c;
+	font-size: 15px;
+}
 /*Reglas para Perfil*/
 .cuerpoPost{
 	font-size: 20px;
