@@ -1,5 +1,5 @@
 .containerLoged{
-	padding: 20%;
+	text-wrap: normal;
 }
 
 .containerLogedItem{
@@ -240,7 +240,9 @@ a.loginButton:hover{
 
 #head{
 	position:relative;
-	background-color:#2F4F4F;
+	background-image: url(../img/headBackground.png);
+	background-repeat: repeat;
+	background-color:#157a6c;
 }
 
 #busqueda{
