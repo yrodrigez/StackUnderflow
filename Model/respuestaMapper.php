@@ -33,7 +33,13 @@ class RespuestaMapper {
         $respuesta
     ) {
         $stmt = $this->db->prepare(
-            "INSERT INTO RESPUESTA(IDPOST, IDUSUARIO, CUERPO, FECHA_CREACION) VALUES(?,?,?,?)"
+            "INSERT INTO RESPUESTA(
+                              IDPOST,
+                              IDUSUARIO,
+                              CUERPO,
+                              FECHA_CREACION
+                              ) VALUES
+                              (?,?,?,?)"
         );
         $stmt->execute(array(
             $respuesta->getIdPost(),
