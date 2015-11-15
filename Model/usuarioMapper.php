@@ -40,7 +40,7 @@ class usuarioMapper {
      $user->getEmail(), 
      $user->getFotoPath(), 
      $user->getDescripcion(),  
-     $pincho->getTipoUsuario()));
+     $user->getTipoUsuario()));
 }
 
   /**
@@ -68,7 +68,7 @@ class usuarioMapper {
                 $user["DESCRIPCION"],
                 $user["FOTO"]
             );
-          }
+      }
     } else {
         return NULL;
     }
@@ -81,12 +81,26 @@ class usuarioMapper {
    * @return Array of Users An array with all the users inside it, else Null
    */
   public function getAllUsers() {
+    $users = array();
     $stmt = $this->db->prepare("SELECT * FROM USUARIO");
     $stmt->execute();
     if($stmt->rowCount()>0) {
-      return $stmt;
+      foreach (
+        $stmt as $user
+      ) {
+        array_push($users, new Usuario(
+                $user["IDUSUARIO"],
+                $user["USERNAME"],
+                $user["PASSWORD"],
+                $user["TIPO"],
+                $user["EMAIL"],
+                $user["DESCRIPCION"],
+                $user["FOTO"]
+            )); 
+      }
+      return $users;
     } else {
-      return NULL;
+        return NULL;
     }
   }
 

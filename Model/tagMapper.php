@@ -18,8 +18,8 @@ class tagMapper {
   private $db;
   
   public function __construct() {
-    $this->db = PDOConnection::getInstance();
-}
+  	$this->db = PDOConnection::getInstance();
+  }
 
   /**
    * Creates a Tag into the database
@@ -29,13 +29,13 @@ class tagMapper {
    * @return true if the tag was successfully saved
    */      
   public function createTag(
-    $tag
-    ) {
-    $stmt = $this->db->prepare(
-      "INSERT INTO TAG (TAG) 
-      VALUES (?);"
-    );
-    return $stmt->execute(array($tag->getTag()));
+  	$tag
+  	) {
+  	$stmt = $this->db->prepare(
+  		"INSERT INTO TAG (TAG) 
+  		VALUES (?);"
+  		);
+  	return $stmt->execute(array($tag->getTag()));
   }
 
   /**
@@ -46,22 +46,22 @@ class tagMapper {
    * @return Tag The tag with the specified name, NULL if its not found
    */
   public function getTag(
-        $tagName
-  ) {
-    $stmt = $this->db->prepare("SELECT * FROM TAG WHERE TAG LIKE ?");
-    $stmt->execute(array($tagName));
-    if($stmt->rowCount()>0) {
-      foreach (
-        $stmt as $tag
-        ) {
-            return new Tag(
-                $user["TAG"]
-            );
-      }
-    } else {
-        return NULL;
-    }
+  	$tagName
+  	) {
+  	$stmt = $this->db->prepare("SELECT * FROM TAG WHERE TAG LIKE ?");
+  	$stmt->execute(array($tagName));
+  	if($stmt->rowCount()>0) {
+  		foreach (
+  			$stmt as $tag
+  			) {
+  			return new Tag(
+  				$tag["TAG"]
+  				);
+  	}
+  } else {
+  	return NULL;
   }
+}
 
 
   /**
@@ -71,14 +71,22 @@ class tagMapper {
    * @return Array of Tags An array with all the users inside it, else Null
    */
   public function getAllTags() {
-    $stmt = $this->db->prepare("SELECT * FROM TAG");
-    $stmt->execute();
-    if($stmt->rowCount()>0) {
-      return $stmt;
-    } else {
-      return NULL;
-    }
+  	$tags = array();
+  	$stmt = $this->db->prepare("SELECT * FROM TAG");
+  	$stmt->execute();
+  	if($stmt->rowCount()>0) {
+  		foreach (
+  			$stmt as $tag
+  			) {
+  			array_push($tags, new Tag(
+  				$tag["TAG"]
+  				)); 
+  	}
+  	return $tags;
+  } else {
+  	return NULL;
   }
+}
 
   /**
    * Deletes a Tag
@@ -88,10 +96,10 @@ class tagMapper {
    * @return True if the user was successfully deleted
    */
   public function borrarTag(
-    $tagName
-    ) {
-    $stmt = $this->db->prepare("DELETE FROM TAG WHERE TAG= ?;");
-    return $stmt->execute(array($tagName));
+  	$tagName
+  	) {
+  	$stmt = $this->db->prepare("DELETE FROM TAG WHERE TAG= ?;");
+  	return $stmt->execute(array($tagName));
   }
 }
 ?>
