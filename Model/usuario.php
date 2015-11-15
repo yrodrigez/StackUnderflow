@@ -1,7 +1,7 @@
 <?php
 class Usuario 
 {
-
+  private $id;
   private $username;
   private $passwd;
   private $tipoUsuario;
@@ -10,6 +10,7 @@ class Usuario
  	private $fotoPath;
 
   public function __construct(
+    $id=NULL,
   	$username=NULL, 
   	$passwd=NULL, 
   	$tipoUsuario=NULL,
@@ -17,6 +18,7 @@ class Usuario
   	$descripcion= NULL,
   	$fotoPath= NULL
   	) {
+    $this->id = $id;
     $this->username = $username;
     $this->passwd = $passwd; 
     $this->tipoUsuario= $tipoUsuario;
@@ -25,6 +27,11 @@ class Usuario
     $this->fotoPath= $fotoPath;
   }
   
+  public function getId() 
+  {
+    return $this->id;
+  }
+
   public function getUsername() 
   {
     return $this->username;
@@ -53,6 +60,12 @@ class Usuario
   public function getFotoPath()
   {
   	return $this->fotoPath;
+  }
+
+  public function setId(
+    $id
+  ) {
+    $this->id = $id;
   }
 
   public function setUsername(
