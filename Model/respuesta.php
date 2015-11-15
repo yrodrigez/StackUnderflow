@@ -1,17 +1,20 @@
 <?php
 class Respuesta 
 {
-	private $idRespuesta;
+	private $idPost;
+	private $idUsuario;
 	private $cuerpo;
 	private $fechaCreacion;
 
 	public function __construct( 
-		$idRespuesta=NULL,
+		$idPost=NULL,
 		$cuerpo=NULL,
-		$fechaCreacion= NULL
+		$fechaCreacion= NULL,
+		$idUsuario= NULL
 	) {
 		$this->cuerpo= $cuerpo;
-		$this->idRespuesta= $idRespuesta;   
+		$this->idPost= $idPost;
+		$this->idUsuario= $idUsuario;
 		$this->fechaCreacion= $fechaCreacion;
 	}
 	public function getIdRespuesta()

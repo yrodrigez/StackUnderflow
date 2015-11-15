@@ -7,19 +7,31 @@ class Post
 	private $cuerpo;
 	private $numVisitas;
 	private $fechaCreacion;
+	private $idUsuario;
 
 	public function __construct(
 		$titulo= NULL,
 		$contestada=NULL,
 		$cuerpo= NULL,
 		$numVisitas= NULL,
-		$fechaCreacion= NULL
+		$fechaCreacion= NULL,
+		$idUsuario=NULL
 		) {
 		$this->titulo = $titulo;
 		$this->contestada = $contestada; 
 		$this->cuerpo= $cuerpo;
 		$this->numVisitas= $numVisitas;   
 		$this->fechaCreacion= $fechaCreacion;
+		$this->idUsuario= $idUsuario;
+	}
+
+	public function getIdUsuario(){
+		return $this->idUsuario;
+	}
+
+	public function setIdUsuario($idUsuario)
+	{
+		$this->idUsuario = $idUsuario;
 	}
 
 	public function getTitulo()
