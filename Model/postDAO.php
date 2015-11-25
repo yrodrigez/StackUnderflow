@@ -59,19 +59,22 @@ class postMapper {
         $stmt = $this->db->prepare(
           "SELECT * FROM  posts ORDER BY numvisitas"
         );
-        if( $stmt->rowCount() > $size ){
-            $ret= array();
-            for($i = 0; $i<$size; $i++){
-                array_push($ret, $this->fill($stmt["id"]));
+        if($stmt->execute()) {
+            if ($stmt->rowCount() > $size) {
+                $ret = array();
+                for ($i = 0; $i < $size; $i++) {
+                    array_push($ret, $this->fill($stmt["id"]));
+                }
+                return $ret;
+            } else {
+                $ret = array();
+                for ($i = 0; $i < $stmt->rowCount(); $i++) {
+                    $ret[$i] = $stmt[$i];
+                }
+                return $ret;
             }
-            return $ret;
-        }else{
-            $ret= array();
-            for($i = 0; $i < $stmt->rowCount(); $i++){
-                $ret[$i]= $stmt[$i];
-            }
-            return $ret;
         }
+        return false;
     }
 
     /**
@@ -87,7 +90,6 @@ class postMapper {
                             user_id,
                             cuerpo,
                             created,
-                            modified,
                             contestada
                             ) VALUES
                             (?,?,?,?,?)"
@@ -98,7 +100,6 @@ class postMapper {
                 $post->getIdUsuario(),
                 $post->getCuerpo(),
                 $post->getFechaCreacion(),
-                $post->getFechaModificacion(),
                 $post->getContestada()
             )
         );
@@ -111,10 +112,12 @@ class postMapper {
         $stmt = $this->db->prepare(
           "UPDATE posts SET titulo= ?, cuerpo= ?, created= ?, contestada= ? WHERE id= ?"
         );
-        $stmt->execute(
+        return $stmt->execute(
             $post->getTitulo(),
             $post->getCuerpo(),
-            $post->getFechaCreacion()
+            $post->getFechaCreacion(),
+            $post->getContestada(),
+            $post->getId()
         );
     }
 
@@ -142,14 +145,12 @@ class postMapper {
                 );
             }
         }
-
+        return false;
     }
 
     /**
-     *
      * @param $idPost
      * @return bool
-     *
      */
     public function delete(
         $idPost

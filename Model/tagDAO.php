@@ -32,7 +32,7 @@ class tagMapper {
   	$tag
   	) {
   	$stmt = $this->db->prepare(
-  		"INSERT INTO TAG (TAG) 
+  		"INSERT INTO tags (tag)
   		VALUES (?);"
   		);
   	return $stmt->execute(array($tag->getTag()));
@@ -48,14 +48,14 @@ class tagMapper {
   public function getTag(
   	$tagName
   	) {
-  	$stmt = $this->db->prepare("SELECT * FROM TAG WHERE TAG LIKE ?");
+  	$stmt = $this->db->prepare("SELECT * FROM tags WHERE tag= ?");
   	$stmt->execute(array($tagName));
   	if($stmt->rowCount()>0) {
   		foreach (
   			$stmt as $tag
   			) {
   			return new Tag(
-  				$tag["TAG"]
+  				$tag["tag"]
   				);
   	}
   } else {
@@ -72,14 +72,14 @@ class tagMapper {
    */
   public function getAllTags() {
   	$tags = array();
-  	$stmt = $this->db->prepare("SELECT * FROM TAG");
+  	$stmt = $this->db->prepare("SELECT * FROM tags");
   	$stmt->execute();
   	if($stmt->rowCount()>0) {
   		foreach (
   			$stmt as $tag
   			) {
   			array_push($tags, new Tag(
-  				$tag["TAG"]
+  				$tag["tag"]
   				)); 
   	}
   	return $tags;
@@ -98,8 +98,13 @@ class tagMapper {
   public function borrarTag(
   	$tagName
   	) {
-  	$stmt = $this->db->prepare("DELETE FROM TAG WHERE TAG= ?;");
+  	$stmt = $this->db->prepare("DELETE FROM tags WHERE tag= ?;");
   	return $stmt->execute(array($tagName));
   }
+	public function getAllPostTags(
+		$idPost
+	){
+		$stsmt = $this->db->prepare("select * from");
+	}
+
 }
-?>
