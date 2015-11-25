@@ -32,36 +32,37 @@ class tagMapper {
   	$tag
   	) {
   	$stmt = $this->db->prepare(
-  		"INSERT INTO tags (tag)
-  		VALUES (?);"
+  		"INSERT INTO tags (id,tag)
+  		VALUES (?,?);"
   		);
-  	return $stmt->execute(array($tag->getTag()));
+  	return $stmt->execute(array($tag->getId(), $tag->getTag()));
   }
 
   /**
-   * Gets the tag specified by the string
+   * Gets the tag specified by the id
    * 
-   * @param string $tagName The name of the tag we want to find
+   * @param string $idTag The id of the tag we want to find
    * @throws PDOException if a database error occurs
-   * @return Tag The tag with the specified name, NULL if its not found
+   * @return Tag The tag with the specified id, NULL if its not found
    */
   public function getTag(
-  	$tagName
+  	$idTag
   	) {
-  	$stmt = $this->db->prepare("SELECT * FROM tags WHERE tag= ?");
-  	$stmt->execute(array($tagName));
+  	$stmt = $this->db->prepare("SELECT * FROM tags WHERE id= ?");
+  	$stmt->execute(array($idTag));
   	if($stmt->rowCount()>0) {
   		foreach (
   			$stmt as $tag
   			) {
   			return new Tag(
+          $tag["id"],
   				$tag["tag"]
-  				);
-  	}
-  } else {
-  	return NULL;
+  		);
+  	 }
+    } else {
+  	 return NULL;
+    }
   }
-}
 
 
   /**
@@ -79,14 +80,15 @@ class tagMapper {
   			$stmt as $tag
   			) {
   			array_push($tags, new Tag(
+          $tag["id"],
   				$tag["tag"]
-  				)); 
-  	}
-  	return $tags;
-  } else {
-  	return NULL;
+  		  )); 
+  	  }
+  	 return $tags;
+    } else {
+  	 return NULL;
+    }
   }
-}
 
   /**
    * Deletes a Tag
@@ -101,10 +103,33 @@ class tagMapper {
   	$stmt = $this->db->prepare("DELETE FROM tags WHERE tag= ?;");
   	return $stmt->execute(array($tagName));
   }
+
+  /**
+   * Gets all the tags of a post
+   * 
+   * @param Int $idPost The id of the post we want to get the tags from 
+   * @throws PDOException if a database error occurs
+   * @return Array of Tags All the tags from a Post, else return NULL
+   */
 	public function getAllPostTags(
 		$idPost
 	){
-		$stsmt = $this->db->prepare("select * from");
+    $tags = array();
+		$stsmt = $this->db->prepare("SELECT tags.id, tags.tag FROM post_tag, tags WHERE post_tag.tag_id=tags.id AND post_tag.post_id= ?;");
+    $stmt->execute(array($idPost));
+    if($stmt->rowCount()>0) {
+      foreach (
+        $stmt as $tag
+      ) {
+        array_push($tags, new Tag(
+          $tag["id"],
+          $tag["tag"]
+        )); 
+      }
+     return $tags;
+    } else {
+     return NULL;
+    }
 	}
 
 }
