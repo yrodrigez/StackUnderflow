@@ -32,10 +32,11 @@ class usuarioMapper {
     $user
     ) {
     $stmt = $this->db->prepare(
-      "INSERT INTO USUARIO (USERNAME, PASSWORD, EMAIL, FOTO, DESCRIPCION, TIPO) 
+      "INSERT INTO users (id, username, password, email, foto, descripcion, tipo) 
       VALUES (?, ?, ?, ?, ?, ?);"
       );
-    return $stmt->execute(array($user->getUsername(), 
+    return $stmt->execute(array(0,
+     $user->getUsername(), 
      $user->getPassword(), 
      $user->getEmail(), 
      $user->getFotoPath(), 
@@ -44,31 +45,55 @@ class usuarioMapper {
 }
 
   /**
-   * Gets the user specified by the username
+   * Gets the user specified by the id
    * 
-   * @param string $idUser The id of the user we want to retrieve
+   * @param string $idUserThe id of the user we want to retrieve
    * @throws PDOException if a database error occurs
-   * @return User The user with the specified ID, NULL if its not found
+   * @return User The user with the specified Username, NULL if its not found
    */
   public function getUser(
         $idUser
   ) {
-    $stmt = $this->db->prepare("SELECT * FROM USUARIO WHERE IDUSUARIO=?");
+    $stmt = $this->db->prepare("SELECT * FROM users WHERE id=?");
     $stmt->execute(array($idUser));
     if($stmt->rowCount()>0) {
       foreach (
         $stmt as $user
         ) {
             return new Usuario(
-                $user["IDUSUARIO"],
-                $user["USERNAME"],
-                $user["PASSWORD"],
-                $user["TIPO"],
-                $user["EMAIL"],
-                $user["DESCRIPCION"],
-                $user["FOTO"]
+                $user["id"],
+                $user["username"],
+                $user["password"],
+                $user["tipo"],
+                $user["email"],
+                $user["descripcion"],
+                $user["foto"]
             );
       }
+    } else {
+        return NULL;
+    }
+  }
+
+  /**
+   * Gets the id of the username
+   * 
+   * @param string $username The username of the user we want to get the id from
+   * @throws PDOException if a database error occurs
+   * @return Int The id of the user, NULL if its not found
+   */
+  public function getIdOfUser(
+        $username
+  ) {
+    $stmt = $this->db->prepare("SELECT * FROM users WHERE username=?");
+    $stmt->execute(array($username));
+    if($stmt->rowCount()>0) {
+      foreach (
+        $stmt as $user
+      ) {
+            return $user["id"];
+                
+      } 
     } else {
         return NULL;
     }
@@ -82,21 +107,22 @@ class usuarioMapper {
    */
   public function getAllUsers() {
     $users = array();
-    $stmt = $this->db->prepare("SELECT * FROM USUARIO");
+    $stmt = $this->db->prepare("SELECT * FROM users");
     $stmt->execute();
     if($stmt->rowCount()>0) {
       foreach (
         $stmt as $user
       ) {
         array_push($users, new Usuario(
-                $user["IDUSUARIO"],
-                $user["USERNAME"],
-                $user["PASSWORD"],
-                $user["TIPO"],
-                $user["EMAIL"],
-                $user["DESCRIPCION"],
-                $user["FOTO"]
-            )); 
+                $user["id"],
+                $user["username"],
+                $user["password"],
+                $user["tipo"],
+                $user["email"],
+                $user["descripcion"],
+                $user["foto"]
+            )
+        ); 
       }
       return $users;
     } else {
@@ -114,9 +140,9 @@ class usuarioMapper {
   public function modificarUser(
     $user
     ) {
-    $stmt = $this->db->prepare("UPDATE USUARIO Set EMAIL = ?, 
-                                                   FOTO = ?, 
-                                                   DESCRIPCION = ? WHERE IDUSUARIO = ?;");
+    $stmt = $this->db->prepare("UPDATE users Set email = ?, 
+                                                 foto = ?, 
+                                                 descripcion = ? WHERE id = ?;");
     return $stmt->execute(array($user->getEmail(), 
      $user->getFotoPath(), 
      $user->getDescripcion(), 
@@ -133,7 +159,7 @@ class usuarioMapper {
   public function borrarUser(
     $idUser
     ) {
-    $stmt = $this->db->prepare("DELETE FROM USUARIO WHERE IDUSUARIO= ?;");
+    $stmt = $this->db->prepare("DELETE FROM users WHERE id= ?;");
     return $stmt->execute(array($idUser));
   }
 }
