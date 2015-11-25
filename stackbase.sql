@@ -1,50 +1,53 @@
-CREATE TABLE USERS
+create table users
 (
-	ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	USERNAME VARCHAR(20) UNIQUE,
-	PASSWORD VARCHAR(50) NOT NULL,
-	EMAIL VARCHAR(255) NOT NULL,
-	FOTO VARCHAR(255),
-	DESCRIPCION TEXT,
-	TIPO SMALLINT NOT NULL
+	id integer auto_increment primary key,
+	username varchar(20) unique,
+	password varchar(50) not null,
+	email varchar(255) not null,
+	foto varchar(255),
+	descripcion text,
+	tipo smallint not null
 );
-CREATE TABLE POSTS
+create table posts
 (
-	ID INTEGER PRIMARY KEY AUTO_INCREMENT,
-	TITULO VARCHAR(40) NOT NULL,
-	USERNAME VARCHAR(20) NOT NULL,
-	CUERPO TEXT NOT NULL,
-	NUMVISITAS INTEGER NOT NULL,
-	FECHA_CREACION DATE NOT NULL,
-	CONTESTADA SMALLINT NOT NULL,
-	FOREIGN KEY (USERNAME) REFERENCES USERS(USERNAME)
+	id integer primary key auto_increment,
+	titulo varchar(40) not null,
+	user_id integer not null,
+	cuerpo text not null,
+	numvisitas integer not null,
+	created datetime default null,
+	modified datetime default null,
+	contestada smallint not null,
+	foreign key (user_id) references users(id)
 );
-CREATE TABLE RESPUESTAS
+create table respuestas
 (
-	ID INTEGER PRIMARY KEY AUTO_INCREMENT,
-	USERNAME VARCHAR(20) NOT NULL,
-	IDPOST INTEGER NOT NULL,
-	CUERPO TEXT NOT NULL,
-	FECHA_CREACION DATE NOT NULL,
-	FOREIGN KEY (USERNAME) REFERENCES USERS(USERNAME),
-	FOREIGN KEY (IDPOST) REFERENCES POSTS(ID)
+	id integer primary key auto_increment,
+	user_id integer not null,
+	idpost integer not null,
+	cuerpo text not null,
+	created datetime default null,
+	modified datetime default null,
+	foreign key (user_id) references users(id),
+	foreign key (idpost) references posts(id)
 );
-CREATE TABLE TAGS
+create table tags
 (
-	TAG VARCHAR(20) PRIMARY KEY
-);
-
-CREATE TABLE TAGENPOSTS
-(
-	TAG VARCHAR(20),
-	ID INTEGER,
-	FOREIGN KEY (ID) REFERENCES POSTS(ID),
-	FOREIGN KEY (TAG) REFERENCES TAGS(TAG),
-	constraint PK_TAGENPOSTS primary key (ID, TAG)
+	id integer primary key auto_increment,
+	tag varchar(20)
 );
 
-INSERT INTO USERS(ID, USERNAME, PASSWORD, EMAIL, FOTO, DESCRIPCION, TIPO) VALUES (0,"yonyon", "yonyon", "yonyon@gmail.com", "path", "Soy un rogue", 1);
-INSERT INTO POSTS(ID, TITULO, USERNAME, CUERPO, NUMVISITAS, FECHA_CREACION, CONTESTADA) VALUES (0,"A title", "yonyon", "Cuerpo del post", 10, 20150124, 0);
-INSERT INTO RESPUESTAS(ID, USERNAME, IDPOST, CUERPO, FECHA_CREACION) VALUES (0,"yonyon", 1, "Cuerpo de la respuesta", 20150124);
-INSERT INTO TAGS(TAG) VALUES ("C++");
-INSERT INTO TAGENPOSTS(TAG, ID) VALUES ("C++", 1);
+create table post_tag
+(
+
+	tag_id integer,
+	post_id integer,
+	foreign key (post_id) references posts(id),
+	foreign key (tag_id) references tags(id)
+);
+
+insert into users(id, username, password, email, foto, descripcion, tipo) values (0,"yonyon", "yonyon", "yonyon@gmail.com", "path", "soy un rogue", 1);
+insert into posts(id, titulo, user_id, cuerpo, numvisitas, created, modified, contestada) values (0,"a title", 0, "cuerpo del post", 10, 20150124, 20150128, 0);
+insert into respuestas(id, user_id, idpost, cuerpo, created, modified) values (0,"yonyon", 1, "cuerpo de la respuesta", 20150124, 20150128);
+insert into tags(id, tag) values (0, "c++");
+insert into post_tag(tag_id, post_id) values (0, 0);
