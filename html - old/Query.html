@@ -1,12 +1,3 @@
-<?php
-	//file: view/layouts/default.php
-	require_once(__DIR__."/../../core/ViewManager.php");
-	//Meter requires de cosas que hagan falta para mostrar datos
-	$view = ViewManager::getInstance();
-	$currentuser = $view->getVariable("currentusername");
-?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,49 +9,43 @@
 
 	<title>Stack Underflow</title>
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="css/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/css/bootstrap.min.css">
 
 	<!-- Optional theme -->
-	<link rel="stylesheet" href="css/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="../css/css/bootstrap-theme.min.css">
 
 	<link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="../css/style.css">
 
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="css/js/bootstrap.min.js"></script>
+	<script src="../css/js/bootstrap.min.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 </head>
 
-<body background="img/stachBackground3.jpg">
+<body background="../img/stachBackground3.jpg">
 
 	<div class="container">
+
 		<div id="head" class="row">
 			<div class= "col-md-9">
-				<img alt="Stack Underflow logo" class="img-responsive" src="img/stackunderflow_logo.png">
-			</div>
-			<!--BOTON LOGIN CUANDO LA PAGINA ESTA GRANDE -->
+				<img alt="Stack Underflow logo" class="img-responsive" src="../img/stackunderflow_logo.png">
+			</div>	
 			<div id="navbar loginContainer" class="loginContainer col-md-3 visible-lg visible-md">
 				<ul class="nav pull-left " id="loginButton">
 					<li class="dropdown" id="menuLogin">
 						<a class="dropdown-toggle loginButton" href="#" data-toggle="dropdown" id="navLogin">Login</a>
 						<div class="dropdown-menu" style="padding:17px;">
-							<div class="containerLoged">
-								<span class="containerLogedItem"><?php echo $_SESSION["userInstance"]->getEmail();?></span>
-								<br><hr>
-								<a href="html/Perfil.html" <span class="containerLogedItem">Cuenta</span></a>
-								<br><hr>
-								<button type="button" id="registro" class="btn buttonStackLoginClicked" onClick ="window.location.href ='controller/logout.php' ">Logout</button>
-							</div>
-							<form class="form" id="formLogin" action="controller/login.php">
-								<input name="username" id="username" placeholder="Usuario" type="text">
-								<input name="password" id="password" placeholder="Contraseña" type="password">
+							<form class="form" id="formLogin"> 
+								<input name="username" id="username" placeholder="Usuario" type="text" class="formDatos"> 
+								<input name="password" id="password" placeholder="Contraseña" type="password" class="formDatos">
 								<br>
 								<div class="divBotonesLogin">
 									<button type="button" id="registro" class="btn buttonStackLoginClicked">Registro</button>
-									<button type="submit" id="btnLogin" class="btn buttonStackLoginClicked">Entrar</button>
+									<button type="button" id="btnLogin" class="btn buttonStackLoginClicked">Entrar</button>
 								</div>
 							</form>
 						</div>
@@ -69,8 +54,10 @@
 			</div> 
 			<!-- FIN BOTON LOGIN CUANDO LA PAGINA ESTA GRANDE -->
 		</div>
+
+		
 		<div class="row">
-			<div id="body" class="col-lg-9 col-md-9 col-sm-12 col-xs-12 well">
+			<div id="body" class="col-md-9 col-sm-12 col-xs-12 well" >
 				<!--BOTONAZO PAL MOVIL PAPAS-->
 				<!-- Trigger the modal with a button -->
 				<div class="row">
@@ -102,7 +89,7 @@
 										<!-- fin formulario login -->
 									</div>
 									<div class="modal-footer">
-										<button class="btn buttonStack" onclick="location.href='html/Registro.html'">Registro</button>
+										<button class="btn buttonStack">Registro</button>
 										<button type="submit" class="btn buttonStack">Entrar</button>
 									</div>
 								</div>
@@ -117,6 +104,7 @@
 				<div class="row ">
 					<nav class="navbar menuVisible col-md-12">
 						<div class="container-fluid">
+
 							<div id="menuContainerMobile">
 								<ul class="nav navbar-nav listaMenu">
 									<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="dropdownMenu">Menu</span><span class="caret"></span></a>
@@ -135,10 +123,10 @@
 				</div>
 				<!--FIN MENU PAL MOVIL PAPAS-->
 
-				<?= $view->getFragment(ViewManager::DEFAULT_FRAGMENT) ?>
+				
 			</div>
 			<!-- Inicio sidebar -->
-			<nav class="col-md-2 col-lg-2  visible-lg visible-md" id="sideBar">
+			<nav class="col-md-3 col-lg-3  visible-lg visible-md" id="sideBar">
 				<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
 					<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Home</a></span></li>
 					<hr/>
@@ -148,7 +136,7 @@
 					<hr/>
 					<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Categorias</a></span></li>
 					<hr/>
-					<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Ayuda</a></span></li>	
+					<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Ayuda</a></span></li>
 				</ul>
 			</nav>
 			<!--final sidebar-->
@@ -175,14 +163,7 @@
 	</div>
 	<!-- /container -->
 
-	<script>
 
-        $(document).ready(function() {
-			$("#msg-container").delay(3000).fadeOut('slow');
-        });
-
-        <?= $view->getFragment("script") ?>
-    </script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

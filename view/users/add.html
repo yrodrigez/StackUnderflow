@@ -1,0 +1,90 @@
+<?php 
+//file: view/posts/view.php
+require_once(__DIR__."/../../core/ViewManager.php");
+$view = ViewManager::getInstance();
+?>
+
+<!--SEARCHBAR-->
+<div class= "row">
+	<div id="searchBar" class="input-group col-md-12">
+		<input id="busqueda" type="text" class="form-control" placeholder="Search for...">
+		<span class="input-group-btn">
+			<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+		</span>
+	</div>
+</div>
+<!--FIN SEARCHBAR-->
+<!--INICIO REGISTRO-->
+<div id="registroBody" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<form class="form-horizontal" action='#' method="POST">
+		<fieldset>
+			<div id="legend">
+				<h2>Registro</h2>
+				<hr/>
+			</div>
+			<div class="control-group">
+				<!-- Username -->
+				<label class="control-label"  for="username">Nombre de usuario</label>
+				<div class="controls">
+					<input type="text" id="nombreUsuario" name="username" placeholder="" class="input-xlarge">
+					<p class="help-block">El nombre de usuario puede contener letras y numeros, sin espacios</p>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<!-- E-mail -->
+				<label class="control-label" for="email">E-mail</label>
+				<div class="controls">
+					<input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+					<p class="help-block">Por favor introduzca su e-mail</p>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<!-- Password-->
+				<label class="control-label" for="password">Contraseña</label>
+				<div class="controls">
+					<input type="password" id="contraseña" name="password" placeholder="" class="input-xlarge">
+					<p class="help-block">La contraseña debe tener al menos 4 caracteres</p>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<!-- Password -->
+				<label class="control-label"  for="password_confirm">Repetir contraseña</label>
+				<div class="controls">
+					<input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
+					<p class="help-block">Confirme su contraseña</p>
+				</div>
+			</div>
+
+
+			<div class="file-input">
+				<div class="file-preview ">
+					<div class="file-drop-disabled">
+						<div class="file-preview-thumbnails">
+							<div class="file-default-preview">
+								<img src="../img/default_avatar_male.jpg" alt="Your Avatar" style="width:160px">
+							</div>
+						</div>
+						<div class="clearfix"></div>    
+						<div class="file-preview-status text-center text-success"></div>
+						<div class="kv-fileinput-error"></div>
+					</div>
+				</div> 
+				<button type="button" tabindex="500" title="Cancel or reset changes" class="btn btn-default fileinput-remove fileinput-remove-button"><span class="glyphicon glyphicon-remove"></span></button> 
+
+				<div tabindex="500" class="btn btn-primary btn-file"><span class="glyphicon glyphicon-folder-open"><input id="avatar" name="avatar" type="file" class=""/></span></div>
+			</div>
+
+
+
+			<div class="control-group">
+				<div id="divButtonRegistro"class="controls">
+					<button class="btn btn-success buttonRegistro">Registrarse</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>
+			<!--FIN REGISTRO-->
