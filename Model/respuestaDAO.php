@@ -6,7 +6,7 @@
  * Time: 13:38
  */
 
-class RespuestaMapper {
+class RespuestaDAO {
     private $db;
 
     public function __construct()

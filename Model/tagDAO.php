@@ -10,7 +10,7 @@ require_once("/../Model/tag.php");
  * @author José Miguel Meilán Maldonado 
  */
 
-class tagMapper {
+class tagDAO{
   /**
    * Reference to the PDO connection
    * @var PDO

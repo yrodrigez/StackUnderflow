@@ -10,7 +10,7 @@ require_once("/../Model/usuario.php");
  * @author José Miguel Meilán Maldonado 
  */
 
-class usuarioMapper {
+class usuarioDAO {
   /**
    * Reference to the PDO connection
    * @var PDO

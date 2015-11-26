@@ -56,8 +56,8 @@ create table post_tag
 );
 
 insert into users(id, username, password, name, email, foto, descripcion, tipo) values (0,"yonyon", "yonyon", "Yago Rodriguez", "yonyon@gmail.com", "path", "soy un rogue", 1);
-insert into posts(id, titulo, user_id, cuerpo, numvisitas, created, modified, contestada) values (0,"a title", 0, "cuerpo del post", 10, 20150124, 0);
-insert into respuestas(id, user_id, idpost, cuerpo, created, modified) values (0,"yonyon", 1, "cuerpo de la respuesta", 20150124);
+insert into posts(id, titulo, user_id, cuerpo, numvisitas, created, contestada) values (0,"a title", 1, "cuerpo del post", 10, 20150124, 0);
+insert into respuestas(id, user_id, idpost, cuerpo, created) values (0,1, 1, "cuerpo de la respuesta", 20150124);
 insert into tags(id, tag) values (0, "c++");
-insert into post_tag(tag_id, post_id) values (0, 0);
-insert into votos(id_user, id_respuesta, votos) values (0, 0, -10);
+insert into post_tag(tag_id, post_id) values (1, 1);
+insert into votos(id_user, id_respuesta, votos) values (1, 1, -10);
