@@ -3,28 +3,31 @@ class Usuario
 {
   private $id;
   private $username;
-  private $passwd;
+  private $password;
   private $tipoUsuario;
  	private $email;
  	private $descripcion;
  	private $fotoPath;
+  private $nombre;
 
   public function __construct(
     $id=NULL,
   	$username=NULL, 
-  	$passwd=NULL, 
+  	$password=NULL, 
   	$tipoUsuario=NULL,
   	$email= NULL,
   	$descripcion= NULL,
-  	$fotoPath= NULL
+  	$fotoPath= NULL,
+    $nombre= NULL
   	) {
     $this->id = $id;
     $this->username = $username;
-    $this->passwd = $passwd; 
+    $this->password = $password; 
     $this->tipoUsuario= $tipoUsuario;
     $this->email= $email;
     $this->descripcion= $descripcion;
     $this->fotoPath= $fotoPath;
+    $this->nombre = $nombre;
   }
   
   public function getId() 
@@ -60,6 +63,11 @@ class Usuario
   public function getFotoPath()
   {
   	return $this->fotoPath;
+  }
+
+  public function getNombre()
+  {
+    return $this->nombre;
   }
 
   public function setId(
@@ -102,5 +110,11 @@ class Usuario
       $tipoUsuario
   ){
     $this->tipoUsuario = $tipoUsuario;
+  }
+
+  public function setNombre(
+      $nombre
+  ){
+    $this->nombre = $nombre;
   }
 }

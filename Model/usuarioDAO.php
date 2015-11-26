@@ -32,12 +32,13 @@ class usuarioMapper {
     $user
     ) {
     $stmt = $this->db->prepare(
-      "INSERT INTO users (id, username, password, email, foto, descripcion, tipo) 
-      VALUES (?, ?, ?, ?, ?, ?);"
+      "INSERT INTO users (id, username, password, name, email, foto, descripcion, tipo) 
+      VALUES (?, ?, ?, ?, ?, ?, ?);"
       );
     return $stmt->execute(array(0,
      $user->getUsername(), 
      $user->getPassword(), 
+     $user->getNombre(),
      $user->getEmail(), 
      $user->getFotoPath(), 
      $user->getDescripcion(),  
@@ -67,7 +68,8 @@ class usuarioMapper {
                 $user["tipo"],
                 $user["email"],
                 $user["descripcion"],
-                $user["foto"]
+                $user["foto"],
+                $user["name"]
             );
       }
     } else {
@@ -120,7 +122,8 @@ class usuarioMapper {
                 $user["tipo"],
                 $user["email"],
                 $user["descripcion"],
-                $user["foto"]
+                $user["foto"],
+                $user["name"]
             )
         ); 
       }
