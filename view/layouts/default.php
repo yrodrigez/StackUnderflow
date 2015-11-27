@@ -1,9 +1,9 @@
 <?php
 	//file: view/layouts/default.php
-	require_once(__DIR__."/../../core/ViewManager.php");
+require_once(__DIR__."/../../core/ViewManager.php");
 	//Meter requires de cosas que hagan falta para mostrar datos
-	$view = ViewManager::getInstance();
-	$currentuser = $view->getVariable("currentusername");
+$view = ViewManager::getInstance();
+$currentuser = $view->getVariable("currentusername");
 ?>
 
 
@@ -28,9 +28,6 @@
 	<link rel="stylesheet" href="../../css/style.css">
 
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="../../css/js/bootstrap.min.js"></script>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 
@@ -45,33 +42,17 @@
 			<div id="navbar loginContainer" class="loginContainer col-md-3 visible-lg visible-md">
 				<ul class="nav pull-left " id="loginButton">
 					<li class="dropdown" id="menuLogin">
-						<a class="dropdown-toggle loginButton" href="#" data-toggle="dropdown" id="navLogin">
-							<?php if(isset($_SESSION["userInstance"])): ?>
-								<?= $_SESSION["userInstance"] ?>
-								<?php else: ?>
-									Login
-							<?php endif; ?>
-						</a>
+						<a class="dropdown-toggle loginButton" href="#" data-toggle="dropdown" id="navLogin">Login</a>
 						<div class="dropdown-menu" style="padding:17px;">
-							<?php if(isset($_SESSION["userInstance"])): ?>
-								<div class="containerLoged">
-									<span class="containerLogedItem"></span>
-									<br><hr>
-									<a href="html/Perfil.html"> <span class="containerLogedItem">Cuenta</span></a>
-									<br><hr>
-									<button type="button" id="registro" class="btn buttonStackLoginClicked" onClick ="window.location.href ='controller/logout.php' ">Logout</button>
+							<form class="form" id="formLogin" action="controller/login.php">
+								<input name="username" id="username" placeholder="Usuario" type="text">
+								<input name="password" id="password" placeholder="Contraseña" type="password">
+								<br>
+								<div class="divBotonesLogin">
+									<button type="button" id="registro" class="btn buttonStackLoginClicked">Registro</button>
+									<button type="submit" id="btnLogin" class="btn buttonStackLoginClicked">Entrar</button>
 								</div>
-							<?php else: ?>
-								<form class="form" id="formLogin" action="controller/login.php">
-									<input name="username" id="username" placeholder="Usuario" type="text">
-									<input name="password" id="password" placeholder="Contraseña" type="password">
-									<br>
-									<div class="divBotonesLogin">
-										<button type="button" id="registro" class="btn buttonStackLoginClicked">Registro</button>
-										<button type="submit" id="btnLogin" class="btn buttonStackLoginClicked">Entrar</button>
-									</div>
-								</form>
-							<?php endif; ?>
+							</form>
 						</div>
 					</li>
 				</ul>
@@ -186,16 +167,16 @@
 
 	<script>
 
-        $(document).ready(function() {
+		$(document).ready(function() {
 			$("#msg-container").delay(3000).fadeOut('slow');
-        });
+		});
 
-        <?= $view->getFragment("script") ?>
-    </script>
+		<?= $view->getFragment("script") ?>
+	</script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="../../css/js/bootstrap.min.js"></script>
-    </body>
+</body>
 </html>
