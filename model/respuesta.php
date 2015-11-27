@@ -3,12 +3,12 @@ class Respuesta
 {
 	private $idRespuesta;
 	private $idPost;
-	private $idUsuario;
+	private $userId;
 	private $cuerpo;
 	private $fechaCreacion;
 
 	public function __construct(
-		$isRespuesta=NULL,
+		$idRespuesta=NULL,
 		$idPost=NULL,
 		$cuerpo=NULL,
 		$fechaCreacion= NULL,
@@ -17,7 +17,7 @@ class Respuesta
 		$this->idRespuesta = $idRespuesta;
 		$this->cuerpo= $cuerpo;
 		$this->idPost= $idPost;
-		$this->idUsuario= $idUsuario;
+		$this->userId= $idUsuario;
 		$this->fechaCreacion= $fechaCreacion;
 	}
 	public function getIdRespuesta()
@@ -30,9 +30,9 @@ class Respuesta
 		return $this->idPost;
 	}
 
-	public function getIdUsuario()
+	public function getUserId()
 	{
-		return $this->idUsuario;
+		return $this->userId;
 	}
 
 	public function getCuerpo()
@@ -51,9 +51,9 @@ class Respuesta
 	}
 	
 	public function setIdUser(
-		$idUser= NULL
+		$userId= NULL
 	) {
-		$this->idUsuario= $idUsuario;
+		$this->userId= $userId;
 	}
 
 	public function setIdPost(

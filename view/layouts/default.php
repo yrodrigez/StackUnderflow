@@ -18,51 +18,60 @@
 
 	<title>Stack Underflow</title>
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="css/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../css/css/bootstrap.min.css">
 
 	<!-- Optional theme -->
-	<link rel="stylesheet" href="css/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="../../css/css/bootstrap-theme.min.css">
 
 	<link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="../../css/style.css">
 
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="css/js/bootstrap.min.js"></script>
+	<script src="../../css/js/bootstrap.min.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 
-<body background="img/stachBackground3.jpg">
+<body background="../../img/stachBackground3.jpg">
 
 	<div class="container">
 		<div id="head" class="row">
 			<div class= "col-md-9">
-				<img alt="Stack Underflow logo" class="img-responsive" src="img/stackunderflow_logo.png">
+				<img alt="Stack Underflow logo" class="img-responsive" src="../../img/stackunderflow_logo.png">
 			</div>
 			<!--BOTON LOGIN CUANDO LA PAGINA ESTA GRANDE -->
 			<div id="navbar loginContainer" class="loginContainer col-md-3 visible-lg visible-md">
 				<ul class="nav pull-left " id="loginButton">
 					<li class="dropdown" id="menuLogin">
-						<a class="dropdown-toggle loginButton" href="#" data-toggle="dropdown" id="navLogin">Login</a>
+						<a class="dropdown-toggle loginButton" href="#" data-toggle="dropdown" id="navLogin">
+							<?php if(isset($_SESSION["userInstance"])): ?>
+								<?= $_SESSION["userInstance"] ?>
+								<?php else: ?>
+									Login
+							<?php endif; ?>
+						</a>
 						<div class="dropdown-menu" style="padding:17px;">
-							<div class="containerLoged">
-								<span class="containerLogedItem"><?php echo $_SESSION["userInstance"]->getEmail();?></span>
-								<br><hr>
-								<a href="html/Perfil.html" <span class="containerLogedItem">Cuenta</span></a>
-								<br><hr>
-								<button type="button" id="registro" class="btn buttonStackLoginClicked" onClick ="window.location.href ='controller/logout.php' ">Logout</button>
-							</div>
-							<form class="form" id="formLogin" action="controller/login.php">
-								<input name="username" id="username" placeholder="Usuario" type="text">
-								<input name="password" id="password" placeholder="Contraseña" type="password">
-								<br>
-								<div class="divBotonesLogin">
-									<button type="button" id="registro" class="btn buttonStackLoginClicked">Registro</button>
-									<button type="submit" id="btnLogin" class="btn buttonStackLoginClicked">Entrar</button>
+							<?php if(isset($_SESSION["userInstance"])): ?>
+								<div class="containerLoged">
+									<span class="containerLogedItem"></span>
+									<br><hr>
+									<a href="html/Perfil.html"> <span class="containerLogedItem">Cuenta</span></a>
+									<br><hr>
+									<button type="button" id="registro" class="btn buttonStackLoginClicked" onClick ="window.location.href ='controller/logout.php' ">Logout</button>
 								</div>
-							</form>
+							<?php else: ?>
+								<form class="form" id="formLogin" action="controller/login.php">
+									<input name="username" id="username" placeholder="Usuario" type="text">
+									<input name="password" id="password" placeholder="Contraseña" type="password">
+									<br>
+									<div class="divBotonesLogin">
+										<button type="button" id="registro" class="btn buttonStackLoginClicked">Registro</button>
+										<button type="submit" id="btnLogin" class="btn buttonStackLoginClicked">Entrar</button>
+									</div>
+								</form>
+							<?php endif; ?>
 						</div>
 					</li>
 				</ul>
@@ -187,8 +196,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-</body>
+    <script src="../../css/js/bootstrap.min.js"></script>
+    </body>
 </html>

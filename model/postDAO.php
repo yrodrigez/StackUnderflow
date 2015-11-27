@@ -7,7 +7,7 @@
  */
 require_once(__DIR__ . "../core/PDOConnection.php");
 require_once(__DIR__ . "post.php");
-class postDAO {
+class PostDAO {
 
     private $db;
 

@@ -1,7 +1,6 @@
 <?php
 class Post 
 {
-
 	private $titulo;
 	private $contestada;
 	private $cuerpo;

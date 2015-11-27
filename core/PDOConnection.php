@@ -2,9 +2,9 @@
 // file: /core/PDOConnection.php
 class PDOConnection {
   private static $dbhost = "127.0.0.1";
-  private static $dbname = "stackunderflow";
+  private static $dbname = "stack";
   private static $dbuser = "root";
-  private static $dbpass = ""; //NO PONER PASSWORD 
+  private static $dbpass = "951753"; //NO PONER PASSWORD
   private static $db_singleton = null;
   
   public static function getInstance() {

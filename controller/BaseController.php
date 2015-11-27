@@ -3,7 +3,7 @@
 
 require_once(__DIR__."/../core/ViewManager.php");
 
-require_once(__DIR__."/../model/Usuario.php");
+require_once(__DIR__."/../model/usuario.php");
 
 /**
  * Class BaseController
@@ -39,9 +39,7 @@ class BaseController {
     }
     
     if(isset($_SESSION["user"])) {
-     
       $this->currentUser = new Usuario($_SESSION["user"]);
-	  
       //add current user to the view, since some views require it
       $this->view->setVariable("currentusername", 
 				  $this->currentUser->getEmail());

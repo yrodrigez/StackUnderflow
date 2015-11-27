@@ -61,7 +61,7 @@ class RespuestaDAO {
    * @throws PDOException if a database error occurs
    * @return Int The votes of the answer
    */
-  public function getVotos(
+  public function getVotes(
     $idUser,
     $idRespuesta
     ) {
@@ -76,6 +76,20 @@ class RespuestaDAO {
     } else {
         return NULL;
     }
+  }
+
+  public function addVote(
+      $idUsuario,
+      $idRespuesta
+  ) {
+      $stmt = $this->db->prepare(
+          "INSERT INTO votos VALUES id_user=?, id_respuesta= ?, votos= ?"
+      );
+      if($stmt->execute(array($idUsuario, $idRespuesta, 1))){
+          return true;
+      }else{
+          return false;
+      }
   }
 
   /**
