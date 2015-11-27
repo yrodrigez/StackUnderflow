@@ -57,7 +57,7 @@ class PostDAO {
         $size
     ) {
         $stmt = $this->db->prepare(
-          "SELECT * FROM  posts ORDER BY numvisitas"
+          "SELECT id FROM  posts ORDER BY created DESC"
         );
         if($stmt->execute()) {
             if ($stmt->rowCount() > $size) {

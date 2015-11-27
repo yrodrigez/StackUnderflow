@@ -19,7 +19,7 @@ class UsuarioDAO {
   
   public function __construct() {
     $this->db = PDOConnection::getInstance();
-}
+  }
 
   /**
    * Creates an User into the database
@@ -73,8 +73,9 @@ class UsuarioDAO {
             );
       }
     } else {
-        return NULL;
+        return false;
     }
+    return false;
   }
 
   /**
@@ -97,8 +98,9 @@ class UsuarioDAO {
                 
       } 
     } else {
-        return NULL;
+        return false;
     }
+    return false;
   }
 
   /**

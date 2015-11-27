@@ -5,9 +5,9 @@ class Usuario
   private $username;
   private $password;
   private $tipoUsuario;
- 	private $email;
- 	private $descripcion;
- 	private $fotoPath;
+  private $email;
+  private $descripcion;
+  private $fotoPath;
   private $nombre;
 
   public function __construct(
@@ -83,9 +83,9 @@ class Usuario
   }
 
   public function setPassword(
-  	$passwd
+  	$password
   ) {
-    $this->passwd = $passwd;
+    $this->password = $password;
   }
 
   public function setDescripcion(
