@@ -51,9 +51,9 @@ class Respuesta
 	}
 	
 	public function setIdUser(
-		$userId= NULL
+		$idUser= NULL
 	) {
-		$this->userId= $userId;
+		$this->userId= $idUser;
 	}
 
 	public function setIdPost(

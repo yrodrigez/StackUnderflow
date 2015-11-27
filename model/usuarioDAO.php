@@ -1,7 +1,7 @@
 <?php
 // file: model/pinchoMapper.php
-require_once("/../core/PDOConnection.php");
-require_once("/../Model/usuario.php");
+require_once(__DIR__."/../core/PDOConnection.php");
+require_once(__DIR__."/../model/usuario.php");
 /**
  * Class usuarioMapper
  *
@@ -10,7 +10,7 @@ require_once("/../Model/usuario.php");
  * @author José Miguel Meilán Maldonado 
  */
 
-class usuarioDAO {
+class UsuarioDAO {
   /**
    * Reference to the PDO connection
    * @var PDO

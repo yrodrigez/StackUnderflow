@@ -1,7 +1,7 @@
 <?php
 // file: model/pinchoMapper.php
-require_once("/../core/PDOConnection.php");
-require_once("/../Model/tag.php");
+require_once(__DIR__."/../core/PDOConnection.php");
+require_once(__DIR__."/../model/tag.php");
 /**
  * Class tagMapper
  *
@@ -10,7 +10,7 @@ require_once("/../Model/tag.php");
  * @author José Miguel Meilán Maldonado 
  */
 
-class tagDAO{
+class TagDAO{
   /**
    * Reference to the PDO connection
    * @var PDO
@@ -115,8 +115,8 @@ class tagDAO{
 		$idPost
 	){
     $tags = array();
-		$stsmt = $this->db->prepare("SELECT tags.id, tags.tag FROM post_tag, tags WHERE post_tag.tag_id=tags.id AND post_tag.post_id= ?;");
-    $stmt->execute(array($idPost));
+		$stmt = $this->db->prepare("SELECT tags.id, tags.tag FROM post_tag, tags WHERE post_tag.tag_id=tags.id AND post_tag.post_id= ?;");
+    	$stmt->execute(array($idPost));
     if($stmt->rowCount()>0) {
       foreach (
         $stmt as $tag
