@@ -35,7 +35,7 @@ create table votos
 (
 	id_user integer,
 	id_respuesta integer,
-	votos integer,
+	votos SMALLINT, /* -1 , 0 1 */
 	foreign key (id_user) references users(id),
 	foreign key (id_respuesta) references respuestas(id) 
 );
@@ -48,7 +48,6 @@ create table tags
 
 create table post_tag
 (
-
 	tag_id integer,
 	post_id integer,
 	foreign key (post_id) references posts(id),

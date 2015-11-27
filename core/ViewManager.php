@@ -101,7 +101,7 @@ class ViewManager {
    * Changes the current fragment where output is accumulating
    *
    * The current output is saved before changing.
-   * The subsequent outputs will be accumulted in the specified
+   * The subsequent outputs will be accumulated in the specified
    * fragment.
    * 
    * @param string $name The name of the fragment to move to

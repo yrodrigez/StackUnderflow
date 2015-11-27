@@ -13,24 +13,18 @@ $currentuser = $view->getVariable("currentusername");
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
 	<title>Stack Underflow</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="../../css/css/bootstrap.min.css">
-
 	<!-- Optional theme -->
-	<link rel="stylesheet" href="../../css/css/bootstrap-theme.min.css">
-
+	<link rel="stylesheet" href="../../css/css/bootstrap-theme.min.css" type="text/css">
 	<link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
-
-	<link rel="stylesheet" href="../../css/style.css">
-
+	<link rel="stylesheet" href="../../css/style.css" type="text/css">
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 
 <body background="../../img/stachBackground3.jpg">
-
 	<div class="container">
 		<div id="head" class="row">
 			<div class= "col-md-9">
@@ -162,9 +156,7 @@ $currentuser = $view->getVariable("currentusername");
 		<!-- FIN FOOTER -->
 	</div>
 	<!-- /container -->
-
 	<script>
-
 		$(document).ready(function() {
 			$("#msg-container").delay(3000).fadeOut('slow');
 		});

@@ -97,7 +97,7 @@ class RespuestaDAO {
    * 
    * @param Int $idPost The id of the post 
    * @throws PDOException if a database error occurs
-   * @return Array of Answers of the specified post
+   * @return array of Answers of the specified post
    */
   public function getRespuestasDePost(
     $idPost
