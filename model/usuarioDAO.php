@@ -32,7 +32,7 @@ class UsuarioDAO {
     ) {
     $stmt = $this->db->prepare(
       "INSERT INTO users (id, username, password, name, email, foto, descripcion, tipo) 
-      VALUES (?, ?, ?, ?, ?, ?, ?);"
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?);"
       );
     return $stmt->execute(array(0,
      $user->getUsername(), 
