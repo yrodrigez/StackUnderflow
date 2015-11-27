@@ -74,7 +74,6 @@ class UsuarioDAO {
     } else {
         return false;
     }
-    return false;
   }
 
   /**
@@ -99,7 +98,6 @@ class UsuarioDAO {
     } else {
         return false;
     }
-    return false;
   }
 
   /**

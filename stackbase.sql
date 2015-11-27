@@ -11,7 +11,7 @@ create table users
 );
 create table posts
 (
-	id integer primary key auto_increment,
+	id integer auto_increment primary key ,
 	titulo varchar(40) not null,
 	user_id integer not null,
 	cuerpo text not null,
@@ -22,7 +22,7 @@ create table posts
 );
 create table respuestas
 (
-	id integer primary key auto_increment,
+	id integer auto_increment primary key ,
 	user_id integer not null,
 	idpost integer not null,
 	cuerpo text not null,
@@ -42,7 +42,7 @@ create table votos
 
 create table tags
 (
-	id integer primary key auto_increment,
+	id integer auto_increment primary key,
 	tag varchar(20)
 );
 

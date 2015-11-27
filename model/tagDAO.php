@@ -91,17 +91,40 @@ class TagDAO{
   }
 
   /**
+   * Gets the id of a tag
+   * 
+   * @param string $tagname The name of the tag we want to get the id from
+   * @throws PDOException if a database error occurs
+   * @return Int The id of the tag, NULL if its not found
+   */
+  public function getIdOfTag(
+        $tagName
+  ) {
+    $stmt = $this->db->prepare("SELECT * FROM tags WHERE tag=?");
+    $stmt->execute(array($tagName));
+    if($stmt->rowCount()>0) {
+      foreach (
+        $stmt as $tag
+      ) {
+            return $tag["id"];     
+      } 
+    } else {
+        return false;
+    }
+  }
+
+  /**
    * Deletes a Tag
    * 
-   * @param string $tagName The name of the tag we want to delete
+   * @param int $idTag The id of the tag we want to delete
    * @throws PDOException if a database error occurs
-   * @return True if the user was successfully deleted
+   * @return True if the tag was successfully deleted
    */
   public function borrarTag(
-  	$tagName
+  	$idTag
   	) {
-  	$stmt = $this->db->prepare("DELETE FROM tags WHERE tag= ?;");
-  	return $stmt->execute(array($tagName));
+  	$stmt = $this->db->prepare("DELETE FROM tags WHERE id= ?;");
+  	return $stmt->execute(array($idTag));
   }
 
   /**

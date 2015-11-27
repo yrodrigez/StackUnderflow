@@ -8,7 +8,7 @@ class Tag
 		$idTag= NULL,
 		$tag= NULL
 	) {
-		$this->idTag= $idTag
+		$this->idTag= $idTag;
 		$this->tag= $tag;
 	}
 
