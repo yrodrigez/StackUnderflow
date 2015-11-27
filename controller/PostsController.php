@@ -41,6 +41,7 @@ class PostsController extends BaseController
         foreach($posts as $post){
             $post->setTags($this->tagDAO->getAllPostTags($post->getId()));
         }
+
         $this->view->setVariable("posts", $posts);
         $this->view->render("posts", "index");
     }
