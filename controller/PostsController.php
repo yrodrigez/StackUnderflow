@@ -32,7 +32,7 @@ class PostsController extends BaseController
 
     public function view()
     {
-        $this->view->render("posts", "add");
+        $this->view->render("posts", "index");
     }
 
 

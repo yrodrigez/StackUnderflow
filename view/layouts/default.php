@@ -15,20 +15,20 @@ $currentuser = $view->getVariable("currentusername");
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<title>Stack Underflow</title>
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="../../css/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/css/bootstrap.min.css">
 	<!-- Optional theme -->
-	<link rel="stylesheet" href="../../css/css/bootstrap-theme.min.css" type="text/css">
+	<link rel="stylesheet" href="css/css/bootstrap-theme.min.css" type="text/css">
 	<link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="../../css/style.css" type="text/css">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 
-<body background="../../img/stachBackground3.jpg">
+<body background="img/stachBackground3.jpg">
 	<div class="container">
 		<div id="head" class="row">
 			<div class= "col-md-9">
-				<img alt="Stack Underflow logo" class="img-responsive" src="../../img/stackunderflow_logo.png">
+				<img alt="Stack Underflow logo" class="img-responsive" src="img/stackunderflow_logo.png">
 			</div>
 			<!--BOTON LOGIN CUANDO LA PAGINA ESTA GRANDE -->
 			<div id="navbar loginContainer" class="loginContainer col-md-3 visible-lg visible-md">
@@ -167,6 +167,6 @@ $currentuser = $view->getVariable("currentusername");
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../../css/js/bootstrap.min.js"></script>
+    <script src="css/js/bootstrap.min.js"></script>
 </body>
 </html>
