@@ -6,8 +6,6 @@ $view = ViewManager::getInstance();
 $currentuser = $view->getVariable("currentusername");
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

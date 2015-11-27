@@ -6,7 +6,7 @@ require_once(__DIR__."/core/PDOConnection.php");
 /**
  * Default controller if any controller is passed in the URL
  */
-define("DEFAULT_CONTROLLER", "PostsController");
+define("DEFAULT_CONTROLLER", "Posts");
 
 /**
  * Default action if any action is passed in the URL

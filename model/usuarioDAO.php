@@ -23,8 +23,7 @@ class UsuarioDAO {
 
   /**
    * Creates an User into the database
-   * 
-   * @param User $user The user to be saved
+   * @param Usuario $user The user to be saved
    * @throws PDOException if a database error occurs
    * @return true if the user was successfully saved
    */      
@@ -138,7 +137,7 @@ class UsuarioDAO {
   /**
    * Modifies an user
    * 
-   * @param User $user The user we want to modify
+   * @param Usuario $user The user we want to modify
    * @throws PDOException if a database error occurs
    * @return True if the user was successfully modified
    */

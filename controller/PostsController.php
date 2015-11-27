@@ -30,11 +30,11 @@ class PostsController extends BaseController
         $this->postDAO= new PostDAO();
     }
 
-    public function getHotPosts()
+    public function view()
     {
-        $this->postDAO->getHotPosts(PostsController::HOT_POST_SIZE);
-        $this->view->render("post", "");
+        $this->view->render("posts", "index");
     }
+
 
 
 }

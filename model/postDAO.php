@@ -5,8 +5,8 @@
  * Date: 15/11/2015
  * Time: 12:27
  */
-require_once(__DIR__ . "../core/PDOConnection.php");
-require_once(__DIR__ . "post.php");
+require_once(__DIR__ . "/../core/PDOConnection.php");
+require_once(__DIR__ . "/post.php");
 class PostDAO {
 
     private $db;
