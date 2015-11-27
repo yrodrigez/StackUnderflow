@@ -43,7 +43,7 @@ class UsuarioDAO {
      $user->getFotoPath(), 
      $user->getDescripcion(),  
      $user->getTipoUsuario()));
-}
+  }
 
   /**
    * Gets the user specified by the id

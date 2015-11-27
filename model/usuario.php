@@ -42,7 +42,7 @@ class Usuario
   
   public function getPassword()
   {
-    return $this->passwd;
+    return $this->password;
   }  
   
   public function getTipoUsuario() 
