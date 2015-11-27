@@ -50,7 +50,8 @@ class PostDAO {
     }
 
     /**
-     * @param $size
+     * recibe la cantidad de posts para mostrar en la págna principal
+     * @param  int $size
      * @return array
      */
     public function getHotPosts(
@@ -63,13 +64,13 @@ class PostDAO {
             if ($stmt->rowCount() > $size) {
                 $ret = array();
                 for ($i = 0; $i < $size; $i++) {
-                    array_push($ret, $this->fill($stmt["id"]));
+                    array_push($ret, $this->fill($stmt->fetchColumn()));
                 }
                 return $ret;
             } else {
                 $ret = array();
                 for ($i = 0; $i < $stmt->rowCount(); $i++) {
-                    $ret[$i] = $stmt[$i];
+                    array_push($ret, $this->fill($stmt->fetchColumn()));
                 }
                 return $ret;
             }
@@ -136,12 +137,14 @@ class PostDAO {
             if($stmt->rowCount() > 0){
                 $fillData= $stmt->fetch(PDO::FETCH_ASSOC);
                 return new Post(
+                    $idPost,
                     $fillData["titulo"],
                     $fillData["contestada"],
                     $fillData["cuerpo"],
                     $fillData["numvisitas"],
                     $fillData["created"],
-                    $fillData["user_id"]
+                    $fillData["user_id"],
+                    NULL
                 );
             }
         }

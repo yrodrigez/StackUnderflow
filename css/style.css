@@ -1,3 +1,6 @@
+.well {
+	margin-bottom: 0 !important;
+}
 .containerLoged{
 	text-wrap: normal;
 }
@@ -240,9 +243,9 @@ a.loginButton:hover{
 
 #head{
 	position:relative;
-	background-image: url(../img/headBackground.png);
+	background-image: url(/img/headBackground.png);
 	background-repeat: repeat;
-	background-color:#157a6c;
+	background-color:#2F4F4F;
 }
 
 #busqueda{
@@ -391,7 +394,7 @@ hr {
 	-moz-border-left-colors: none;
 	-moz-border-right-colors: none;
 	-moz-border-top-colors: none;
-	border-color: #EEEEEE -moz-use-text-color #FFFFFF;
+	border-color: #EEEEEE;
 	border-style: solid none;
 	border-width: 1px 0;
 	margin: 18px 0;

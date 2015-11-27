@@ -1,27 +1,33 @@
 <?php
 class Post 
 {
+	private $id;
 	private $titulo;
 	private $contestada;
 	private $cuerpo;
 	private $numVisitas;
 	private $fechaCreacion;
 	private $idUsuario;
+	private $tags;
 
 	public function __construct(
+		$id= NULL,
 		$titulo= NULL,
 		$contestada=NULL,
 		$cuerpo= NULL,
 		$numVisitas= NULL,
 		$fechaCreacion= NULL,
-		$idUsuario=NULL
+		$idUsuario=NULL,
+		$tags= NULL
 		) {
+		$this->id=$id;
 		$this->titulo = $titulo;
 		$this->contestada = $contestada; 
 		$this->cuerpo= $cuerpo;
 		$this->numVisitas= $numVisitas;   
 		$this->fechaCreacion= $fechaCreacion;
 		$this->idUsuario= $idUsuario;
+		$this->tags= $tags;
 	}
 
 	public function getIdUsuario(){
@@ -78,5 +84,25 @@ class Post
 		$fechaCreacion= NULL
 		) {
 		$this->fechaCreacion= $fechaCreacion;
+	}
+
+	public function setTags($tags)
+	{
+		$this->tags = $tags;
+	}
+
+	public function getTags()
+	{
+		return $this->tags;
+	}
+
+	public function getId()
+	{
+		return $this->id;
+	}
+
+	public function setId($id)
+	{
+		$this->id = $id;
 	}
 }
