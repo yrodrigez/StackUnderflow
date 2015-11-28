@@ -59,4 +59,4 @@ insert into posts(id, titulo, user_id, cuerpo, numvisitas, created, contestada) 
 insert into respuestas(id, user_id, idpost, cuerpo, created) values (0,1, 1, "cuerpo de la respuesta", 20150124);
 insert into tags(id, tag) values (0, "c++");
 insert into post_tag(tag_id, post_id) values (1, 1);
-insert into votos(id_user, id_respuesta, votos) values (1, 1, -10);
+insert into votos(id_user, id_respuesta, votos) values (1, 1, -1);

@@ -6,19 +6,22 @@ class Respuesta
 	private $userId;
 	private $cuerpo;
 	private $fechaCreacion;
+	private $votos;
 
 	public function __construct(
 		$idRespuesta=NULL,
 		$idPost=NULL,
 		$cuerpo=NULL,
 		$fechaCreacion= NULL,
-		$idUsuario= NULL
+		$idUsuario= NULL,
+		$votos= NULL
 	) {
 		$this->idRespuesta = $idRespuesta;
 		$this->cuerpo= $cuerpo;
 		$this->idPost= $idPost;
 		$this->userId= $idUsuario;
 		$this->fechaCreacion= $fechaCreacion;
+		$this->votos = $votos;
 	}
 	public function getIdRespuesta()
 	{
@@ -42,6 +45,11 @@ class Respuesta
 	public function getFechaCreacion()
 	{
 		return $this->fechaCreacion;
+	}
+
+	public function getVotos()
+	{
+		return $this->votos;
 	}
 	
 	public function setIdRespuesta(
@@ -72,5 +80,11 @@ class Respuesta
 		$fechaCreacion= NULL
 	) {
 		$this->fechaCreacion= $fechaCreacion;
+	}
+
+	public function setVotos(
+		$votos= NULL
+	) {
+		$this->votos= $votos;
 	}
 }

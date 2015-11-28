@@ -26,16 +26,20 @@ class TagDAO{
    * 
    * @param Tag $tag The tag to be saved
    * @throws PDOException if a database error occurs
-   * @return true if the tag was successfully saved
+   * @return true if the tag was successfully saved, false if the tag already exists in the DB
    */      
   public function createTag(
   	$tag
   	) {
-  	$stmt = $this->db->prepare(
-  		"INSERT INTO tags (id,tag)
-  		VALUES (?,?);"
-  		);
-  	return $stmt->execute(array($tag->getId(), $tag->getTag()));
+    if($this->getIdOfTag($tag->getTag())==NULL){
+      $stmt = $this->db->prepare(
+      "INSERT INTO tags (id,tag)
+      VALUES (?,?);"
+      );
+      return $stmt->execute(array($tag->getId(), $tag->getTag()));
+    } else {
+      return false;
+    }	
   }
 
   /**
