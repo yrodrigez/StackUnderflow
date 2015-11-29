@@ -12,19 +12,36 @@ $currentuser = $view->getVariable("currentusername");
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<title>Stack Underflow</title>
-	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="css/css/bootstrap.min.css">
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="css/css/bootstrap-theme.min.css" type="text/css">
+	<!--<link rel="stylesheet" href="css/css/bootstrap-theme.min.css" type="text/css">-->
+	<link rel="stylesheet" href="css/css/fileinput.min.css" type="text/css">
+	<link rel="stylesheet" href="css/css/jquery.tagsinput.css" type="text/css">
 	<link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
-	<!-- Latest compiled and minified JavaScript -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="css/js/bootstrap.min.js"></script>
+	<script src="css/js/fileinput.min.js"></script>
+	<script src="css/js/jquery.tagsinput.js"></script>
 </head>
 
 <body background="img/stachBackground3.jpg">
+	<div id="msg-container">
+        <?php
+        $msg = $view->popFlash();
+        if($msg):
+            foreach($msg as $m):
+                if($m[0] == "success"):
+                    echo '<div class="alert alert-success flash"><button type="button" class="close" data-dismiss="alert">&nbsp;×</button>' . $m[1] . '</div>';
+                endif;
+                if($m[0] == "error"):
+                    echo '<div class="alert alert-danger flash"><button type="button" class="close" data-dismiss="alert">&nbsp;×</button>' . $m[1] . '</div>';
+                endif;
+            endforeach;
+        endif;
+        ?>
+    </div>
 	<div class="container">
 		<div id="head" class="row">
 			<div class= "col-md-9">
@@ -34,16 +51,26 @@ $currentuser = $view->getVariable("currentusername");
 			<div id="navbar loginContainer" class="loginContainer col-md-3 visible-lg visible-md">
 				<ul class="nav pull-left " id="loginButton">
 					<li class="dropdown" id="menuLogin">
-						<a class="dropdown-toggle loginButton" href="#" data-toggle="dropdown" id="navLogin">Login</a>
+						<a class="dropdown-toggle loginButton" href="#" data-toggle="dropdown" id="navLogin"><?php if(!isset($_SESSION["user"])) {
+																													echo "Login"; } else {
+																													echo $_SESSION["user"];} ?></a>
 						<div class="dropdown-menu" style="padding:17px;">
-							<form class="form" id="formLogin" action="controller/login.php">
-								<input name="username" id="username" placeholder="Usuario" type="text">
-								<input name="password" id="password" placeholder="Contraseña" type="password">
+							<form class="form" id="formLogin" action="index.php?controller=usuarios&action=login" method="POST">
+							<?php if(!isset($_SESSION["user"])) { ?>
+								<input name="username" id="username" placeholder="Usuario" type="text" required="true">
+								<input name="password" id="password" placeholder="Contraseña" type="password" required="true">
 								<br>
 								<div class="divBotonesLogin">
-									<button type="button" id="registro" class="btn buttonStackLoginClicked">Registro</button>
+									<a href="index.php?controller=usuarios&action=add"><button type="button" id="registro" class="btn buttonStackLoginClicked">Registro</button></a>
 									<button type="submit" id="btnLogin" class="btn buttonStackLoginClicked">Entrar</button>
 								</div>
+							<?php } else { ?>
+							<div class="divBotonesLogin">
+								<span class="titleMenuLogged">Bienvenido</span>
+								<a href="#"><button type="button" id="registro" class="btn buttonStackLoginClicked">Perfil</button></a>
+								<a href="index.php?controller=usuarios&action=logout"><button type="button" id="btnLogin" class="btn buttonStackLoginClicked">Logout</button></a>
+							</div>
+							<?php } ?>
 							</form>
 						</div>
 					</li>
@@ -163,10 +190,5 @@ $currentuser = $view->getVariable("currentusername");
 
 		<?= $view->getFragment("script") ?>
 	</script>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="css/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@ define("DEFAULT_CONTROLLER", "Posts");
 /**
  * Default action if any action is passed in the URL
  */
-define("DEFAULT_ACTION", "view");
+define("DEFAULT_ACTION", "index");
 
 /**
  * Main router (single entry-point for all requests)

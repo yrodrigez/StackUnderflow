@@ -34,7 +34,7 @@ class PostsController extends BaseController
         $this->tagDAO= new TagDAO();
     }
 
-    public function view()
+    public function index()
     {
         $posts = $this->postDAO->getHotPosts(PostsController::HOT_POST_SIZE);
         /** @var Post $post */

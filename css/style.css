@@ -236,6 +236,13 @@ a.loginButton:hover{
 	border-color:#000000;
 }
 
+.titleMenuLogged{
+	font-family: 'Press Start 2P';
+	font-size: 15px;
+	width:100%;
+	color:black;
+}
+
 #loginButtonMobile:hover{
 	color: gray;
 	text-decoration: none;
@@ -401,7 +408,7 @@ hr {
 }
 
 .divBotonesLogin {
-	text-align: right;
+	text-align: center;
 	margin-top: 5px;
 }
 
@@ -474,7 +481,7 @@ hr {
 	text-align: center;
 }
 
-textarea {
+textarea{
 	width:100%;
 }
 

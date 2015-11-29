@@ -117,4 +117,20 @@ class Usuario
   ){
     $this->nombre = $nombre;
   }
+
+  public function isValidForRegister() {
+    $errors = array();
+    
+    if (strlen($this->username) < 5) {
+            array_push($errors, array("error", "El usuario debe tener al menos cinco caracteres."));
+    }
+      
+    if (strlen($this->password) < 5) {  // TODO: implementar verificacion de contraseña segura
+            array_push($errors, array("error", "La contraseña debe tener al menos cinco caracteres"));
+    }
+      
+    if (sizeof($errors)>0){
+      return $errors;
+    }
+  }
 }

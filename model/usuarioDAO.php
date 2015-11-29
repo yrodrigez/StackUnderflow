@@ -1,4 +1,4 @@
-<?php
+  <?php
 // file: model/pinchoMapper.php
 require_once(__DIR__."/../core/PDOConnection.php");
 require_once(__DIR__."/../model/usuario.php");
@@ -47,15 +47,15 @@ class UsuarioDAO {
   /**
    * Gets the user specified by the id
    * 
-   * @param string $idUserThe id of the user we want to retrieve
+   * @param string $username The username of the user we want to retrieve
    * @throws PDOException if a database error occurs
    * @return User The user with the specified Username, NULL if its not found
    */
   public function getUser(
-        $idUser
+        $username
   ) {
-    $stmt = $this->db->prepare("SELECT * FROM users WHERE id=?");
-    $stmt->execute(array($idUser));
+    $stmt = $this->db->prepare("SELECT * FROM users WHERE username=?");
+    $stmt->execute(array($username));
     if($stmt->rowCount()>0) {
       foreach (
         $stmt as $user
@@ -164,5 +164,29 @@ class UsuarioDAO {
     $stmt = $this->db->prepare("DELETE FROM users WHERE id= ?;");
     return $stmt->execute(array($idUser));
   }
+
+  public function isValid (
+      $usuario
+  ) {
+      $stmt= $this->db->prepare(
+          "SELECT count(username) FROM users where username=? and password=?"
+      );
+      $stmt->execute(array($usuario->getUsername(), $usuario->getPassword()));
+      return $stmt->fetchColumn() > 0;
+    }
+
+  public function exists (
+      $usuario
+  ) {
+      $stmt= $this->db->prepare(
+          "SELECT username FROM users where username=?;"
+      );
+      $stmt->execute(array($usuario->getUsername()));
+      if($stmt->rowCount()>0) {
+        return true;
+      } else {
+        return false;
+      }
+    }
 }
 ?>
