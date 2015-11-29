@@ -72,9 +72,11 @@ $view = ViewManager::getInstance();
 					<p class="help-block">Una breve descripcion sobre usted</p>
 				</div>
 			</div>
-			<div class="form-group">
+			<div class="control-group">
 				<label for="avatar">Foto de perfil:</label>
-				<input type="file" class="file file-loading" name="avatar" id="avatar" data-show-upload="false" data-allowed-file-extensions='["jpg", "png", "gif"]'>
+				<div class="controls">
+					<input type="file" class="file file-loading" name="avatar" id="avatar" data-show-upload="false" data-allowed-file-extensions='["jpg", "png", "gif"]'>
+				</div>
 			</div>
 			<div class="control-group">
 				<div id="divButtonRegistro"class="controls">
