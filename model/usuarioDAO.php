@@ -45,7 +45,7 @@ class UsuarioDAO {
   }
 
   /**
-   * Gets the user specified by the id
+   * Gets the user specified by the username
    * 
    * @param string $username The username of the user we want to retrieve
    * @throws PDOException if a database error occurs
@@ -56,6 +56,38 @@ class UsuarioDAO {
   ) {
     $stmt = $this->db->prepare("SELECT * FROM users WHERE username=?");
     $stmt->execute(array($username));
+    if($stmt->rowCount()>0) {
+      foreach (
+        $stmt as $user
+        ) {
+            return new Usuario(
+                $user["id"],
+                $user["username"],
+                $user["password"],
+                $user["tipo"],
+                $user["email"],
+                $user["descripcion"],
+                $user["foto"],
+                $user["name"]
+            );
+      }
+    } else {
+        return false;
+    }
+  }
+
+  /**
+   * Gets the user specified by the id
+   * 
+   * @param id $id The username of the user we want to retrieve
+   * @throws PDOException if a database error occurs
+   * @return User The user with the specified id, NULL if its not found
+   */
+  public function fill(
+        $id
+  ) {
+    $stmt = $this->db->prepare("SELECT * FROM users WHERE id=?");
+    $stmt->execute(array($id));
     if($stmt->rowCount()>0) {
       foreach (
         $stmt as $user

@@ -34,9 +34,9 @@ $posts = $view->getVariable("posts");
 		</div>
 		<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
 			<!--ENLACE A PREGUNTA-->
-			<a href="html/Query.html">
+			<a href="index.php?controller=posts&action=view&id=<?=$post->getId();?>">
 				<p>
-					<?= $post->getCuerpo(); ?>
+					<?= $post->getTitulo(); ?>
 				</p>
 			</a>
 		</div>
@@ -59,3 +59,6 @@ $posts = $view->getVariable("posts");
 	</div>
 	<!-- FIN PREGUNTA PLANTILLA-->
 <?php endforeach; ?>
+<div id="divButtonPreguntar" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+	<a href="index.php?controller=posts&action=add"><button type="button" id="preguntar" class="btn preguntaButton">Preguntar</button></a>
+</div>

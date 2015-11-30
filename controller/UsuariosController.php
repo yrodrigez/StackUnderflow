@@ -23,8 +23,10 @@ class UsuariosController extends BaseController {
 			$user = new Usuario(0,$_POST["username"], $_POST["password"]);
 			
 			if ($this->userDAO->isValid($user)) {
-				$_SESSION["user"]=$_POST["username"];
-				$this->userDAO->getUser($user->getUsername());
+				$idUser = $this->userDAO->getIdOfUser($_POST["username"]);
+				$_SESSION["user"]= $idUser;
+				$_SESSION["username"]= $_POST["username"];
+				$user = $this->userDAO->getUser($user->getUsername());
 				$_SESSION["type"]=$user->getTipoUsuario();
 				$this->view->redirect("posts", "index");
 			} else {

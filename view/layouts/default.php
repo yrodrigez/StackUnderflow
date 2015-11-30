@@ -53,7 +53,7 @@ $currentuser = $view->getVariable("currentusername");
 					<li class="dropdown" id="menuLogin">
 						<a class="dropdown-toggle loginButton" href="#" data-toggle="dropdown" id="navLogin"><?php if(!isset($_SESSION["user"])) {
 																													echo "Login"; } else {
-																													echo $_SESSION["user"];} ?></a>
+																													echo $_SESSION["username"];} ?></a>
 						<div class="dropdown-menu" style="padding:17px;">
 							<form class="form" id="formLogin" action="index.php?controller=usuarios&action=login" method="POST">
 							<?php if(!isset($_SESSION["user"])) { ?>
@@ -130,7 +130,7 @@ $currentuser = $view->getVariable("currentusername");
 								<ul class="nav navbar-nav listaMenu">
 									<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="dropdownMenu">Menu</span><span class="caret"></span></a>
 										<ul class="dropdown-menu dropdownMenu listaMenu">
-											<li><a href="#">Home</a></li>
+											<li><a href="index.php?controller=posts&action=index">Home</a></li>
 											<li><a href="#">Sin contestar</a></li>
 											<li><a href="#">Usuarios</a></li>
 											<li><a href="#">Categorias</a></li>
@@ -149,7 +149,7 @@ $currentuser = $view->getVariable("currentusername");
 			<!-- Inicio sidebar -->
 			<nav class="col-md-2 col-lg-2  visible-lg visible-md" id="sideBar">
 				<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
-					<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Home</a></span></li>
+					<li><span class="compSideBar"><a class="enlaceSideBar" href="index.php?controller=posts&action=index">Home</a></span></li>
 					<hr/>
 					<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Sin Contestar</a></span></li>
 					<hr/>
