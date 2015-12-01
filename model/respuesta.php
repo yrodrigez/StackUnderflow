@@ -7,6 +7,7 @@ class Respuesta
 	private $cuerpo;
 	private $fechaCreacion;
 	private $votos;
+	private $usuarioCreador;
 
 	public function __construct(
 		$idRespuesta=NULL,
@@ -51,6 +52,11 @@ class Respuesta
 	{
 		return $this->votos;
 	}
+
+	public function getUsuarioCreador()
+	{
+		return $this->usuarioCreador;
+	}
 	
 	public function setIdRespuesta(
 		$idRespuesta= NULL
@@ -86,5 +92,10 @@ class Respuesta
 		$votos= NULL
 	) {
 		$this->votos= $votos;
+	}
+	public function setUsuarioCreador(
+		$usuarioCreador= NULL
+	) {
+		$this->usuarioCreador= $usuarioCreador;
 	}
 }

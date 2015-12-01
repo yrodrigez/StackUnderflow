@@ -13,7 +13,7 @@ require_once(__DIR__ . "/../model/usuario.php");
 require_once(__DIR__."/../model/postDAO.php");
 require_once(__DIR__."/../model/tagDAO.php");
 require_once(__DIR__."/../model/usuarioDAO.php");
-
+require_once(__DIR__."/../model/respuestaDAO.php");
 require_once(__DIR__ . "/../controller/BaseController.php");
 
 /**
@@ -34,6 +34,7 @@ class PostsController extends BaseController
         $this->postDAO= new PostDAO();
         $this->tagDAO= new TagDAO();
         $this->usuarioDAO= new UsuarioDAO();
+        $this->respuestaDAO= new RespuestaDAO();
     }
 
     public function index()
@@ -89,13 +90,20 @@ class PostsController extends BaseController
     }
 
     public function view() {
-    	//RECUPERAR RESPEUSTAS PARA RENDERIZAR
     	$post = $this->postDAO->fill($_GET["id"]);
         $post->setNumVisitas($post->getNumVisitas() + 1);
         $this->postDAO->aumentarVisitas($post);
     	$autor = $this->usuarioDAO->fill($post->getIdUsuario());
+        $respuestas = $this->respuestaDAO->getRespuestasDePost($post->getId());
+        if ($respuestas != NULL) {
+            foreach ($respuestas as $respuesta){
+                $usuarioCreador = $this->usuarioDAO->fill($respuesta->getUserId());
+                $respuesta->setUsuarioCreador($usuarioCreador);
+            }
+        }
     	$this->view->setVariable("post", $post);
     	$this->view->setVariable("autor", $autor);
+        $this->view->setVariable("respuestas", $respuestas);
     	$this->view->render("posts","view");
     }
 

@@ -54,7 +54,7 @@ create table post_tag
 	foreign key (tag_id) references tags(id)
 );
 
-insert into users(id, username, password, name, email, foto, descripcion, tipo) values (0,"yonyon", "yonyon", "Yago Rodriguez", "yonyon@gmail.com", "path", "soy un rogue", 1);
+insert into users(id, username, password, name, email, foto, descripcion, tipo) values (0,"yonyon", "yonyon", "Yago Rodriguez", "yonyon@gmail.com", "default.png", "soy un rogue", 1);
 insert into posts(id, titulo, user_id, cuerpo, numvisitas, created, contestada) values (0,"a title", 1, "cuerpo del post", 10, 20150124, 0);
 insert into respuestas(id, user_id, idpost, cuerpo, created) values (0,1, 1, "cuerpo de la respuesta", 20150124);
 insert into tags(id, tag) values (0, "c++");

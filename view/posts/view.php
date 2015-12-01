@@ -42,30 +42,21 @@ $respuestas = $view->getVariable("respuestas");
 <div class="row">
 	<?php if($respuestas==NULL) { 
 		echo "Este post no tiene respuestas";
-	} else { ?>
+	} else { 
+		foreach ($respuestas as $respuesta) { ?>
 	<div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 w">
-		<img alt="Foto usuario" class="img-responsive img-circle sizePhotoAnswer" src="/img/users/el papa.jpg"/>
+		<img alt="Foto usuario" class="img-responsive img-circle sizePhotoAnswer" src="img/users/<?=$respuesta->getUsuarioCreador()->getFotoPath(); ?>"/>
 	</div>
 	<div class="col-lg-10 col-md-10 col-sm-9 col-xs-8 whiteBackground">
 		<p align="justify">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non sem felis. Fusce convallis mi in dolor ornare interdum. Integer non quam rutrum, pulvinar mi ut, pulvinar enim. Aenean mollis consectetur pellentesque. Mauris vestibulum sed nisl in fermentum. Proin mi neque, ornare et dignissim sed, vestibulum laoreet libero. Aenean fringilla vel purus id euismod. Quisque ac posuere diam. Aenean semper sed lorem nec vehicula. Praesent semper tempor vulputate. Pellentesque non ex at lacus ultricies congue. Phasellus ultrices aliquam tempor.
+			<?= $respuesta->getCuerpo(); ?>
 		</p>
 		<div class="usuarioRespuesta">
-			<span>Respondido por: Schztroedingher a las: 32:81 p.m</span>
+			<span>Respondido por: <?= $respuesta->getUsuarioCreador()->getUsername()." el dia: ".$respuesta->getFechaCreacion()?></span>
 		</div>
 	</div>
-	<div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
-		<img alt="Foto usuario" class="img-responsive img-circle sizePhotoAnswer" src="/img/users/Ratael.jpg"/>
-	</div>
-	<div class="col-lg-10 col-md-10 col-sm-9 col-xs-8 whiteBackground">
-		<p align="justify">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non sem felis. Fusce convallis mi in dolor ornare interdum. Integer non quam rutrum, pulvinar mi ut, pulvinar enim. Aenean mollis consectetur pellentesque. Mauris vestibulum sed nisl in fermentum. Proin mi neque, ornare et dignissim sed, vestibulum laoreet libero. Aenean fringilla vel purus id euismod. Quisque ac posuere diam. Aenean semper sed lorem nec vehicula. Praesent semper tempor vulputate. Pellentesque non ex at lacus ultricies congue. Phasellus ultrices aliquam tempor.
-		</p>
-		<div class="usuarioRespuesta">
-			<span>Respondido por: Ratael, 32:00 p.m</span>
-		</div>
-	</div>
-	<?php } ?>
+		<?php } 
+	 } ?>
 </div>
 <!-- Final respuestas -->
 <!-- Visitas -->

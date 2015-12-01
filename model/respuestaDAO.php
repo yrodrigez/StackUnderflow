@@ -5,6 +5,7 @@
  * Date: 15/11/2015
  * Time: 13:38
  */
+require_once(__DIR__ . "/../model/respuesta.php");
 
 class RespuestaDAO {
   private $db;
