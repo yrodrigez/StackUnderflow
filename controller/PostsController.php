@@ -89,8 +89,10 @@ class PostsController extends BaseController
     }
 
     public function view() {
-    	//HACER AQUI EL AUMENTO DE VISTASSSSSSSSSSSSSSS y RECUPERAR RESPEUSTAS PARA RENDERIZAR
+    	//RECUPERAR RESPEUSTAS PARA RENDERIZAR
     	$post = $this->postDAO->fill($_GET["id"]);
+        $post->setNumVisitas($post->getNumVisitas() + 1);
+        $this->postDAO->aumentarVisitas($post);
     	$autor = $this->usuarioDAO->fill($post->getIdUsuario());
     	$this->view->setVariable("post", $post);
     	$this->view->setVariable("autor", $autor);

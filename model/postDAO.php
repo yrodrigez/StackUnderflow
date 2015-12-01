@@ -121,6 +121,18 @@ class PostDAO {
         ));
     }
 
+    public function aumentarVisitas(
+      $post
+    ) {
+      $stmt = $this->db->prepare(
+        "UPDATE posts SET numVisitas= ? WHERE id= ?"
+        );
+      return $stmt->execute(array(
+        $post->getNumVisitas(),
+        $post->getId()
+        ));
+    }
+
     /**
      * @param $idPost
      * @return Post
