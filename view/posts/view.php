@@ -41,7 +41,7 @@ $respuestas = $view->getVariable("respuestas");
 </div>
 <div class="row">
 	<?php if($respuestas==NULL) { 
-		echo "Este post no tiene respuestas"
+		echo "Este post no tiene respuestas";
 	} else { ?>
 	<div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 w">
 		<img alt="Foto usuario" class="img-responsive img-circle sizePhotoAnswer" src="/img/users/el papa.jpg"/>
