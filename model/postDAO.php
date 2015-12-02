@@ -70,6 +70,28 @@ class PostDAO {
     }
 
     /**
+     * Busca en el titulo y el cuerpo del post, la cadena que recibe por parametros
+     * @param  String $query
+     * @return array of Posts
+     */
+    public function search(
+      $query
+    ) {
+      $stmt = $this->db->prepare(
+        "SELECT id FROM  posts WHERE titulo LIKE ? OR cuerpo LIKE ?;"
+        );
+      if($stmt->execute(array("%".$query."%", "%".$query."%"))) {
+          $ret = array();
+          foreach($stmt as $post) {
+            array_push($ret, $this->fill($post["id"]));
+          }
+          return $ret;
+      } else{
+        return NULL;
+      }
+    }
+
+    /**
      * @param $post
      * @return bool
      */

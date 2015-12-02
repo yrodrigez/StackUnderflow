@@ -10,14 +10,15 @@ $posts = $view->getVariable("posts");
 ?>
 
 <!--SEARCHBAR-->
-<div class= "row">
-	<div id="searchBar" class="input-group col-md-12">
-		<input id="busqueda" type="text" class="form-control" placeholder="Search for...">
-		<span class="input-group-btn">
-			<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-		</span>
+<form action='index.php?controller=posts&action=search' method="POST"> 
+	<div class= "row">
+		<div id="searchBar" class="input-group col-md-12">
+			<input id="busqueda" type="text"  name="busqueda" class="form-control" placeholder="Search for...">
+			<span class="input-group-btn">
+			<button type="submit" class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
+		</div>
 	</div>
-</div>
+</form>
 <!--FIN SEARCHBAR-->
 <div class="row">
 	<span class="col-md-12"><h2>Hot Questions</h2></span>
@@ -42,7 +43,7 @@ $posts = $view->getVariable("posts");
 		</div>
 		<div class="row tags col-lg-12 col-md-12 col-sm-3 col-xs-12 hidden-xs">
 			<?php foreach($post->getTags() as $tag): ?>
-			<a href="#"><span class="tag">&nbsp<?= $tag->getTag() ?>&nbsp</span></a>
+				<a href="#"><span class="tag">&nbsp<?= $tag->getTag() ?>&nbsp</span></a>
 			<?php endforeach; ?>
 		</div>
 		<div class="tags col-lg-12 col-md-12 col-sm-12 col-xs-12 visible-xs hidden-md hidden-lg">
@@ -59,7 +60,7 @@ $posts = $view->getVariable("posts");
 	</div>
 	<!-- FIN PREGUNTA PLANTILLA-->
 <?php endforeach; 
-	if (isset ($_SESSION['user'])){ ?>
+if (isset ($_SESSION['user'])){ ?>
 <div id="divButtonPreguntar" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 	<a href="index.php?controller=posts&action=add"><button type="button" id="preguntar" class="btn preguntaButton">Preguntar</button></a>
 </div>
