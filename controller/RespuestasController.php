@@ -32,12 +32,12 @@ class RespuestasController extends BaseController {
 					$msg = array();
 		       	    array_push($msg, array("success", "Respuesta creada correctamente"));
 		            $this->view->setFlash($msg);
-		            $this->view->redirect("posts", "index"); 
+		            $this->view->redirectToReferer(); 
 	        	} else {
 	        		$msg = array();
 	       	    	array_push($msg, array("error", "Debe rellenar la respuesta"));
 	            	$this->view->setFlash($msg);
-	            	$this->view->redirect("posts", "index"); 
+	            	$this->view->redirectToReferer(); 
 				}
 	        }
 		} else {
