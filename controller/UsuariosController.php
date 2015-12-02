@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once(__DIR__."/../core/ViewManager.php");
 
 require_once(__DIR__."/../model/Usuario.php");

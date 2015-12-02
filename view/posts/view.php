@@ -52,7 +52,7 @@ $respuestas = $view->getVariable("respuestas");
 			<?= $respuesta->getCuerpo(); ?>
 		</p>
 		<div class="usuarioRespuesta">
-			<span>Respondido por: <?= $respuesta->getUsuarioCreador()->getUsername()." el dia: ".$respuesta->getFechaCreacion()?></span>
+			<span>Respondido por: <?= $respuesta->getUsuarioCreador()->getUsername()." el dia ".$respuesta->getFechaCreacion()?></span>
 		</div>
 	</div>
 		<?php } 
@@ -69,7 +69,7 @@ $respuestas = $view->getVariable("respuestas");
 <!--Fin visitas-->
 <!-- Inicio textarea -->
 <?php if(isset($_SESSION["user"])) { ?>
-<form>
+<form action='index.php?controller=respuestas&action=add&id=<?=$post->getId();?>' method="POST">
 	<div class="col-md-12 textBox">
 		<textarea id="textEditor" name="respuesta" rows="10"></textarea> 
 	</div>
@@ -77,7 +77,7 @@ $respuestas = $view->getVariable("respuestas");
 	<!-- BOTON Enviar -->
 	<div  class ="row">
 		<div id="preguntaDiv" class="preguntaContainer col-lg-3 col-md-3 col-sm-3 col-xs-4">
-			<button id="preguntaButton" type="button" class="btn btn-primary preguntaButton">Enviar</button>
+			<input type="submit" class="btn btn-primary preguntaButton" value="Enviar">
 		</div>
 	</div>
 	<!-- FIN BOTON ENviar -->

@@ -41,7 +41,7 @@ class RespuestaDAO {
         cuerpo,
         created
         ) VALUES
-    (?,?,?,?,?)"
+        (?,?,?,?,?)"
     );
     $stmt->execute(array(
       $respuesta->getIdRespuesta(),
