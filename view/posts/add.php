@@ -57,3 +57,7 @@
 						</form>
 					</div>
 				<!--FIN CREACION PREGUNTA-->
+
+<?php $view->moveToFragment("script"); ?>
+$('#tags').tagsInput({width:'auto'});
+<?php $view->moveToDefaultFragment(); ?>

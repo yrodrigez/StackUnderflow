@@ -12,7 +12,7 @@ create table users
 create table posts
 (
 	id integer auto_increment primary key ,
-	titulo varchar(40) not null,
+	titulo varchar(150) not null,
 	user_id integer not null,
 	cuerpo text not null,
 	numvisitas integer not null,
