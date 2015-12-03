@@ -6,14 +6,15 @@ $view = ViewManager::getInstance();
 
 
 <!--SEARCHBAR-->
-<div class= "row">
-	<div id="searchBar" class="input-group col-md-12">
-		<input id="busqueda" type="text" class="form-control" placeholder="Search for...">
-		<span class="input-group-btn">
-			<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-		</span>
+<form action='index.php?controller=posts&action=search' method="POST"> 
+	<div class= "row">
+		<div id="searchBar" class="input-group col-md-12">
+			<input id="busqueda" type="text"  name="busqueda" class="form-control" placeholder="Search for..." required="true">
+			<span class="input-group-btn">
+			<button type="submit" class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
+		</div>
 	</div>
-</div>
+</form>
 <!--FIN SEARCHBAR-->
 <!-- USUARIOS -->
 
