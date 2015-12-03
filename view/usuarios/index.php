@@ -9,7 +9,7 @@ $view = ViewManager::getInstance();
 <form action='index.php?controller=posts&action=search' method="POST"> 
 	<div class= "row">
 		<div id="searchBar" class="input-group col-md-12">
-			<input id="busqueda" type="text"  name="busqueda" class="form-control" placeholder="Search for..." required="true">
+			<input id="busqueda" type="text"  name="busqueda" class="form-control" placeholder="<?=i18n("Buscar...")?>" required="true">
 			<span class="input-group-btn">
 			<button type="submit" class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
 		</div>

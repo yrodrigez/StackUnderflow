@@ -8,7 +8,7 @@ $view = ViewManager::getInstance();
 <form action='index.php?controller=posts&action=search' method="POST"> 
 	<div class= "row">
 		<div id="searchBar" class="input-group col-md-12">
-			<input id="busqueda" type="text"  name="busqueda" class="form-control" placeholder="Search for..." required="true">
+			<input id="busqueda" type="text"  name="busqueda" class="form-control" placeholder="<?=i18n("Buscar...")?>" required="true">
 			<span class="input-group-btn">
 			<button type="submit" class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
 		</div>
@@ -20,68 +20,68 @@ $view = ViewManager::getInstance();
 	<form class="form-horizontal" action='index.php?controller=usuarios&action=add' method="POST" enctype="multipart/form-data">
 		<fieldset>
 			<div id="legend">
-				<h2>Registro</h2>
+				<h2><?= i18n("Registro");?></h2>
 				<hr/>
 			</div>
 			<div class="control-group">
 				<!-- Username -->
-				<label class="control-label"  for="username">Nombre de usuario</label>
+				<label class="control-label"  for="username"><?=i18n("Nombre de usuario");?></label>
 				<div class="controls">
-					<input type="text" id="nombreUsuario" name="username" placeholder="" class="input-xlarge" required="true">
-					<p class="help-block">El nombre de usuario puede contener letras y numeros, sin espacios</p>
+					<input type="text" id="nombreUsuario" name="username" class="input-xlarge" required="true">
+					<p class="help-block"><?=i18n("El nombre de usuario puede contener letras y numeros, sin espacios");?></p>
 				</div>
 			</div>
 			<div class="control-group">
 				<!-- Password-->
-				<label class="control-label" for="password">Contraseña</label>
+				<label class="control-label" for="password"><?= i18n("Contraseña");?></label>
 				<div class="controls">
-					<input type="password" id="contraseña" name="password" placeholder="" class="input-xlarge" required="true">
-					<p class="help-block">La contraseña debe tener al menos cinco(5) caracteres</p>
+					<input type="password" id="contraseña" name="password" class="input-xlarge" required="true">
+					<p class="help-block"><?= i18n("La contraseña debe tener al menos cinco(5) caracteres")?></p>
 				</div>
 			</div>
 
 			<div class="control-group">
 				<!-- Password -->
-				<label class="control-label"  for="password_confirm">Repetir contraseña</label>
+				<label class="control-label"  for="password_confirm"><?= i18n("Repetir contraseña")?></label>
 				<div class="controls">
-					<input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge" required="true">
-					<p class="help-block">Confirme su contraseña</p>
+					<input type="password" id="password_confirm" name="password_confirm" class="input-xlarge" required="true">
+					<p class="help-block"><?= i18n("Confirme su contraseña")?></p>
 				</div>
 			</div>
 			<div class="control-group">
 				<!-- Username -->
-				<label class="control-label"  for="name">Nombre completo</label>
+				<label class="control-label"  for="name"><?= i18n("Nombre completo")?></label>
 				<div class="controls">
-					<input type="text" id="name" name="name" placeholder="" class="input-xlarge">
-					<p class="help-block">Introduzca su nombre</p>
+					<input type="text" id="name" name="name" class="input-xlarge">
+					<p class="help-block"><?= i18n("Introduzca su nombre")?></p>
 				</div>
 			</div>
 			<div class="control-group">
 				<!-- E-mail -->
-				<label class="control-label" for="email">E-mail</label>
+				<label class="control-label" for="email"><?= i18n("E-mail")?></label>
 				<div class="controls">
 					<input type="text" id="email" name="email" placeholder="" class="input-xlarge" required="true">
-					<p class="help-block">Por favor introduzca su e-mail</p>
+					<p class="help-block"><?= i18n("Introduzca su e-mail")?></p>
 				</div>
 			</div>
 
 			<div class="control-group">
 				<!-- Descripcion -->
-				<label class="control-label" for="descripcion">Descripción</label>
+				<label class="control-label" for="descripcion"><?= i18n("Descripción")?></label>
 				<div class="controls">
 					<textarea id ="descripcion" name="descripcion" rows ="10"></textarea>
-					<p class="help-block">Una breve descripcion sobre usted</p>
+					<p class="help-block"><?= i18n("Una breve descripcion sobre usted")?></p>
 				</div>
 			</div>
 			<div class="control-group">
-				<label for="avatar">Foto de perfil:</label>
+				<label for="avatar"><?= i18n("Foto de perfil");?></label>
 				<div class="controls">
 					<input type="file" class="file file-loading" name="avatar" id="avatar" data-show-upload="false" data-allowed-file-extensions='["jpg", "png", "gif"]'>
 				</div>
 			</div>
 			<div class="control-group">
 				<div id="divButtonRegistro"class="controls">
-					<button class="btn btn-success buttonRegistro">Registrarse</button>
+					<button class="btn btn-success buttonRegistro"><?= i18n("Registrarse");?></button>
 				</div>
 			</div>
 		</fieldset>

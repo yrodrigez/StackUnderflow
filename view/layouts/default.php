@@ -52,23 +52,23 @@ $currentuser = $view->getVariable("currentusername");
 						<ul class="nav pull-left " id="loginButton">
 							<li class="dropdown" id="menuLogin">
 								<a class="dropdown-toggle loginButton" href="#" data-toggle="dropdown" id="navLogin"><?php if(!isset($_SESSION["user"])) {
-									echo "Login"; } else {
+									echo i18n("Entrar"); } else {
 										echo $_SESSION["username"];} ?></a>
 										<div class="dropdown-menu" style="padding:17px;">
 											<form class="form" id="formLogin" action="index.php?controller=usuarios&action=login" method="POST">
 												<?php if(!isset($_SESSION["user"])) { ?>
-												<input name="username" id="username" placeholder="Usuario" type="text" required="true">
-												<input name="password" id="password" placeholder="Contraseña" type="password" required="true">
+												<input name="username" id="username" placeholder="<?=i18n("Usuario")?>" type="text" required="true">
+												<input name="password" id="password" placeholder="<?=i18n("Contraseña")?>" type="password" required="true">
 												<br>
 												<div class="divBotonesLogin">
-													<a href="index.php?controller=usuarios&action=add"><button type="button" id="registro" class="btn buttonStackLoginClicked">Registro</button></a>
-													<button type="submit" id="btnLogin" class="btn buttonStackLoginClicked">Entrar</button>
+													<a href="index.php?controller=usuarios&action=add"><button type="button" id="registro" class="btn buttonStackLoginClicked"><?=i18n("Registrar");?></button></a>
+													<button type="submit" id="btnLogin" class="btn buttonStackLoginClicked"><?=i18n("Entrar");?></button>
 												</div>
 												<?php } else { ?>
 												<div class="divBotonesLogin">
-													<span class="titleMenuLogged">Bienvenido</span>
-													<a href="#"><button type="button" id="registro" class="btn buttonStackLoginClicked">Perfil</button></a>
-													<a href="index.php?controller=usuarios&action=logout"><button type="button" id="btnLogin" class="btn buttonStackLoginClicked">Logout</button></a>
+													<span class="titleMenuLogged"><?=i18n("Bienvenido")?></span>
+													<a href="#"><button type="button" id="registro" class="btn buttonStackLoginClicked"><?=i18n("Perfil")?></button></a>
+													<a href="index.php?controller=usuarios&action=logout"><button type="button" id="btnLogin" class="btn buttonStackLoginClicked"><?=i18n("Salir")?></button></a>
 												</div>
 												<?php } ?>
 											</form>
@@ -85,122 +85,127 @@ $currentuser = $view->getVariable("currentusername");
 								<div class="row">
 									<div id="containerLoginMobile"class="col-md-12">
 										<button id="loginButtonMobile" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><?php if(!isset($_SESSION["user"])) {
-									echo "Login"; } else {
-										echo $_SESSION["username"];} ?></button>
+											echo i18n("Entrar"); } else {
+												echo $_SESSION["username"];} ?></button>
 
-										<!-- Modal -->
-										<div id="myModal" class="modal fade" role="dialog">
-											<div class="modal-dialog">
+												<!-- Modal -->
+												<div id="myModal" class="modal fade" role="dialog">
+													<div class="modal-dialog">
 
-												<!-- Modal content-->
-												<div class="modal-content">
-													<div class="modal-header">
-														<button type="button" class="close modalCloseButton" data-dismiss="modal">&times;</button>
-														<span class="modal-title"><?php if(!isset($_SESSION["user"])) {
-									echo "Identificacion"; } else {
-										echo $_SESSION["username"];} ?></span>
-													</div>
-													<div class="modal-body">
-														<!-- formulario login -->
-														<form class="form" id="formLogin" action="index.php?controller=usuarios&action=login" method="POST">
-															<?php if(!isset($_SESSION["user"])) { ?>
-															<div class="form-group">
-																<label for="inputEmail">Username</label>
-																<input name="username" type="text" class="form-control"  placeholder="Username">
+														<!-- Modal content-->
+														<div class="modal-content">
+															<div class="modal-header">
+																<button type="button" class="close modalCloseButton" data-dismiss="modal">&times;</button>
+																<span class="modal-title"><?php if(!isset($_SESSION["user"])) {
+																	echo i18n("Identificacion"); } else {
+																		echo $_SESSION["username"];} ?></span>
+																	</div>
+																	<div class="modal-body">
+																		<!-- formulario login -->
+																		<form class="form" id="formLogin" action="index.php?controller=usuarios&action=login" method="POST">
+																			<?php if(!isset($_SESSION["user"])) { ?>
+																			<div class="form-group">
+																				<label for="inputEmail"><?= i18n("Nombre de usuario")?></label>
+																				<input name="username" type="text" class="form-control"  placeholder="<?= i18n("Nombre de usuario")?>">
+																			</div>
+																			<div class="form-group">
+																				<label for="inputPassword"><?= i18n("Contraseña")?></label>
+																				<input name="password" type="password" class="form-control" placeholder="<?= i18n("Contraseña")?>">
+																			</div>
+																			<div class="modal-footer">
+																				<a href="index.php?controller=usuarios&action=add"><button type="button" id="registro" class="btn buttonStack"><?= i18n("Registrar")?></button></a>
+																				<button type="submit" class="btn buttonStack"><?= i18n("Entrar")?></button>
+																			</div>
+																			<?php } else { ?>
+																			<div class="divBotonesLogin">
+																				<span class="titleMenuLogged"><?= i18n("Bienvenido")?></span>
+																				<a href="#"><button type="button" id="perfil" class="btn buttonStack"><?= i18n("Perfil")?></button></a>
+																				<a href="index.php?controller=usuarios&action=logout"><button type="button" id="btnLogin" class="btn buttonStack"><?= i18n("Salir")?></button></a>
+																			</div>
+																			<?php } ?>
+																		</form>
+																		<!-- fin formulario login -->
+																	</div>
+																</div>
 															</div>
-															<div class="form-group">
-																<label for="inputPassword">Contraseña</label>
-																<input name="password" type="password" class="form-control" placeholder="Contraseña">
-															</div>
-															<div class="modal-footer">
-															<a href="index.php?controller=usuarios&action=add"><button type="button" id="registro" class="btn buttonStack">Registro</button></a>
-																<button type="submit" class="btn buttonStack">Entrar</button>
-															</div>
-															<?php } else { ?>
-															<div class="divBotonesLogin">
-																<span class="titleMenuLogged">Bienvenido</span>
-																<a href="#"><button type="button" id="registro" class="btn buttonStack">Perfil</button></a>
-																<a href="index.php?controller=usuarios&action=logout"><button type="button" id="btnLogin" class="btn buttonStack">Logout</button></a>
-															</div>
-															<?php } ?>
-														</form>
-														<!-- fin formulario login -->
+														</div>
 													</div>
 												</div>
+												<!--FIN BOTONAZO PAL MOVIL PAPAS-->
+
+												<!--MENU PAL MOVIL PAPAS-->
+
+												<div class="row ">
+													<nav class="navbar menuVisible col-md-12">
+														<div class="container-fluid">
+															<div id="menuContainerMobile">
+																<ul class="nav navbar-nav listaMenu">
+																	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="dropdownMenu"><?= i18n("Menu")?></span><span class="caret"></span></a>
+																		<ul class="dropdown-menu dropdownMenu listaMenu">
+																			<li><a href="index.php?controller=posts&action=index"><?=i18n("Inicio")?></a></li>
+																			<li><a href="#"><?=i18n("Sin contestar")?></a></li>
+																			<li><a href="#"><?=i18n("Usuarios")?></a></li>
+																			<li><a href="#"><?=i18n("Categorias")?></a></li>
+																			<li><a href="#"><?=i18n("Ayuda")?></a></li>
+																		</ul>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</nav>
+												</div>
+												<!--FIN MENU PAL MOVIL PAPAS-->
+
+												<?= $view->getFragment(ViewManager::DEFAULT_FRAGMENT) ?>
 											</div>
-										</div>
-									</div>
-								</div>
-								<!--FIN BOTONAZO PAL MOVIL PAPAS-->
-
-								<!--MENU PAL MOVIL PAPAS-->
-
-								<div class="row ">
-									<nav class="navbar menuVisible col-md-12">
-										<div class="container-fluid">
-											<div id="menuContainerMobile">
-												<ul class="nav navbar-nav listaMenu">
-													<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="dropdownMenu">Menu</span><span class="caret"></span></a>
-														<ul class="dropdown-menu dropdownMenu listaMenu">
-															<li><a href="index.php?controller=posts&action=index">Home</a></li>
-															<li><a href="#">Sin contestar</a></li>
-															<li><a href="#">Usuarios</a></li>
-															<li><a href="#">Categorias</a></li>
-															<li><a href="#">Halp</a></li>
-														</ul>
-													</li>
+											<!-- Inicio sidebar -->
+											<nav class="col-md-2 col-lg-2  visible-lg visible-md" id="sideBar">
+												<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
+													<li><span class="compSideBar"><a class="enlaceSideBar" href="index.php?controller=posts&action=index"><?=i18n("Inicio")?></a></span></li>
+													<hr/>
+													<li><span class="compSideBar"><a class="enlaceSideBar" href="#"><?=i18n("Sin contestar")?></a></span></li>
+													<hr/>
+													<li><span class="compSideBar"><a class="enlaceSideBar" href="#"><?=i18n("Usuarios")?></a></span></li>
+													<hr/>
+													<li><span class="compSideBar"><a class="enlaceSideBar" href="#"><?=i18n("Categorias")?></a></span></li>
+													<hr/>
+													<li><span class="compSideBar"><a class="enlaceSideBar" href="#"><?=i18n("Ayuda")?></a></span></li>	
 												</ul>
+											</nav>
+											<!--final sidebar-->
+										</div>
+										<!-- FOOTER -->
+
+										<div class="row finalPagina">
+											<div class="linksFooter col-md-12">
+											<span class="elemFooter"><a href='#'><?=i18n("Empleos");?></a></span>
+												<span class="verticalSeparator"></span>
+												<span class="elemFooter"><a href='#'><?=i18n("Informacion");?></a></span>
+												<span class="verticalSeparator"></span>
+												<span class="elemFooter"><a href='#'><?=i18n("Privacidad");?></a></span>
+												<span class="verticalSeparator"></span>
+												<span class="elemFooter"><a href='#'><?=i18n("Terminos");?></a></span>
+											</div>
+											<div>
+												<?php
+												include(__DIR__."/language_select_element.php");
+												?>
+											</div>
+											<div class="company col-md-12">
+												<footer>
+													<span style="color:white">&copy; Schrödinger Inc, 2015</span>
+												</footer>
 											</div>
 										</div>
-									</nav>
-								</div>
-								<!--FIN MENU PAL MOVIL PAPAS-->
+										<!-- FIN FOOTER -->
+									</div>
+									<!-- /container -->
+									<script>
+										$(document).ready(function() {
+											$("#msg-container").delay(3000).fadeOut('slow');
+										});
 
-								<?= $view->getFragment(ViewManager::DEFAULT_FRAGMENT) ?>
-							</div>
-							<!-- Inicio sidebar -->
-							<nav class="col-md-2 col-lg-2  visible-lg visible-md" id="sideBar">
-								<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
-									<li><span class="compSideBar"><a class="enlaceSideBar" href="index.php?controller=posts&action=index">Home</a></span></li>
-									<hr/>
-									<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Sin Contestar</a></span></li>
-									<hr/>
-									<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Usuarios</a></span></li>
-									<hr/>
-									<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Categorias</a></span></li>
-									<hr/>
-									<li><span class="compSideBar"><a class="enlaceSideBar" href="#">Ayuda</a></span></li>	
-								</ul>
-							</nav>
-							<!--final sidebar-->
-						</div>
-						<!-- FOOTER -->
-
-						<div class="row finalPagina">
-							<div class="linksFooter col-md-12">
-								<span class="elemFooter"><a href='#'>Empleos</a></span>
-								<span class="verticalSeparator"></span>
-								<span class="elemFooter"><a href='#'>Informacion</a></span>
-								<span class="verticalSeparator"></span>
-								<span class="elemFooter"><a href='#'>Privacidad</a></span>
-								<span class="verticalSeparator"></span>
-								<span class="elemFooter"><a href='#'>Terminos</a></span>
-							</div>
-							<div class="company col-md-12">
-								<footer>
-									<span style="color:white">&copy; Schrödinger Inc, 2015</span>
-								</footer>
-							</div>
-						</div>
-						<!-- FIN FOOTER -->
-					</div>
-					<!-- /container -->
-					<script>
-						$(document).ready(function() {
-							$("#msg-container").delay(3000).fadeOut('slow');
-						});
-
-						<?= $view->getFragment("script") ?>
-					</script>
-				</body>
-				</html>
+										<?= $view->getFragment("script") ?>
+									</script>
+								</body>
+								</html>

@@ -13,7 +13,7 @@ $posts = $view->getVariable("posts");
 <form action='index.php?controller=posts&action=search' method="POST"> 
 	<div class= "row">
 		<div id="searchBar" class="input-group col-md-12">
-			<input id="busqueda" type="text"  name="busqueda" class="form-control" placeholder="Search for..." required="true">
+			<input id="busqueda" type="text"  name="busqueda" class="form-control" placeholder="<?=i18n("Buscar...")?>" required="true">
 			<span class="input-group-btn">
 			<button type="submit" class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
 		</div>
@@ -21,7 +21,7 @@ $posts = $view->getVariable("posts");
 </form>
 <!--FIN SEARCHBAR-->
 <div class="row">
-	<span class="col-md-12"><h2>Hot Questions</h2></span>
+	<span class="col-md-12"><h2><?= i18n("Preguntas recientes");?></h2></span>
 </div>
 <?php foreach($posts as $post): ?>
 	<!-- PREGUNTA PLANTILLA-->
@@ -62,6 +62,6 @@ $posts = $view->getVariable("posts");
 <?php endforeach; 
 if (isset ($_SESSION['user'])){ ?>
 <div id="divButtonPreguntar" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-	<a href="index.php?controller=posts&action=add"><button type="button" id="preguntar" class="btn preguntaButton">Preguntar</button></a>
+	<a href="index.php?controller=posts&action=add"><button type="button" id="preguntar" class="btn preguntaButton"><?= i18n("Preguntar");?></button></a>
 </div>
 <?php } ?>

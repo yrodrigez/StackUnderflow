@@ -12,7 +12,7 @@ $respuestas = $view->getVariable("respuestas");
 <form action='index.php?controller=posts&action=search' method="POST"> 
 	<div class= "row">
 		<div id="searchBar" class="input-group col-md-12">
-			<input id="busqueda" type="text"  name="busqueda" class="form-control" placeholder="Search for..." required="true">
+			<input id="busqueda" type="text"  name="busqueda" class="form-control" placeholder="<?=i18n("Buscar...")?>" required="true">
 			<span class="input-group-btn">
 			<button type="submit" class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
 		</div>
@@ -23,7 +23,7 @@ $respuestas = $view->getVariable("respuestas");
 <div class="whiteBackground">
 	<div class="row cuerpoPregunta">
 		<span class="col-lg-9 col-md-8 col-sm-7 col-xs-7 tituloPregunta"><?= $post->getTitulo();?></span>
-		<span class="col-lg-3 col-md-4 col-sm-5 col-xs-5 usuarioPregunta">Preguntado por: <?=$autor->getUsername();?></span>
+		<span class="col-lg-3 col-md-4 col-sm-5 col-xs-5 usuarioPregunta"><?php echo sprintf(i18n("Preguntado por: %s"), $autor->getUsername());?></span>
 	</div>
 	<hr>
 	<div class="row">
@@ -37,23 +37,23 @@ $respuestas = $view->getVariable("respuestas");
 <!-- final pregunta -->
 <!-- inicio respuestas -->
 <div class="tituloRespuesta col-md-12">
-	<span>Respuestas</span>
+	<span><?= i18n("Respuestas");?></span>
 	<hr>
 </div>
 <div class="row">
 	<?php if($respuestas==NULL) { 
-		echo "Este post no tiene respuestas";
+		echo i18n("Esta pregunta no tiene respuestas");
 	} else { 
 		foreach ($respuestas as $respuesta) { ?>
 	<div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 w">
-		<img alt="Foto usuario" class="img-responsive img-circle sizePhotoAnswer" src="img/users/<?=$respuesta->getUsuarioCreador()->getFotoPath(); ?>"/>
+		<img alt="<?= i18n("Foto de usuario");?>" class="img-responsive img-circle sizePhotoAnswer" src="img/users/<?=$respuesta->getUsuarioCreador()->getFotoPath(); ?>"/>
 	</div>
 	<div class="col-lg-10 col-md-10 col-sm-9 col-xs-8 whiteBackground">
 		<p align="justify">
 			<?= $respuesta->getCuerpo(); ?>
 		</p>
 		<div class="usuarioRespuesta">
-			<span>Respondido por: <?= $respuesta->getUsuarioCreador()->getUsername()." el dia ".$respuesta->getFechaCreacion()?></span>
+			<span><?php echo sprintf(i18n("Respondido por: %s, el dia %s"), $respuesta->getUsuarioCreador()->getUsername(), $respuesta->getFechaCreacion());?></span>
 		</div>
 	</div>
 		<?php } 
@@ -65,7 +65,7 @@ $respuestas = $view->getVariable("respuestas");
 	<hr>
 	<span class="glyphicon glyphicon-eye-open elemPregunta"></span>
 	<span class="elemPregunta"><?=$post->getNumVisitas();?></span> 
-	<span>Visitas</span>
+	<span><?= i18n("Visitas");?></span>
 </div>
 <!--Fin visitas-->
 <!-- Inicio textarea -->
@@ -78,7 +78,7 @@ $respuestas = $view->getVariable("respuestas");
 	<!-- BOTON Enviar -->
 	<div  class ="row">
 		<div id="preguntaDiv" class="preguntaContainer col-lg-3 col-md-3 col-sm-3 col-xs-4">
-			<input type="submit" class="btn btn-primary preguntaButton" value="Enviar">
+			<input type="submit" class="btn btn-primary preguntaButton" value="<?= i18n("Enviar");?>">
 		</div>
 	</div>
 	<!-- FIN BOTON ENviar -->
