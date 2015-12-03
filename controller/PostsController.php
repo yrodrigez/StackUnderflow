@@ -60,7 +60,7 @@ class PostsController extends BaseController
             $this->view->render("posts", "index");
         } else {
             $msg = array();
-            array_push($msg, array("error", "Debe indicar que desea buscar"));
+            array_push($msg, array("error", i18n("Debe indicar que desea buscar")));
             $this->view->setFlash($msg);
             $this->view->redirectToReferer(); 
         }
@@ -93,7 +93,7 @@ class PostsController extends BaseController
            $this->view->setVariable("post", $post);
            $this->view->setVariable("autor", $this->usuarioDAO->getUser($_SESSION["username"]));
            $msg = array();
-           array_push($msg, array("success", "Post creado correctamente"));
+           array_push($msg, array("success", i18n("Pregunta creada correctamente")));
            $this->view->setFlash($msg);
 	            $this->view->render("posts", "view"); //COMPROBAR Q REDIRIJA BNNN
           } else {
@@ -101,7 +101,7 @@ class PostsController extends BaseController
          }
      } else {
       $msg = array();
-      array_push($msg, array("error", "Debe estar logueado realizar una pregunta"));
+      array_push($msg, array("error", i18n("Debe estar logueado realizar una pregunta")));
       $this->view->setFlash($msg);
       $this->view->redirect("posts","index");
   }

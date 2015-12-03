@@ -50,8 +50,15 @@
     "Visitas" => "Views",
     "Enviar" => "Send",
     "Respuestas" => "Answers",
-    "Post \"%s\" successfully added." => "Artículo \"%s\" añadido.",
-    "Post \"%s\" successfully updated." => "Artículo \"%s\" modificado.",
-    "Post \"%s\" successfully deleted." => "Artículo \"%s\" eliminado.",
+    "Debe indicar que desea buscar" => "You must enter what you want to search",
+    "Pregunta creada correctamente" => "Post created successfully",
+    "Debe estar logueado realizar una pregunta" => "You must log in to create a new post",
+    "Datos de sesión inválidos" => "Login information incorect",
+    "El usuario se ha creado correctamente" => "The user was created successfully",
+    "El usuario ya existe" => "This user already exists",
+    "Las contraseñas deben coincidir" => "Both passwords must match",
+    "Respuesta creada correctamente" => "Answer created successfully",
+    "Debe rellenar la respuesta" => "You must fill your answer",
+    "Debe estar logueado para responder a un post" => "You must log in to answer a post",
   )
 ?>

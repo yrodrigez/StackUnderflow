@@ -31,7 +31,7 @@ class UsuariosController extends BaseController {
 				$this->view->redirect("posts", "index");
 			} else {
 				$msg = array();
-                array_push($msg, array("error", "Datos de sesión inválidos"));
+                array_push($msg, array("error", i18n("Datos de sesión inválidos")));
 				$this->view->setFlash($msg);
 				$this->view->redirect("posts", "index");
 			}
@@ -63,12 +63,12 @@ class UsuariosController extends BaseController {
 						$this->userDAO->createUser($user);
 
 	                    $msg = array();
-	                    array_push($msg, array("success", "El usuario se ha creado correctamente"));
+	                    array_push($msg, array("success", i18n("El usuario se ha creado correctamente")));
 	                    $this->view->setFlash($msg);
 						$this->view->redirect("posts", "index");
 					} else {
 	                    $msg = array();
-	                    array_push($msg, array("error", "El usuario ya existe"));
+	                    array_push($msg, array("error", i18n("El usuario ya existe")));
 	                    $this->view->setFlash($msg);
 					}
 				} else {
@@ -76,7 +76,7 @@ class UsuariosController extends BaseController {
 				}	
 			} else {
 				$msg = array();
-                array_push($msg, array("error", "Las contraseñas deben coincidir"));
+                array_push($msg, array("error", i18n("Las contraseñas deben coincidir")));
 				$this->view->setFlash($msg);
 				$this->view->redirect("usuarios", "add");
 			}

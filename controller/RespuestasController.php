@@ -30,19 +30,19 @@ class RespuestasController extends BaseController {
 										   $_SESSION["user"]);
 					$this->respuestaDAO->save($respuesta);
 					$msg = array();
-		       	    array_push($msg, array("success", "Respuesta creada correctamente"));
+		       	    array_push($msg, array("success", i18n("Respuesta creada correctamente")));
 		            $this->view->setFlash($msg);
 		            $this->view->redirectToReferer(); 
 	        	} else {
 	        		$msg = array();
-	       	    	array_push($msg, array("error", "Debe rellenar la respuesta"));
+	       	    	array_push($msg, array("error", i18n("Debe rellenar la respuesta")));
 	            	$this->view->setFlash($msg);
 	            	$this->view->redirectToReferer(); 
 				}
 	        }
 		} else {
 			$msg = array();
-	       	array_push($msg, array("error", "Debe estar logueado para responder a un post"));
+	       	array_push($msg, array("error", i18n("Debe estar logueado para responder a un post")));
 	        $this->view->setFlash($msg);
 	        $this->view->redirect("posts","index");
 		}
