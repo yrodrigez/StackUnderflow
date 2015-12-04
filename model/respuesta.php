@@ -8,6 +8,8 @@ class Respuesta
 	private $fechaCreacion;
 	private $votos;
 	private $usuarioCreador;
+	private $likes;
+	private $dislikes;
 
 	public function __construct(
 		$idRespuesta=NULL,
@@ -23,6 +25,8 @@ class Respuesta
 		$this->userId= $idUsuario;
 		$this->fechaCreacion= $fechaCreacion;
 		$this->votos = $votos;
+		$this->likes= 0;
+		$this->dislikes= 0;
 	}
 	public function getIdRespuesta()
 	{
@@ -52,7 +56,9 @@ class Respuesta
 	{
 		return $this->votos;
 	}
-
+	/**
+	 * @return Usuario
+	 */
 	public function getUsuarioCreador()
 	{
 		return $this->usuarioCreador;
@@ -97,5 +103,25 @@ class Respuesta
 		$usuarioCreador= NULL
 	) {
 		$this->usuarioCreador= $usuarioCreador;
+	}
+
+	public function getDislikes()
+	{
+		return $this->dislikes;
+	}
+
+	public function addDislike()
+	{
+		$this->dislikes++;
+	}
+
+	public function getLikes()
+	{
+		return $this->likes;
+	}
+
+	public function addLike()
+	{
+		$this->likes++;
 	}
 }

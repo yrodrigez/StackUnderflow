@@ -5,6 +5,11 @@ $view = ViewManager::getInstance();
 $post = $view->getVariable("post");
 $autor = $view->getVariable("autor");
 $respuestas = $view->getVariable("respuestas");
+
+/**
+ * @var Respuesta $respuesta
+ * @var Post $post
+ */
 ?>
 
 
@@ -46,14 +51,35 @@ $respuestas = $view->getVariable("respuestas");
 	} else { 
 		foreach ($respuestas as $respuesta) { ?>
 	<div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 w">
-		<img alt="<?= i18n("Foto de usuario");?>" class="img-responsive img-circle sizePhotoAnswer" src="img/users/<?=$respuesta->getUsuarioCreador()->getFotoPath(); ?>"/>
+		<img
+				alt="<?= i18n("Foto de usuario");?>"
+				class="img-responsive img-circle sizePhotoAnswer"
+				src="img/users/<?=$respuesta->getUsuarioCreador()->getFotoPath(); ?>"/>
 	</div>
 	<div class="col-lg-10 col-md-10 col-sm-9 col-xs-8 whiteBackground">
 		<p align="justify">
 			<?= $respuesta->getCuerpo(); ?>
 		</p>
-		<div class="usuarioRespuesta">
-			<span><?php echo sprintf(i18n("Respondido por: %s, el dia %s"), $respuesta->getUsuarioCreador()->getUsername(), $respuesta->getFechaCreacion());?></span>
+		<div class="row">
+			<div class="col-md-12 likes">
+				<a href="index.php?controller=respuestas&action=addLike&id=<?=$respuesta->getIdRespuesta()?>">
+					<label class="glyphicon glyphicon-thumbs-up">
+						<?= $respuesta->getLikes(); ?>
+					</label></a>
+				<a href="index.php?controller=respuestas&action=addDislike&id=<?=$respuesta->getIdRespuesta();?>">
+					<label class="glyphicon glyphicon-thumbs-down">
+						<?= $respuesta->getDislikes(); ?>
+					</label></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="usuarioRespuesta col-md-12">
+				<span>
+					<?php echo sprintf(i18n("Respondido por: %s, el dia %s"),
+							$respuesta->getUsuarioCreador()->getUsername(),
+							$respuesta->getFechaCreacion());//revisar que no tenga la hora...?>
+				</span>
+			</div>
 		</div>
 	</div>
 		<?php } 

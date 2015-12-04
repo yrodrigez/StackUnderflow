@@ -15,6 +15,53 @@ class RespuestaDAO {
     $this->db= PDOConnection::getInstance();
   }
 
+
+  /**
+   * @param Respuesta array $respuestas
+   * @var $ids ids de las respuestas para hacer la consulta
+   * @var $sql consulta concatenada para todos los votos
+   * @var Respuesta $respuesta
+   */
+  public function getAllRespuestasLikes(
+    $respuestas
+  ){
+    $size= count($respuestas);
+    if($size > 0) {
+      $sql = "SELECT * FROM votos WHERE ";
+      $ids= array();
+      for($i= 0; $i<$size ; ++$i){
+        if($i == $size-1)
+          $sql.=" id_respuesta= ?;";
+        else
+          $sql.=" id_respuesta= ? or";
+        array_push($ids, $respuestas[$i]->getIdRespuesta());
+      }
+
+      $stmt = $this->db->prepare($sql);
+      if($stmt->execute($ids)){
+        foreach($stmt as $voto){
+          /**
+           * * @var Respuesta $respuesta
+           */
+          foreach($respuestas as $respuesta){
+            if($respuesta->getIdRespuesta() == $voto["id_respuesta"]){
+              if($voto["votos"] > 0){
+
+                $respuesta->addLike();
+              }
+              if($voto["votos"] == -1){
+
+                $respuesta->addDislike();
+              }
+            }
+          }
+        }
+        return true;
+      }else{
+        return false;
+      }
+    }
+  }
     /**
      * @param $idUsuario
      * @return PDOStatement
@@ -112,6 +159,28 @@ class RespuestaDAO {
     }
   }
 
+  public function dameMiPost(
+      $idPost
+  ) {
+    $stmt= $this->db->prepare(
+        "SELECT posts.* from posts, respuestas where respuestas.idpost=posts.id and respuestas.id= ?"
+    );
+    $stmt->execute(array($idPost));
+    $row= $stmt->fetch(PDO::FETCH_ASSOC);
+    return new Post(
+      $row["id"],
+      $row["titulo"],
+      $row["contestada"],
+      $row["cuerpo"],
+      $row["numvisitas"],
+      $row["created"],
+      $row["user_id"],
+      array()
+    );
+
+
+  }
+
   /**
    * Gets the answers (ordered by date) of a post
    * 
@@ -149,6 +218,34 @@ class RespuestaDAO {
     }
   }
 
+  public function fill(
+    $id
+  ) {
+    $stmt = $this->db->prepare("SELECT * FROM respuestas WHERE id= ?;");
+    $stmt->execute($id);
+    $respuestas= array();
+    if($stmt->rowCount()>0) {
+      foreach (
+          $stmt as $respuesta
+      ) {
+        $votos = $this->getTotalVotes($respuesta["id"]);
+        if ($votos == NULL) {
+          $votos = array(0, 0);
+        }
+        array_push($respuestas, new Respuesta(
+                $respuesta["id"],
+                $respuesta["idpost"],
+                $respuesta["cuerpo"],
+                $respuesta["created"],
+                $respuesta["user_id"],
+                $votos
+            )
+        );
+      }
+      return $respuestas;
+    }
+  }
+
 
   private function quick_sort($array)
   {
@@ -182,4 +279,23 @@ class RespuestaDAO {
       return array_merge($this->quick_sort($right), array($pivot), $this->quick_sort($left));
     }
   }
+
+
+  public function addLike(
+    $idUser,
+    $idRespuesta
+  ) {
+    $stmt= $this->db->prepare("INSERT INTO votos(id_user, id_respuesta, votos) VALUES (?,?,?)");
+    return $stmt->execute(array($idUser, $idRespuesta, 1));
+  }
+
+  public function addDislike(
+      $idUser,
+      $idRespuesta
+  ) {
+    $stmt= $this->db->prepare("INSERT INTO votos(id_user, id_respuesta, votos) VALUES(?,?,?)");
+    return $stmt->execute(array($idUser,$idRespuesta, -1));
+  }
+
+
 }

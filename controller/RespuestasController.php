@@ -5,17 +5,89 @@ require_once(__DIR__."/../core/ViewManager.php");
 require_once(__DIR__."/../model/respuesta.php");
 require_once(__DIR__."/../model/respuestaDAO.php");
 
+require_once(__DIR__."/../model/usuarioDAO.php");
+require_once(__DIR__."/../model/postDAO.php");
+require_once(__DIR__."/../model/post.php");
+require_once(__DIR__."/../model/usuario.php");
+require_once(__DIR__."/../model/tagDAO.php");
+require_once(__DIR__."/../model/tag.php");
 require_once(__DIR__."/../controller/BaseController.php");
 
 
 class RespuestasController extends BaseController {
   
-	private $respuestaDAO;    
+	private $respuestaDAO;
+	private $usuarioDAO;
+	private $postDao;
+	private $tagDAO;
   
 	public function __construct() {    
 		parent::__construct();
-
 		$this->respuestaDAO = new RespuestaDAO();
+		$this->usuarioDAO= new UsuarioDAO();
+		$this->postDao= new PostDAO();
+		$this->tagDAO= new TagDAO();
+	}
+
+	/**
+	 * @var Post $post
+	 */
+	public function addLike(){
+
+		if(isset($_SESSION["user"])){
+			if($this->usuarioDAO->noHaVotado($_SESSION["user"], $_GET["id"]) == 1){
+				$this->respuestaDAO->addLike($_SESSION["user"], $_GET["id"]);
+			}
+		}
+
+		$post= $this->respuestaDAO->dameMiPost($_GET["id"]);
+		$post->setTags($this->tagDAO->getAllPostTags($post->getId()));
+		$autor= $this->usuarioDAO->fill($post->getIdUsuario());
+		$respuestas= $this->respuestaDAO->getRespuestasDePost($post->getId());
+		if($this->respuestaDAO->getAllRespuestasLikes($respuestas)){
+			//ok
+		}else{
+			//algo no andaría bien
+		}
+		if ($respuestas != NULL) {
+			foreach ($respuestas as $respuesta){
+				$usuarioCreador = $this->usuarioDAO->fill($respuesta->getUserId());
+				$respuesta->setUsuarioCreador($usuarioCreador);
+			}
+		}
+		$this->view->setVariable("post", $post);
+		$this->view->setVariable("autor", $autor);
+		$this->view->setVariable("respuestas", $respuestas);
+		$this->view->render("posts","view");
+	}
+
+	public function addDislike(){
+		if(isset($_SESSION["user"])){
+			if($this->usuarioDAO->noHaVotado($_SESSION["user"], $_GET["id"])){
+				$this->respuestaDAO->addDislike($_SESSION["user"], $_GET["id"]);
+			}
+		}
+
+		$post= $this->respuestaDAO->dameMiPost($_GET["id"]);
+		$post->setTags($this->tagDAO->getAllPostTags($post->getId()));
+		$autor = $this->usuarioDAO->fill($post->getIdUsuario());
+		$respuestas = $this->respuestaDAO->getRespuestasDePost($post->getId());
+		if($this->respuestaDAO->getAllRespuestasLikes($respuestas)){
+			//ok
+		}else{
+			//algo no andaría bien
+		}
+		if ($respuestas != NULL) {
+			foreach ($respuestas as $respuesta){
+				$usuarioCreador = $this->usuarioDAO->fill($respuesta->getUserId());
+				$respuesta->setUsuarioCreador($usuarioCreador);
+			}
+		}
+		$this->view->setVariable("post", $post);
+		$this->view->setVariable("autor", $autor);
+		$this->view->setVariable("respuestas", $respuestas);
+		$this->view->render("posts","view");
+
 	}
 
 

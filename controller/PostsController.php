@@ -67,8 +67,7 @@ class PostsController extends BaseController
 
     }
 
-    public function add()
-    {
+    public function add(){
     	//COMPROBACIONES Q LAS COSAS NO VAYAN VACIAS
     	if(isset($_SESSION["username"]) && ($_SESSION["type"] == 1)){
     		if(isset($_POST['tituloPregunta'])){
@@ -99,30 +98,33 @@ class PostsController extends BaseController
           } else {
              $this->view->render("posts","add");
          }
-     } else {
-      $msg = array();
-      array_push($msg, array("error", i18n("Debe estar logueado realizar una pregunta")));
-      $this->view->setFlash($msg);
-      $this->view->redirect("posts","index");
-  }
-}
-
-public function view() {
-   $post = $this->postDAO->fill($_GET["id"]);
-   $post->setNumVisitas($post->getNumVisitas() + 1);
-   $this->postDAO->aumentarVisitas($post);
-   $autor = $this->usuarioDAO->fill($post->getIdUsuario());
-   $respuestas = $this->respuestaDAO->getRespuestasDePost($post->getId());
-   if ($respuestas != NULL) {
-    foreach ($respuestas as $respuesta){
-        $usuarioCreador = $this->usuarioDAO->fill($respuesta->getUserId());
-        $respuesta->setUsuarioCreador($usuarioCreador);
+        } else {
+          $msg = array();
+          array_push($msg, array("error", i18n("Debe estar logueado realizar una pregunta")));
+          $this->view->setFlash($msg);
+          $this->view->redirect("posts","index");
+        }
     }
-}
-$this->view->setVariable("post", $post);
-$this->view->setVariable("autor", $autor);
-$this->view->setVariable("respuestas", $respuestas);
-$this->view->render("posts","view");
-}
-
+    public function view() {
+       $post = $this->postDAO->fill($_GET["id"]);
+       $post->setNumVisitas($post->getNumVisitas() + 1);
+       $this->postDAO->aumentarVisitas($post);
+       $autor = $this->usuarioDAO->fill($post->getIdUsuario());
+       $respuestas = $this->respuestaDAO->getRespuestasDePost($post->getId());
+       if($this->respuestaDAO->getAllRespuestasLikes($respuestas)){
+           //ok
+       }else{
+           //algo no andaría bien
+       }
+       if ($respuestas != NULL) {
+            foreach ($respuestas as $respuesta){
+                $usuarioCreador = $this->usuarioDAO->fill($respuesta->getUserId());
+                $respuesta->setUsuarioCreador($usuarioCreador);
+            }
+       }
+        $this->view->setVariable("post", $post);
+        $this->view->setVariable("autor", $autor);
+        $this->view->setVariable("respuestas", $respuestas);
+        $this->view->render("posts","view");
+    }
 }

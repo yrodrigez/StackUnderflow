@@ -1,12 +1,9 @@
 <?php
 session_start();
 require_once(__DIR__."/../core/ViewManager.php");
-
-require_once(__DIR__."/../model/Usuario.php");
-require_once(__DIR__."/../model/UsuarioDAO.php");
-
+require_once(__DIR__."/../model/usuario.php");
+require_once(__DIR__."/../model/usuarioDAO.php");
 require_once(__DIR__."/../controller/BaseController.php");
-
 
 class UsuariosController extends BaseController {
   

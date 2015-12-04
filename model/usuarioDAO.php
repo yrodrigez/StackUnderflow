@@ -219,6 +219,15 @@ class UsuarioDAO {
       } else {
         return false;
       }
-    }
+  }
+
+  public function noHaVotado(
+      $idUsuario,
+      $idRespuesta
+  ) {
+      $stmt = $this->db->prepare("SELECT count(*) FROM votos WHERE id_user= ? and id_respuesta= ?");
+      $stmt->execute(array($idUsuario, $idRespuesta));
+      $cont= $stmt->fetch(PDO::FETCH_ASSOC)["count(*)"] == 0;
+      return $cont == 0 ? 0 : 1;
+  }
 }
-?>
