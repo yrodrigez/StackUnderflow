@@ -77,6 +77,10 @@ class RespuestaDAO {
         ))) return $stmt; //Cambiar
     }
 
+  /**
+   * @param $respuesta Respuesta
+   * guarda la respuesta y cambia el campo contestada a 1 del post correspondiente
+   */
   public function save(
     $respuesta
     ) {
@@ -97,7 +101,22 @@ class RespuestaDAO {
       $respuesta->getCuerpo(),
       $respuesta->getFechaCreacion()
       ));
+    return $this->setContestado($respuesta->getIdPost());
   }
+
+  public function setContestado(
+      $idPost
+  ){
+    $stmt= $this->db->prepare(
+        "UPDATE posts AS post
+        INNER JOIN respuestas AS respuesta ON post.id = respuesta.idpost
+        SET post.contestada= 1
+        WHERE  (post.id=respuesta.idpost) and
+        respuesta.idpost = ?;"
+    );
+    return $stmt->execute(array($idPost));
+  }
+
 
   /* Funciones para manejar la tabla votos */
 

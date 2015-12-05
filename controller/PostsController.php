@@ -37,6 +37,7 @@ class PostsController extends BaseController
         $this->respuestaDAO= new RespuestaDAO();
     }
 
+
     public function index()
     {
         $posts = $this->postDAO->getHotPosts(PostsController::HOT_POST_SIZE);
@@ -46,6 +47,7 @@ class PostsController extends BaseController
         }
 
         $this->view->setVariable("posts", $posts);
+        $this->view->setVariable("titulo", "Preguntas recientes");
         $this->view->render("posts", "index");
     }
 
@@ -126,5 +128,21 @@ class PostsController extends BaseController
         $this->view->setVariable("autor", $autor);
         $this->view->setVariable("respuestas", $respuestas);
         $this->view->render("posts","view");
+    }
+
+    /**
+     * devuelve todos los posts sin contestar
+     * @var $posts Post Array
+     * @var Post $post
+     *
+     */
+    public function sinContestar(){
+        $posts= $this->postDAO->getPostsSinContestar();
+        foreach($posts as $post){
+            $post->setTags($this->tagDAO->getAllPostTags($post->getId()));
+        }
+        $this->view->setVariable("posts", $posts);
+        $this->view->setVariable("titulo", "Sin contestar");
+        $this->view->render("posts","index");
     }
 }

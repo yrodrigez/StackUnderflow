@@ -19,12 +19,25 @@ class UsuariosController extends BaseController {
 	}
 
 	/**
+	 * Listar todos los usuarios
+	 */
+	public function index(){
+		$this->view->setVariable("usuarios", $this->userDAO->getAllUsers());
+		$this->view->render("usuarios", "index");
+	}
+
+	/**
 	 * @var Usuario $usuario
 	 * Muestra el perfil del usuario llenando sus datos y posts antes
      */
 	public function view(){
-		$idUsuario= $_SESSION["user"];
-		$usuario= $this->userDAO->fill($idUsuario);
+		$idUsuario= NULL;
+		if(isset($_GET["id"])){
+			$idUsuario= $_GET["id"];
+		} else {
+			$idUsuario = $_SESSION["user"];
+		}
+		$usuario = $this->userDAO->fill($idUsuario);
 		$usuario->setPosts($this->postsDao->getAllUserPosts($usuario->getId()));
 		$this->view->setVariable("usuario", $usuario);
 		$this->view->render("usuarios", "view");

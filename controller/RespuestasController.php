@@ -39,27 +39,6 @@ class RespuestasController extends BaseController {
 				$this->respuestaDAO->addLike($_SESSION["user"], $_GET["id"]);
 			}
 		}
-		/*
-		$post= $this->respuestaDAO->dameMiPost($_GET["id"]);
-		$post->setTags($this->tagDAO->getAllPostTags($post->getId()));
-		$autor= $this->usuarioDAO->fill($post->getIdUsuario());
-		$respuestas= $this->respuestaDAO->getRespuestasDePost($post->getId());
-		if($this->respuestaDAO->getAllRespuestasLikes($respuestas)){
-			//ok
-		}else{
-			//algo no andaría bien
-		}
-		if ($respuestas != NULL) {
-			foreach ($respuestas as $respuesta){
-				$usuarioCreador = $this->usuarioDAO->fill($respuesta->getUserId());
-				$respuesta->setUsuarioCreador($usuarioCreador);
-			}
-		}
-		$this->view->setVariable("post", $post);
-		$this->view->setVariable("autor", $autor);
-		$this->view->setVariable("respuestas", $respuestas);
-		$this->view->render("posts","view");
-		*/
 		$this->view->redirectToReferer();
 	}
 
@@ -69,29 +48,7 @@ class RespuestasController extends BaseController {
 				$this->respuestaDAO->addDislike($_SESSION["user"], $_GET["id"]);
 			}
 		}
-		/*
-		$post= $this->respuestaDAO->dameMiPost($_GET["id"]);
-		$post->setTags($this->tagDAO->getAllPostTags($post->getId()));
-		$autor = $this->usuarioDAO->fill($post->getIdUsuario());
-		$respuestas = $this->respuestaDAO->getRespuestasDePost($post->getId());
-		if($this->respuestaDAO->getAllRespuestasLikes($respuestas)){
-			//ok
-		}else{
-			//algo no andaría bien
-		}
-		if ($respuestas != NULL) {
-			foreach ($respuestas as $respuesta){
-				$usuarioCreador = $this->usuarioDAO->fill($respuesta->getUserId());
-				$respuesta->setUsuarioCreador($usuarioCreador);
-			}
-		}
-		$this->view->setVariable("post", $post);
-		$this->view->setVariable("autor", $autor);
-		$this->view->setVariable("respuestas", $respuestas);
-		$this->view->render("posts","view");
-		*/
 		$this->view->redirectToReferer();
-
 	}
 
 

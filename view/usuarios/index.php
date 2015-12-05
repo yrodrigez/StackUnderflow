@@ -2,145 +2,46 @@
 //file: view/posts/view.php
 require_once(__DIR__."/../../core/ViewManager.php");
 $view = ViewManager::getInstance();
+
+$usuarios = $view->getVariable("usuarios");
+
+/**
+ * @var $usuario Usuario
+ */
+
 ?>
 
-
-<!--SEARCHBAR-->
-<form action='index.php?controller=posts&action=search' method="POST"> 
-	<div class= "row">
-		<div id="searchBar" class="input-group col-md-12">
-			<input id="busqueda" type="text"  name="busqueda" class="form-control" placeholder="<?=i18n("Buscar...")?>" required="true">
-			<span class="input-group-btn">
-			<button type="submit" class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
-		</div>
-	</div>
-</form>
-<!--FIN SEARCHBAR-->
 <!-- USUARIOS -->
-
-
-
 <div class="row">
 	<div class="well">
-		<h1 class="text-center">Los Usuarios</h1>
+		<h1 class="text-center"><?= i18n("Los Usuarios") ?></h1>
 		<div class="list-group">
-
 			<!--USUARIO NUEVO-->
-			<a href="#" class="list-group-item">
-				<div class="media col-md-3">
-					<!-- Sobra el fa fa-user?-->
-					<i><img alt="Foto usuario" class="img-responsive img-circle tamanhoFoto" src="../img/users/marie curie.jpg"/></i>
-				</div>
-				<div class="col-md-9">
-					<h4 class="list-group-item-heading">Marie Curie</h4>
-					<p class="list-group-item-text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec sem molestie, tempor libero eu, placerat purus. 
-						Donec eget iaculis elit. Nam eget consectetur quam. Nam viverra ornare diam. In a ornare diam. 
-						Quisque vestibulum nulla nec facilisis malesuada.
-					</p>
-				</div>
-			</a>
-			<!--FIN USUARIO NUEVO-->
-
-			<!--USUARIO NUEVO-->
-			<a href="#" class="list-group-item">
-				<div class="media col-md-3">
-					<i><img alt="Foto usuario" class="img-responsive img-circle tamanhoFoto" src="../img/users/Ratael.jpg"/></i>
-				</div>
-				<div class="col-md-9">
-					<h4 class="list-group-item-heading">La rata</h4>
-					<p class="list-group-item-text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec sem molestie, tempor libero eu, placerat purus. 
-						Donec eget iaculis elit. Nam eget consectetur quam. Nam viverra ornare diam. In a ornare diam. 
-						Quisque vestibulum nulla nec facilisis malesuada.
-					</p>
-				</div>
-			</a>
-			<!--FIN USUARIO NUEVO-->
-
-			<!--USUARIO NUEVO-->
-			<a href="#" class="list-group-item">
-				<div class="media col-md-3">
-					<i><img alt="Foto usuario" class="img-responsive img-circle tamanhoFoto" src="../img/users/sabas.jpeg"/></i>
-				</div>
-				<div class="col-md-9">
-					<h4 class="list-group-item-heading">Pauli</h4>
-					<p class="list-group-item-text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec sem molestie, tempor libero eu, placerat purus. 
-						Donec eget iaculis elit. Nam eget consectetur quam. Nam viverra ornare diam. In a ornare diam. 
-						Quisque vestibulum nulla nec facilisis malesuada.
-					</p>
-				</div>
-			</a>
-			<!--FIN USUARIO NUEVO-->
-			<!--USUARIO NUEVO-->
-			<a href="#" class="list-group-item">
-				<div class="media col-md-3">
-					<i><img alt="Foto usuario" class="img-responsive img-circle tamanhoFoto" src="../img/users/el papa.jpg"/></i>
-				</div>
-				<div class="col-md-9">
-					<h4 class="list-group-item-heading">Schrödinger</h4>
-					<p class="list-group-item-text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec sem molestie, tempor libero eu, placerat purus. 
-						Donec eget iaculis elit. Nam eget consectetur quam. Nam viverra ornare diam. In a ornare diam. 
-						Quisque vestibulum nulla nec facilisis malesuada.
-					</p>
-				</div>
-			</a>
-			<!--FIN USUARIO NUEVO-->
-			<!--USUARIO NUEVO-->
-			<a href="#" class="list-group-item">
-				<div class="media col-md-3">
-					<i><img alt="Foto usuario" class="img-responsive img-circle tamanhoFoto" src="../img/users/BORT.jpg"/></i>
-				</div>
-				<div class="col-md-9">
-					<h4 class="list-group-item-heading">BORT</h4>
-					<p class="list-group-item-text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec sem molestie, tempor libero eu, placerat purus. 
-						Donec eget iaculis elit. Nam eget consectetur quam. Nam viverra ornare diam. In a ornare diam. 
-						Quisque vestibulum nulla nec facilisis malesuada.
-					</p>
-				</div>
-			</a>
-			<!--FIN USUARIO NUEVO-->
-			<!--USUARIO NUEVO-->
-			<a href="#" class="list-group-item">
-				<div class="media col-md-3">
-					<i><img alt="Foto usuario" class="img-responsive img-circle tamanhoFoto" src="../img/users/MC.jpg"/></i>
-				</div>
-				<div class="col-md-9">
-					<h4 class="list-group-item-heading">MC-Hammer</h4>
-					<p class="list-group-item-text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec sem molestie, tempor libero eu, placerat purus. 
-						Donec eget iaculis elit. Nam eget consectetur quam. Nam viverra ornare diam. In a ornare diam. 
-						Quisque vestibulum nulla nec facilisis malesuada.
-					</p>
-				</div>
-			</a>
-			<!--FIN USUARIO NUEVO-->
-			<!--USUARIO NUEVO-->
-			<a href="#" class="list-group-item">
-				<div class="media col-md-3">
-					<i><img alt="Foto usuario" class="img-responsive img-circle tamanhoFoto" src="../img/users/EL.jpg"/></i>
-				</div>
-				<div class="col-md-9">
-					<h4 class="list-group-item-heading">Einstein</h4>
-					<p class="list-group-item-text">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec sem molestie, tempor libero eu, placerat purus. 
-						Donec eget iaculis elit. Nam eget consectetur quam. Nam viverra ornare diam. In a ornare diam. 
-						Quisque vestibulum nulla nec facilisis malesuada.
-					</p>
-				</div>
-			</a>
+			<?php foreach($usuarios as $usuario): ?>
+				<a href="index.php?controller=usuarios&action=view&id=<?= $usuario->getId() ?>" class="list-group-item">
+					<div class="media col-md-3">
+						<i><img alt="Foto usuario" class="img-responsive img-circle tamanhoFoto" src="img/users/<?= $usuario->getFotoPath() ?>"/></i>
+					</div>
+					<div class="col-md-9">
+						<h4 class="list-group-item-heading"><?= $usuario->getUsername() ?></h4>
+						<p class="list-group-item-text">
+							<?php if(strlen($usuario->getDescripcion()) < 700): ?>
+								<?= $usuario->getDescripcion();?>
+							<?php else: ?>
+								<?= substr($usuario->getDescripcion(), 0, 699) ?>
+							<?php endif; ?>
+						</p>
+					</div>
+				</a>
+			<?php endforeach; ?>
 			<!--FIN USUARIO NUEVO-->
 		</div>
 	</div>
 </div>
 
-
-
-
 <!-- FIN USUARIOS -->
+
+<!-- MAS ADELANTE
 <div class="row">
 	<div class="col-md-12 paginador">
 		<nav>
@@ -164,3 +65,4 @@ $view = ViewManager::getInstance();
 		</nav>
 	</div>
 </div>
+-->

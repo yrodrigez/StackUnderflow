@@ -3,6 +3,7 @@
 require_once(__DIR__."/../../core/ViewManager.php");
 $view = ViewManager::getInstance();
 $posts = $view->getVariable("posts");
+$titulo= $view->getVariable("titulo");
 /**
  * @var Post $post
  * @var Tag $tag
@@ -21,7 +22,7 @@ $posts = $view->getVariable("posts");
 </form>
 <!--FIN SEARCHBAR-->
 <div class="row">
-	<span class="col-md-12"><h2><?= i18n("Preguntas recientes");?></h2></span>
+	<span class="col-md-12"><h2><?= i18n($titulo); ?></h2></span>
 </div>
 <?php foreach($posts as $post): ?>
 	<!-- PREGUNTA PLANTILLA-->

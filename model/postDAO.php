@@ -40,6 +40,24 @@ class PostDAO {
     return false;
   }
 
+
+  /**
+   * retorna todos los posts sin contestar
+   * @return array
+   */
+  public function getPostsSinContestar(){
+    $stmt= $this->db->prepare("SELECT id FROM posts WHERE contestada= ?");
+    if($stmt->execute(array(0))){
+      $posts = array();
+      foreach($stmt as $row) {
+        array_push($posts, $this->fill($row["id"]));
+      }
+      return $posts;
+    }else{
+      return array();
+    }
+  }
+
     /**
      * recibe la cantidad de posts para mostrar en la págna principal
      * @param  int $size

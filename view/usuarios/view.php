@@ -43,22 +43,24 @@ $usuario= $view->getVariable("usuario");
 					</tbody>
 				</table>
 			</div>
-			<?php if($_SESSION["user"] == $usuario->getId()): ?>
-			<div class="col-md-12 text-right">
-				<a class="btn btn-primary buttonEditar" href="index.php?controller=usuarios&action=edit"><?= i18n("Editar")?></a>
-			</div>
+			<?php if(isset($_SESSION["user"])):
+				if($_SESSION["user"]== $usuario->getId()): ?>
+					<div class="col-md-12 text-right">
+						<a class="btn btn-primary buttonEditar" href="index.php?controller=usuarios&action=edit"><?= i18n("Editar")?></a>
+					</div>
+				<?php endif; ?>
+			<?php endif; ?>
 			<div class="col-md-12 col-lg-12">
 				<span class="tituloPosts"> Posts (<?= count( $usuario->getPosts() ) ?>) </span>
 				<hr>
 			</div>
-			<?php endif; ?>
 		</div>
 		<!--Inicio post usuarios-->
 
 			<?php if(count($usuario->getPosts()) > 0): ?>
 				<?php foreach($usuario->getPosts() as $post): ?>
 				<div id="divPostsUsuario" class="row whiteBackgroundPost">
-					<div class="col-md-9 col-lg-9">
+					<div class="col-md-9 col-lg-9 postUsuarioView">
 						<span class="cuerpoPost"><a href="index.php?controller=posts&action=view&id=<?= $post->getId() ?>"><?= $post->getTitulo() ?></a></span>
 					</div>
 					<div class="col-md-3 col-lg-3">

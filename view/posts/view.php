@@ -46,8 +46,8 @@ $respuestas = $view->getVariable("respuestas");
 	<hr>
 </div>
 <div class="row">
-	<?php if($respuestas==NULL) { 
-		echo i18n("Esta pregunta no tiene respuestas");
+	<?php if($respuestas==NULL) {
+		echo "<div class='col-md-12'>".i18n("Esta pregunta no tiene respuestas")."</div>";
 	} else { 
 		foreach ($respuestas as $respuesta) { ?>
 	<div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 w">

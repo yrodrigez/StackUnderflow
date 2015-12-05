@@ -1,6 +1,13 @@
-
+.postUsuarioView{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 a:hover {
 	animation: blinker 0.15s linear infinite;
+}
+
+a.list-group-item{
+	animation: none !important;
 }
 
 @keyframes blinker {
@@ -495,8 +502,8 @@ hr {
 }
 
 .tituloPregunta{
+	margin-top: 10px;
 	font-size: 20px;
-
 }
 
 .whiteBackground{

@@ -191,9 +191,9 @@ $currentuser = $view->getVariable("currentusername");
 												<ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
 													<li><span class="compSideBar"><a class="enlaceSideBar" href="index.php?controller=posts&action=index"><?=i18n("Inicio")?></a></span></li>
 													<hr/>
-													<li><span class="compSideBar"><a class="enlaceSideBar" href="#"><?=i18n("Sin contestar")?></a></span></li>
+													<li><span class="compSideBar"><a class="enlaceSideBar" href="index.php?controller=posts&action=sinContestar"><?=i18n("Sin contestar")?></a></span></li>
 													<hr/>
-													<li><span class="compSideBar"><a class="enlaceSideBar" href="#"><?=i18n("Usuarios")?></a></span></li>
+													<li><span class="compSideBar"><a class="enlaceSideBar" href="index.php?controller=usuarios&action=index"><?=i18n("Usuarios")?></a></span></li>
 													<hr/>
 													<li><span class="compSideBar"><a class="enlaceSideBar" href="#"><?=i18n("Categorias")?></a></span></li>
 													<hr/>
