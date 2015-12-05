@@ -51,10 +51,17 @@ $currentuser = $view->getVariable("currentusername");
 					<div id="navbar loginContainer" class="loginContainer col-md-3 visible-lg visible-md">
 						<ul class="nav pull-left " id="loginButton">
 							<li class="dropdown" id="menuLogin">
-								<a class="dropdown-toggle loginButton" href="#" data-toggle="dropdown" id="navLogin"><?php if(!isset($_SESSION["user"])) {
-									echo i18n("Entrar"); } else {
-										echo $_SESSION["username"];} ?></a>
-										<div class="dropdown-menu" style="padding:17px;">
+								<a class="dropdown-toggle loginButton" href="#" data-toggle="dropdown" id="navLogin">
+									<?php if(!isset($_SESSION["user"])) {
+										echo i18n("Entrar"); }
+									else {
+										if (strlen($_SESSION["username"]) > 8) {
+											echo substr($_SESSION["username"], 0, 5) . "...";
+										} else {
+											echo $_SESSION["username"];
+										}
+									}?></a>
+										<div class="dropdown-menu">
 											<form class="form" id="formLogin" action="index.php?controller=usuarios&action=login" method="POST">
 												<?php if(!isset($_SESSION["user"])) { ?>
 												<input name="username" id="username" placeholder="<?=i18n("Usuario")?>" type="text" required="true">
@@ -65,10 +72,24 @@ $currentuser = $view->getVariable("currentusername");
 													<button type="submit" id="btnLogin" class="btn buttonStackLoginClicked"><?=i18n("Entrar");?></button>
 												</div>
 												<?php } else { ?>
-												<div class="divBotonesLogin">
-													<span class="titleMenuLogged"><?=i18n("Bienvenido")?></span>
-													<a href="#"><button type="button" id="registro" class="btn buttonStackLoginClicked"><?=i18n("Perfil")?></button></a>
-													<a href="index.php?controller=usuarios&action=logout"><button type="button" id="btnLogin" class="btn buttonStackLoginClicked"><?=i18n("Salir")?></button></a>
+												<div class="divBotonesLogin row">
+													<div class ="col-md-12">
+														<span class="titleMenuLogged"><?= $_SESSION["username"] ?></span>
+													</div>
+													<div class="row">
+														<div class="col-md-12 itemLoged">
+															<a href="index.php?controller=usuarios&action=view">
+																<label class="glyphicon glyphicon glyphicon-user"></label><?=i18n("Perfil")?>
+															</a>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-12 itemLoged">
+															<a href="index.php?controller=usuarios&action=logout">
+																<label class="glyphicon glyphicon-log-out"></label><?=i18n("Salir")?>
+															</a>
+														</div>
+													</div>
 												</div>
 												<?php } ?>
 											</form>

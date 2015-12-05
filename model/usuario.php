@@ -9,6 +9,7 @@ class Usuario
   private $descripcion;
   private $fotoPath;
   private $nombre;
+  private $posts;
 
   public function __construct(
     $id=NULL,
@@ -18,7 +19,8 @@ class Usuario
   	$email= NULL,
   	$descripcion= NULL,
   	$fotoPath= NULL,
-    $nombre= NULL
+    $nombre= NULL,
+    $posts= NULL
   	) {
     $this->id = $id;
     $this->username = $username;
@@ -28,7 +30,10 @@ class Usuario
     $this->descripcion= $descripcion;
     $this->fotoPath= $fotoPath;
     $this->nombre = $nombre;
+    $this->posts= $posts;
   }
+
+
   
   public function getId() 
   {
@@ -116,6 +121,16 @@ class Usuario
       $nombre
   ){
     $this->nombre = $nombre;
+  }
+
+  public function getPosts()
+  {
+    return $this->posts;
+  }
+
+  public function setPosts($posts)
+  {
+    $this->posts = $posts;
   }
 
   public function isValidForRegister() {

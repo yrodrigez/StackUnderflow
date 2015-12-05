@@ -3,16 +3,31 @@ session_start();
 require_once(__DIR__."/../core/ViewManager.php");
 require_once(__DIR__."/../model/usuario.php");
 require_once(__DIR__."/../model/usuarioDAO.php");
+require_once(__DIR__."/../model/postDAO.php");
 require_once(__DIR__."/../controller/BaseController.php");
 
 class UsuariosController extends BaseController {
   
-	private $userDAO;    
+	private $userDAO;
+	private $postsDao;
   
 	public function __construct() {    
 		parent::__construct();
 
 		$this->userDAO = new UsuarioDAO();
+		$this->postsDao= new PostDAO();
+	}
+
+	/**
+	 * @var Usuario $usuario
+	 * Muestra el perfil del usuario llenando sus datos y posts antes
+     */
+	public function view(){
+		$idUsuario= $_SESSION["user"];
+		$usuario= $this->userDAO->fill($idUsuario);
+		$usuario->setPosts($this->postsDao->getAllUserPosts($usuario->getId()));
+		$this->view->setVariable("usuario", $usuario);
+		$this->view->render("usuarios", "view");
 	}
 
 	public function login() {
@@ -34,12 +49,56 @@ class UsuariosController extends BaseController {
 			}
 		}   
 	}
+	/**
+	 * @var Usuario $usuario
+	 */
+	public function edit(){
+		$idUsuario= $_SESSION["user"];
+		$usuario= $this->userDAO->fill($idUsuario);
+		$this->view->setVariable("usuario", $usuario);
+		$this->view->render("usuarios", "edit");
+	}
+
+	public function editUser(){
+		if(isset($_SESSION["username"]) && $_SESSION["username"] == $_POST["username"] ){
+			$username= $_POST["username"];
+			$password= $_POST["password"];
+			$descripcion= $_POST["descripcion"];
+			$nombre= $_POST["nombre"];
+			$email= $_POST["email"];
+
+			$user = new Usuario(
+					$_SESSION["user"],
+					$username,
+					$password,
+					1,
+					$email,
+					$descripcion,
+					NULL,
+					$nombre,
+					array()
+			);
+
+			if($_FILES["avatar"] and $_FILES["avatar"]["name"]) {
+				$name = $_POST["username"] . "." . substr(strrchr($_FILES["avatar"]["name"], '.'), 1);
+				$path = "img/users/" . $name;
+				move_uploaded_file($_FILES["avatar"]["tmp_name"], $path);
+				$user->setFotoPath($name);
+			} else {
+				$user->setFotoPath($this->userDAO->fill($_SESSION["user"])->getFotoPath());
+			}
+
+			$this->userDAO->modificarUser($user);
+
+			$user->setPosts($this->postsDao->getAllUserPosts($user->getId()));
+			$this->view->setVariable("usuario", $user);
+			$this->view->render("usuarios", "view");
+		}
+	}
 
 
 	public function add() {
-
 		$user=NULL;
-    
 		if (isset($_POST["username"])){ 
 			if($_POST["password"] == $_POST["password_confirm"]) {
 				$user = new Usuario(0,$_POST["username"], $_POST["password"]);

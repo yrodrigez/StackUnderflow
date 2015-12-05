@@ -1,18 +1,23 @@
 <?php 
  //file: view/users/login.php
- 
- require_once(__DIR__."/../../core/ViewManager.php");
- $view = ViewManager::getInstance();
+
+/**
+ * @var $usuario Usuario
+ * @var $post Post
+ */
+require_once(__DIR__."/../../core/ViewManager.php");
+$view = ViewManager::getInstance();
+$usuario= $view->getVariable("usuario");
 ?>
 
 
 <!--INICIO PERFIL-->
 <div class="row">
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-		<h3>Schrödinger</h3>
+		<h3><?= $usuario->getNombre() ?></h3>
 		<div class="row">
 			<div class="col-md-3 col-lg-3 fotoProfile" align="center">
-				<img alt="Foto usuario" src="../img/users/el papa.jpg" class="img-circle img-responsive">
+				<img alt="Foto usuario" src="img/users/<?= $usuario->getFotoPath() ?>" class="img-circle img-responsive">
 			</div>
 
 			<div class=" col-md-9 col-lg-9 "> 
@@ -20,44 +25,54 @@
 					<tbody>
 						<tr>
 							<td>Username</td>
-							<td>Schrödinger</td>
+							<td><?= $usuario->getUsername() ?></td>
 						</tr>
 
 						<tr>
 							<td>Email</td>
-							<td><a href="#">schrödinger@schrödinger.com</a></td>
+							<td><a href="#"><?= $usuario->getEmail() ?></a></td>
 						</tr>
 						<tr>
 							<td>Descripcion:</td>
 							<td>
 								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec sem molestie, tempor libero eu, placerat purus. 
-									Donec eget iaculis elit. Nam eget consectetur quam. Nam viverra ornare diam. In a ornare diam. 
-									Quisque vestibulum nulla nec facilisis malesuada.
+									<?= $usuario->getDescripcion() ?>
 								</p>
 							</p>
 						</td>
 					</tbody>
 				</table>
 			</div>
+			<?php if($_SESSION["user"] == $usuario->getId()): ?>
 			<div class="col-md-12 text-right">
-				<button type="submit" class="btn btn-primary buttonEditar">Editar</button>
+				<a class="btn btn-primary buttonEditar" href="index.php?controller=usuarios&action=edit">Editar</a>
 			</div>
 			<div class="col-md-12 col-lg-12">
-				<span class="tituloPosts"> Posts (5) </span>
+				<span class="tituloPosts"> Posts (<?= count( $usuario->getPosts() ) ?>) </span>
 				<hr>
 			</div>
+			<?php endif; ?>
 		</div>
 		<!--Inicio post usuarios-->
-		<div id="divPostsUsuario" class="row whiteBackgroundPost">
-			<div class="col-md-9 col-lg-9">
-				<span class="cuerpoPost"><a href="#">¿Por qué InkScape arranca tan lento?</a></span>
-			</div>
-			<div class="col-md-3 col-lg-3">
-				<span> Creado: 07/11/2015 </span>
-			</div>
-		</div>
+
+			<?php if(count($usuario->getPosts()) > 0): ?>
+				<?php foreach($usuario->getPosts() as $post): ?>
+				<div id="divPostsUsuario" class="row whiteBackgroundPost">
+					<div class="col-md-9 col-lg-9">
+						<span class="cuerpoPost"><a href="index.php?controller=posts&action=view&id=<?= $post->getId() ?>"><?= $post->getTitulo() ?></a></span>
+					</div>
+					<div class="col-md-3 col-lg-3">
+						<span> <?= $post->getFechaCreacion() ?> </span>
+					</div>
+				</div>
+				<?php endforeach; ?>
+			<?php else: ?>
+				<div id="divPostsUsuario" class="row whiteBackgroundPost">
+					<h2>Aún no has hecho ninguna pregunta</h2>
+				</div>
+			<?php endif; ?>
+
+
 		<!--Final post usuarios-->
 	</div>
 </div>
-				<!--FIN PERFIL-->

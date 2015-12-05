@@ -68,7 +68,8 @@ class UsuarioDAO {
                 $user["email"],
                 $user["descripcion"],
                 $user["foto"],
-                $user["name"]
+                $user["name"],
+                array()
             );
       }
     } else {
@@ -81,7 +82,7 @@ class UsuarioDAO {
    * 
    * @param id $id The username of the user we want to retrieve
    * @throws PDOException if a database error occurs
-   * @return User The user with the specified id, NULL if its not found
+   * @return Usuario The user with the specified id, NULL if its not found
    */
   public function fill(
         $id
@@ -100,7 +101,8 @@ class UsuarioDAO {
                 $user["email"],
                 $user["descripcion"],
                 $user["foto"],
-                $user["name"]
+                $user["name"],
+                array()
             );
       }
     } else {
@@ -174,13 +176,24 @@ class UsuarioDAO {
   public function modificarUser(
     $user
     ) {
-    $stmt = $this->db->prepare("UPDATE users Set email = ?, 
-                                                 foto = ?, 
-                                                 descripcion = ? WHERE id = ?;");
-    return $stmt->execute(array($user->getEmail(), 
-     $user->getFotoPath(), 
-     $user->getDescripcion(), 
-     $user->getId()));
+        if($user->getFotoPath() != NULL) {
+            $stmt = $this->db->prepare("UPDATE users Set email = ?,
+                                                     foto = ?,
+                                                     descripcion = ? WHERE id = ?;");
+            return $stmt->execute(array($user->getEmail(),
+                $user->getFotoPath(),
+                $user->getDescripcion(),
+                $user->getId())
+            );
+        }else{
+            $stmt = $this->db->prepare("UPDATE users Set email = ?,
+                                                     descripcion = ? WHERE id = ?;");
+            return $stmt->execute(array($user->getEmail(),
+                $user->getDescripcion(),
+                $user->getId())
+            );
+        }
+
   }
 
   /**
