@@ -33,7 +33,7 @@ $usuario= $view->getVariable("usuario");
 							<td><a href="#"><?= $usuario->getEmail() ?></a></td>
 						</tr>
 						<tr>
-							<td><?= i18n("Descripcion")?>:</td>
+							<td><?= i18n("Descripción")?>:</td>
 							<td>
 								<p>
 									<?= $usuario->getDescripcion() ?>
