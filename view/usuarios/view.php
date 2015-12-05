@@ -24,16 +24,16 @@ $usuario= $view->getVariable("usuario");
 				<table class="table">
 					<tbody>
 						<tr>
-							<td>Username</td>
+							<td><?= i18n("Nombre de Usuario")?>:</td>
 							<td><?= $usuario->getUsername() ?></td>
 						</tr>
 
 						<tr>
-							<td>Email</td>
+							<td>Email:</td>
 							<td><a href="#"><?= $usuario->getEmail() ?></a></td>
 						</tr>
 						<tr>
-							<td>Descripcion:</td>
+							<td><?= i18n("Descripcion")?>:</td>
 							<td>
 								<p>
 									<?= $usuario->getDescripcion() ?>
@@ -45,7 +45,7 @@ $usuario= $view->getVariable("usuario");
 			</div>
 			<?php if($_SESSION["user"] == $usuario->getId()): ?>
 			<div class="col-md-12 text-right">
-				<a class="btn btn-primary buttonEditar" href="index.php?controller=usuarios&action=edit">Editar</a>
+				<a class="btn btn-primary buttonEditar" href="index.php?controller=usuarios&action=edit"><?= i18n("Editar")?></a>
 			</div>
 			<div class="col-md-12 col-lg-12">
 				<span class="tituloPosts"> Posts (<?= count( $usuario->getPosts() ) ?>) </span>
@@ -68,7 +68,7 @@ $usuario= $view->getVariable("usuario");
 				<?php endforeach; ?>
 			<?php else: ?>
 				<div id="divPostsUsuario" class="row whiteBackgroundPost">
-					<h2>Aún no has hecho ninguna pregunta</h2>
+					<h2><?= i18n("Aún no has hecho ninguna pregunta")?></h2>
 				</div>
 			<?php endif; ?>
 

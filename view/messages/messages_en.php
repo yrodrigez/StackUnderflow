@@ -11,6 +11,7 @@
     "Salir" => "Logout",
     "Identificacion" => "Identification",
     "Nombre de usuario" => "Username",
+    "Nombre de Usuario" => "Username",
     "Menu" => "Menu",
     "Inicio" => "Home",
     "Sin contestar" => "Unanswered",
@@ -60,5 +61,8 @@
     "Respuesta creada correctamente" => "Answer created successfully",
     "Debe rellenar la respuesta" => "You must fill your answer",
     "Debe estar logueado para responder a un post" => "You must log in to answer a post",
-  )
-?>
+    "Aún no has hecho ninguna pregunta" => "You have not asked sheit",
+    "Editar"=> "Edit",
+    "Idiomas"=>"Languages"
+
+  );

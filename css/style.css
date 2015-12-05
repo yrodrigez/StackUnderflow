@@ -1,6 +1,9 @@
 .dropdown-menu{
-	padding-left: 75px;
-	padding-right: 75px ;
+	padding-left: 17px;
+	padding-right: 17px;
+	padding-top: 5px;
+	padding-bottom: 15px;
+
 }
 
 .itemLoged:hover {
@@ -8,8 +11,11 @@
 	background-color: #f8f8f8;
 }
 .itemLoged {
-	padding-top: 12.5px;
-	padding-bottom: 12.5px;
+	text-align: left;
+	margin-left: 5%;
+	width: 90%;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 .glyphicon{
@@ -291,7 +297,7 @@ a.loginButton:hover{
 
 #busqueda{
 	border-radius: 0px;
-	border-style: solid 1px;
+	border-style: solid;
 	color:#000000;
 }
 
@@ -315,6 +321,7 @@ a, a:hover, a:focus, a:active{
 }
 
 .dropdownMenu {
+
 	font-family: 'Press Start 2P';
 	text-align: center;
 }

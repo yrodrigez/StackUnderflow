@@ -52,6 +52,7 @@ $currentuser = $view->getVariable("currentusername");
 						<ul class="nav pull-left " id="loginButton">
 							<li class="dropdown" id="menuLogin">
 								<a class="dropdown-toggle loginButton" href="#" data-toggle="dropdown" id="navLogin">
+
 									<?php if(!isset($_SESSION["user"])) {
 										echo i18n("Entrar"); }
 									else {
@@ -76,20 +77,16 @@ $currentuser = $view->getVariable("currentusername");
 													<div class ="col-md-12">
 														<span class="titleMenuLogged"><?= $_SESSION["username"] ?></span>
 													</div>
-													<div class="row">
-														<div class="col-md-12 itemLoged">
-															<a href="index.php?controller=usuarios&action=view">
-																<label class="glyphicon glyphicon glyphicon-user"></label><?=i18n("Perfil")?>
-															</a>
-														</div>
+													<a href="index.php?controller=usuarios&action=view">
+													<div class="col-md-12 itemLoged">
+														<label class="glyphicon glyphicon glyphicon-user"></label><?=i18n("Perfil")?>
 													</div>
-													<div class="row">
+													</a>
+													<a href="index.php?controller=usuarios&action=logout">
 														<div class="col-md-12 itemLoged">
-															<a href="index.php?controller=usuarios&action=logout">
-																<label class="glyphicon glyphicon-log-out"></label><?=i18n("Salir")?>
-															</a>
+															<label class="glyphicon glyphicon-log-out"></label><?=i18n("Salir")?>
 														</div>
-													</div>
+													</a>
 												</div>
 												<?php } ?>
 											</form>
@@ -138,10 +135,20 @@ $currentuser = $view->getVariable("currentusername");
 																				<button type="submit" class="btn buttonStack"><?= i18n("Entrar")?></button>
 																			</div>
 																			<?php } else { ?>
-																			<div class="divBotonesLogin">
-																				<span class="titleMenuLogged"><?= i18n("Bienvenido")?></span>
-																				<a href="#"><button type="button" id="perfil" class="btn buttonStack"><?= i18n("Perfil")?></button></a>
-																				<a href="index.php?controller=usuarios&action=logout"><button type="button" id="btnLogin" class="btn buttonStack"><?= i18n("Salir")?></button></a>
+																			<div class="divBotonesLogin row">
+																				<div class ="col-md-12">
+																					<span class="titleMenuLogged"><?= $_SESSION["username"] ?></span>
+																				</div>
+																				<a href="index.php?controller=usuarios&action=view">
+																					<div class="col-md-12 itemLoged">
+																						<label class="glyphicon glyphicon glyphicon-user"></label><?=i18n("Perfil")?>
+																					</div>
+																				</a>
+																				<a href="index.php?controller=usuarios&action=logout">
+																					<div class="col-md-12 itemLoged">
+																						<label class="glyphicon glyphicon-log-out"></label><?=i18n("Salir")?>
+																					</div>
+																				</a>
 																			</div>
 																			<?php } ?>
 																		</form>
@@ -198,7 +205,7 @@ $currentuser = $view->getVariable("currentusername");
 										<!-- FOOTER -->
 
 										<div class="row finalPagina">
-											<div class="linksFooter col-md-12">
+											<div class="linksFooter col-md-10">
 											<span class="elemFooter"><a href='#'><?=i18n("Empleos");?></a></span>
 												<span class="verticalSeparator"></span>
 												<span class="elemFooter"><a href='#'><?=i18n("Informacion");?></a></span>
@@ -207,11 +214,15 @@ $currentuser = $view->getVariable("currentusername");
 												<span class="verticalSeparator"></span>
 												<span class="elemFooter"><a href='#'><?=i18n("Terminos");?></a></span>
 											</div>
-											<div>
+											<div class="dropup col-md-2">
+												<a class="dropdown-toggle elemFooter" data-toggle="dropdown" href="#">
+													<?=i18n("Idiomas")?>
+												</a>
 												<?php
-												include(__DIR__."/language_select_element.php");
+													include(__DIR__."/language_select_element.php");
 												?>
 											</div>
+
 											<div class="company col-md-12">
 												<footer>
 													<span style="color:white">&copy; Schrödinger Inc, 2015</span>

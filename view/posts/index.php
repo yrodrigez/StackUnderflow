@@ -61,7 +61,18 @@ $posts = $view->getVariable("posts");
 	<!-- FIN PREGUNTA PLANTILLA-->
 <?php endforeach; 
 if (isset ($_SESSION['user'])){ ?>
-<div id="divButtonPreguntar" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-	<a href="index.php?controller=posts&action=add"><button type="button" id="preguntar" class="btn preguntaButton"><?= i18n("Preguntar");?></button></a>
-</div>
+		<div class="row">
+			<div id="divButtonPreguntar" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+				<a
+						href="index.php?controller=posts&action=add"
+				>
+					<button
+							type="button" id="preguntar"
+							class="btn preguntaButton"
+					>
+						<?= i18n("Preguntar");?>
+					</button>
+				</a>
+			</div>
+		</div>
 <?php } ?>

@@ -25,7 +25,7 @@ $usuario= $view->getVariable("usuario");
                 <table class="table">
                     <tbody>
                     <tr>
-                        <td>Username: </td>
+                        <td><?= i18n("Nombre de Usuario")?>: </td>
                         <td><input type="text" value="<?= $usuario->getUsername() ?>" disabled="true"/></td>
                         <input type="hidden" value="<?= $usuario->getUsername() ?>" name="username">
                     </tr>
@@ -40,7 +40,7 @@ $usuario= $view->getVariable("usuario");
                         </td>
                     </tr>
                     <tr>
-                        <td>Password: </td>
+                        <td><?= i18n("Contraseña")?>: </td>
                         <td><input
                                 type="password"
                                 value="<?= $usuario->getPassword() ?>"
@@ -49,7 +49,7 @@ $usuario= $view->getVariable("usuario");
                         </td>
                     </tr>
                     <tr>
-                        <td>Nombre: </td>
+                        <td><?= i18n("Nombre")?>: </td>
                         <td><input
                                 type="text"
                                 value="<?= $usuario->getNombre() ?>"
@@ -58,7 +58,7 @@ $usuario= $view->getVariable("usuario");
                         </td>
                     </tr>
                     <tr>
-                        <td>Descripcion:</td>
+                        <td><?= i18n("Descripcion")?>:</td>
                         <td>
                             <textarea
                                   type="text"
@@ -68,7 +68,7 @@ $usuario= $view->getVariable("usuario");
                         </td>
                     </tr>
                     <tr>
-                        <td>Foto:</td>
+                        <td><?= i18n("Foto de perfil")?>:</td>
                         <td>
                             <input
                                 type="file"
