@@ -39,7 +39,7 @@ class RespuestasController extends BaseController {
 				$this->respuestaDAO->addLike($_SESSION["user"], $_GET["id"]);
 			}
 		}
-
+		/*
 		$post= $this->respuestaDAO->dameMiPost($_GET["id"]);
 		$post->setTags($this->tagDAO->getAllPostTags($post->getId()));
 		$autor= $this->usuarioDAO->fill($post->getIdUsuario());
@@ -59,6 +59,8 @@ class RespuestasController extends BaseController {
 		$this->view->setVariable("autor", $autor);
 		$this->view->setVariable("respuestas", $respuestas);
 		$this->view->render("posts","view");
+		*/
+		$this->view->redirectToReferer();
 	}
 
 	public function addDislike(){
@@ -67,7 +69,7 @@ class RespuestasController extends BaseController {
 				$this->respuestaDAO->addDislike($_SESSION["user"], $_GET["id"]);
 			}
 		}
-
+		/*
 		$post= $this->respuestaDAO->dameMiPost($_GET["id"]);
 		$post->setTags($this->tagDAO->getAllPostTags($post->getId()));
 		$autor = $this->usuarioDAO->fill($post->getIdUsuario());
@@ -87,6 +89,8 @@ class RespuestasController extends BaseController {
 		$this->view->setVariable("autor", $autor);
 		$this->view->setVariable("respuestas", $respuestas);
 		$this->view->render("posts","view");
+		*/
+		$this->view->redirectToReferer();
 
 	}
 
