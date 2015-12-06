@@ -73,7 +73,7 @@ CREATE TABLE `posts` (
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-INSERT INTO `posts` VALUES (1,'a title',1,'cuerpo del post',10,'2015-01-24 00:00:00',0);
+INSERT INTO `posts` VALUES (1,'Lorem ipsum dolor sit amet',1,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tristique elementum varius. Vivamus tristique, ligula a elementum ultrices, libero leo dignissim purus, a vestibulum neque ligula vitae risus. Etiam vitae tempus est. Nulla ante massa, mattis ut justo ac, sollicitudin imperdiet diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla lacinia facilisis urna, non congue neque tincidunt id. Donec hendrerit finibus nulla, eu vehicula quam interdum ac. Nullam tincidunt, lacus tempor hendrerit accumsan, diam dolor blandit neque, a congue augue nulla sit amet arcu. Etiam vestibulum at augue at convallis.',10,'2015-01-24 00:00:00',1);
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -104,7 +104,7 @@ CREATE TABLE `respuestas` (
 
 LOCK TABLES `respuestas` WRITE;
 /*!40000 ALTER TABLE `respuestas` DISABLE KEYS */;
-INSERT INTO `respuestas` VALUES (1,1,1,'cuerpo de la respuesta','2015-01-24 00:00:00');
+INSERT INTO `respuestas` VALUES (1,1,1,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tristique elementum varius. Vivamus tristique, ligula a elementum ultrices, libero leo dignissim purus, a vestibulum neque ligula vitae risus. Etiam vitae tempus est. Nulla ante massa, mattis ut justo ac, sollicitudin imperdiet diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla lacinia facilisis urna, non congue neque tincidunt id. Donec hendrerit finibus nulla, eu vehicula quam interdum ac. Nullam tincidunt, lacus tempor hendrerit accumsan, diam dolor blandit neque, a congue augue nulla sit amet arcu. Etiam vestibulum at augue at convallis.','2015-01-24 00:00:00');
 /*!40000 ALTER TABLE `respuestas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,7 +128,7 @@ CREATE TABLE `tags` (
 
 LOCK TABLES `tags` WRITE;
 /*!40000 ALTER TABLE `tags` DISABLE KEYS */;
-INSERT INTO `tags` VALUES (1,'c++');
+INSERT INTO `tags` VALUES (1,'C++');
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,7 +159,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'yonyon','yonyon','Yago Rodriguez','yonyon@gmail.com','default.png','soy un rogue',1);
+INSERT INTO `users` VALUES (1,'usuarioEjemplo','123456','John Doe','johnDoe@stack.com','el papa.jpg','A random user',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -190,6 +190,12 @@ LOCK TABLES `votos` WRITE;
 INSERT INTO `votos` VALUES (1,1,-1);
 /*!40000 ALTER TABLE `votos` ENABLE KEYS */;
 UNLOCK TABLES;
+
+GRANT USAGE ON *.* TO 'stack_user'@'127.0.0.1';
+DROP USER 'stack_user'@'127.0.0.1'; 
+CREATE USER 'stack_user'@'127.0.0.1' IDENTIFIED BY 'stack_pass.';
+GRANT ALL ON stackunderflow.* TO 'stack_user'@'127.0.0.1';
+GRANT USAGE ON *.* TO 'stack_user'@'127.0.0.1';
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
