@@ -4,9 +4,9 @@
 
 <ul id="languagechooser" class="dropdown-menu" role="menu" aria-labelledby="dLabel">
   <li><a href="index.php?controller=language&amp;action=change&amp;lang=es">
-  <?= i18n("Spanish") ?>
+  <img src="img/banderitas/latino.png" class="languageIcon"> <?= i18n("Venezolano") ?>
   </a></li>
   <li><a href="index.php?controller=language&amp;action=change&amp;lang=en">
-  <?= i18n("English") ?>
+  <img src="img/banderitas/'murica.png" class="languageIcon"><?= i18n("'Muricano") ?>
   </a></li>
 </ul>

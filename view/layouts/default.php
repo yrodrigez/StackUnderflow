@@ -171,8 +171,8 @@ $currentuser = $view->getVariable("currentusername");
 																	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="dropdownMenu"><?= i18n("Menu")?></span><span class="caret"></span></a>
 																		<ul class="dropdown-menu dropdownMenu listaMenu">
 																			<li><a href="index.php?controller=posts&action=index"><?=i18n("Inicio")?></a></li>
-																			<li><a href="#"><?=i18n("Sin contestar")?></a></li>
-																			<li><a href="#"><?=i18n("Usuarios")?></a></li>
+																			<li><a href="index.php?controller=posts&action=sinContestar"><?=i18n("Sin contestar")?></a></li>
+																			<li><a href="index.php?controller=usuarios&action=index"><?=i18n("Usuarios")?></a></li>
 																			<li><a href="#"><?=i18n("Categorias")?></a></li>
 																			<li><a href="#"><?=i18n("Ayuda")?></a></li>
 																		</ul>

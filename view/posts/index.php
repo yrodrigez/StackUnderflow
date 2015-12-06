@@ -24,6 +24,7 @@ $titulo= $view->getVariable("titulo");
 <div class="row">
 	<span class="col-md-12"><h2><?= i18n($titulo); ?></h2></span>
 </div>
+<?php if($posts != NULL): ?>
 <?php foreach($posts as $post): ?>
 	<!-- PREGUNTA PLANTILLA-->
 	<hr/>
@@ -61,6 +62,9 @@ $titulo= $view->getVariable("titulo");
 	</div>
 	<!-- FIN PREGUNTA PLANTILLA-->
 <?php endforeach; 
+else:
+	echo "<h2>".i18n("Ups, no hay ninguna pregunta")."</h2>";
+endif;
 if (isset ($_SESSION['user'])){ ?>
 		<div class="row">
 			<div id="divButtonPreguntar" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">

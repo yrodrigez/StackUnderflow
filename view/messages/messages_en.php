@@ -63,6 +63,9 @@
     "Debe estar logueado para responder a un post" => "You must log in to answer a post",
     "Aún no has hecho ninguna pregunta" => "You have not asked sheit",
     "Editar"=> "Edit",
-    "Idiomas"=>"Languages"
+    "Idiomas"=>"Languages",
+    "Venezolano" => "Spanish",
+    "'Muricano" => "'Murican",
+    "No hay ninguna pregunta" => "There's no posts",
 
   );
