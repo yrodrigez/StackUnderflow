@@ -4,7 +4,7 @@ class PDOConnection {
   private static $dbhost = "127.0.0.1";
   private static $dbname = "stack";
   private static $dbuser = "root";
-  private static $dbpass = "123456"; //NO PONER PASSWORD
+  private static $dbpass = "951753"; //NO PONER PASSWORD
   private static $db_singleton = null;
   
   public static function getInstance() {
