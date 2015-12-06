@@ -105,4 +105,5 @@ class Post
 	{
 		$this->id = $id;
 	}
+
 }
