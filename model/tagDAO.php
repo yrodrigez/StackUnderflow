@@ -63,9 +63,8 @@ class TagDAO{
   				$tag["tag"]
   		);
   	 }
-    } else {
-  	 return NULL;
     }
+    return NULL;
   }
 
 
@@ -73,7 +72,7 @@ class TagDAO{
    * Gets all the tags in the database
    * 
    * @throws PDOException if a database error occurs
-   * @return Array of Tags An array with all the users inside it, else Null
+   * @return array of Tags An array with all the users inside it, else Null
    */
   public function getAllTags() {
   	$tags = array();
@@ -89,15 +88,14 @@ class TagDAO{
   		  )); 
   	  }
   	 return $tags;
-    } else {
-  	 return NULL;
     }
+  	return NULL;
   }
 
   /**
    * Gets the id of a tag
    * 
-   * @param string $tagname The name of the tag we want to get the id from
+   * @param $tagName string $tagname The name of the tag we want to get the id from
    * @throws PDOException if a database error occurs
    * @return Int The id of the tag, NULL if its not found
    */
@@ -112,9 +110,8 @@ class TagDAO{
       ) {
             return $tag["id"];     
       } 
-    } else {
-        return false;
     }
+    return false;
   }
 
   /**
@@ -136,7 +133,7 @@ class TagDAO{
    * 
    * @param Int $idPost The id of the post we want to get the tags from 
    * @throws PDOException if a database error occurs
-   * @return Array of Tags All the tags from a Post, else return NULL
+   * @return array of Tags All the tags from a Post, else return NULL
    */
 	public function getAllPostTags(
 		$idPost
@@ -154,9 +151,8 @@ class TagDAO{
         )); 
       }
      return $tags;
-    } else {
-     return NULL;
     }
+    return NULL;
 	}
 
 }

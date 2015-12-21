@@ -56,7 +56,9 @@ class UsuarioDAO {
   ) {
     $stmt = $this->db->prepare("SELECT * FROM users WHERE username=?");
     $stmt->execute(array($username));
-    if($stmt->rowCount()>0) {
+    if(
+      $stmt->rowCount()>0
+    ){
       foreach (
         $stmt as $user
         ) {
@@ -72,9 +74,8 @@ class UsuarioDAO {
                 array()
             );
       }
-    } else {
-        return false;
     }
+    return false;
   }
 
   /**
@@ -105,9 +106,8 @@ class UsuarioDAO {
                 array()
             );
       }
-    } else {
-        return false;
     }
+    return false;
   }
 
   /**
@@ -129,9 +129,8 @@ class UsuarioDAO {
             return $user["id"];
                 
       } 
-    } else {
-        return false;
     }
+    return false;
   }
 
   /**
@@ -211,7 +210,7 @@ class UsuarioDAO {
   }
 
   /**
-   * @param $usuario
+   * @param $usuario Usuario
    * @return bool
    */
   public function isValid (
@@ -225,7 +224,7 @@ class UsuarioDAO {
     }
 
   /**
-   * @param $usuario
+   * @param $usuario Usuario
    * @return bool
    */
   public function exists (
