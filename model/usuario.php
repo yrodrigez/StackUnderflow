@@ -147,5 +147,7 @@ class Usuario
     if (sizeof($errors)>0){
       return $errors;
     }
+
+    return true;
   }
 }

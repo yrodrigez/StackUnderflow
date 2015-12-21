@@ -18,14 +18,14 @@ class RespuestaDAO {
 
   /**
    * @param Respuesta array $respuestas
-   * @var $ids id's de las respuestas para hacer la consulta
-   * @var $sql consulta concatenada para todos los votos
+   * @var $ids string id's de las respuestas para hacer la consulta
+   * @var $sql string consulta concatenada para todos los votos
    * @var Respuesta $respuesta
    * @return bool
    */
   public function getAllRespuestasLikes(
     $respuestas
-  ){
+  ) {
     $size= count($respuestas);
     if($size > 0) {
       $sql = "SELECT * FROM votos WHERE ";
@@ -57,39 +57,39 @@ class RespuestaDAO {
           }
         }
         return true;
-      }else{
-        return false;
       }
+      return false;
     }
+    return $respuestas;
   }
     /**
      * @param $idUsuario
      * @return array
      */
-    public function getAllRespuestasUsuario(
-      $idUsuario
-      ) {
-      $stmt = $this->db->prepare(
-        "SELECT * FROM respuestas WHERE user_id= ?"
+  public function getAllRespuestasUsuario(
+    $idUsuario
+  ) {
+    $stmt = $this->db->prepare(
+      "SELECT * FROM respuestas WHERE user_id= ?"
+    );
+    if($stmt->execute(array( $idUsuario))){
+      $ret = array();
+      foreach($stmt as $respuesta){
+        array_push(
+          $ret,
+          new Respuesta(
+            $respuesta["id"],
+            $respuesta["idpost"],
+            $respuesta["cuerpo"],
+            $respuesta["created"],
+            $respuesta["user_id"],
+            NULL
+          )
         );
-      if($stmt->execute(array( $idUsuario))){
-        $ret = array();
-        foreach($stmt as $respuesta){
-          array_push(
-            $ret,
-            new Respuesta(
-              $respuesta["id"],
-              $respuesta["idpost"],
-              $respuesta["cuerpo"],
-              $respuesta["created"],
-              $respuesta["user_id"],
-              NULL
-            )
-          );
-        }
-        return ret;
       }
+      return $ret;
     }
+  }
 
   /**
    * @param $respuesta Respuesta
