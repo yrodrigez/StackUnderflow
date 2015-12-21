@@ -94,6 +94,7 @@ class RespuestaDAO {
   /**
    * @param $respuesta Respuesta
    * guarda la respuesta y cambia el campo contestada a 1 del post correspondiente
+   * @return boolean
    */
   public function save(
     $respuesta
@@ -108,16 +109,22 @@ class RespuestaDAO {
         ) VALUES
         (?,?,?,?,?)"
     );
-    $stmt->execute(array(
-      $respuesta->getIdRespuesta(),
-      $respuesta->getUserId(),
-      $respuesta->getIdPost(),
-      $respuesta->getCuerpo(),
-      $respuesta->getFechaCreacion()
-      ));
+    $stmt->execute(
+      array(
+        $respuesta->getIdRespuesta(),
+        $respuesta->getUserId(),
+        $respuesta->getIdPost(),
+        $respuesta->getCuerpo(),
+        $respuesta->getFechaCreacion()
+      )
+    );
     return $this->setContestado($respuesta->getIdPost());
   }
 
+  /**
+   * @param $idPost
+   * @return bool
+   */
   public function setContestado(
       $idPost
   ){
@@ -159,6 +166,10 @@ class RespuestaDAO {
     }
   }
 
+  /**
+   * @param $idRespuesta string
+   * @return array
+   */
   public function getTotalVotes(
     $idRespuesta
     ) {
@@ -177,6 +188,12 @@ class RespuestaDAO {
     return array($positivos, $negativos);
   }
 
+  /**
+   * @param $idUsuario string el usuario que vota
+   * @param $idRespuesta string la respuesta a la que se vota
+   * @param $valor int 1 para añadir voto
+   * @return bool
+   */
   public function addVote(
     $idUsuario,
     $idRespuesta,
@@ -192,6 +209,10 @@ class RespuestaDAO {
     }
   }
 
+  /**
+   * @param $idPost correspondiente para su busqueda
+   * @return Post el post al que pertenece esta respuesta.
+   */
   public function dameMiPost(
       $idPost
   ) {
@@ -251,6 +272,10 @@ class RespuestaDAO {
     }
   }
 
+  /**
+   * @param $id string
+   * @return array
+   */
   public function fill(
     $id
   ) {
@@ -265,14 +290,16 @@ class RespuestaDAO {
         if ($votos == NULL) {
           $votos = array(0, 0);
         }
-        array_push($respuestas, new Respuesta(
-                $respuesta["id"],
-                $respuesta["idpost"],
-                $respuesta["cuerpo"],
-                $respuesta["created"],
-                $respuesta["user_id"],
-                $votos
-            )
+        array_push(
+          $respuestas,
+          new Respuesta(
+            $respuesta["id"],
+            $respuesta["idpost"],
+            $respuesta["cuerpo"],
+            $respuesta["created"],
+            $respuesta["user_id"],
+            $votos
+          )
         );
       }
       return $respuestas;
@@ -280,6 +307,10 @@ class RespuestaDAO {
   }
 
 
+  /**
+   * @param $array array Post
+   * @return array
+   */
   private function quick_sort($array)
   {
     // find array size
@@ -314,6 +345,11 @@ class RespuestaDAO {
   }
 
 
+  /**
+   * @param $idUser
+   * @param $idRespuesta
+   * @return bool
+   */
   public function addLike(
     $idUser,
     $idRespuesta
@@ -322,11 +358,16 @@ class RespuestaDAO {
     return $stmt->execute(array($idUser, $idRespuesta, 1));
   }
 
+  /**
+   * @param $idUser
+   * @param $idRespuesta
+   * @return bool
+   */
   public function addDislike(
       $idUser,
       $idRespuesta
   ) {
-    $stmt= $this->db->prepare("INSERT INTO votos(id_user, id_respuesta, votos) VALUES(?,?,?)");
+    $stmt= $this->db->prepare("INSERT INTO votos(id_user, id_respuesta, votos) VALUES (?,?,?)");
     return $stmt->execute(array($idUser,$idRespuesta, -1));
   }
 

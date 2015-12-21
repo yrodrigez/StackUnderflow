@@ -177,14 +177,15 @@ class PostDAO {
     }
 
     /**
-     * @param $post
+     * @param $post Post
      * @return bool
      */
     public function save(
       $post
       ) {
       $stmt = $this->db->prepare(
-        "INSERT INTO posts(id,
+        "INSERT INTO posts(
+          id,
           titulo,
           user_id,
           cuerpo,
@@ -194,14 +195,17 @@ class PostDAO {
           ) VALUES
       (?,?,?,?,?,?,?)"
       );
-      $stmt->execute(array($post->getId(),
-        $post->getTitulo(),
-        $post->getIdUsuario(),
-        $post->getCuerpo(),
-        $post->getNumVisitas(),
-        $post->getFechaCreacion(),
-        $post->getContestada()
-        ));
+      $stmt->execute(
+        array(
+          $post->getId(),
+          $post->getTitulo(),
+          $post->getIdUsuario(),
+          $post->getCuerpo(),
+          $post->getNumVisitas(),
+          $post->getFechaCreacion(),
+          $post->getContestada()
+        )
+      );
 
       $postInsertado = $this->db->lastInsertId();
       foreach($post->getTags() as $tag){
@@ -211,9 +215,14 @@ class PostDAO {
           );
         $stmt->execute(array($tag->getId(),$postInsertado));
       }
-    } 
+    }
 
-    public function edit(
+
+  /**
+   * @param $post Post
+   * @return bool
+   */
+  public function edit(
       $post
       ) {
       $stmt = $this->db->prepare(
@@ -230,7 +239,11 @@ class PostDAO {
       );
     }
 
-    public function aumentarVisitas(
+  /**
+   * @param $post Post
+   * @return bool
+   */
+  public function aumentarVisitas(
       $post
     ) {
       $stmt = $this->db->prepare(
