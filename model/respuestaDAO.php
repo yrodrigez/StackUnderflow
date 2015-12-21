@@ -18,9 +18,10 @@ class RespuestaDAO {
 
   /**
    * @param Respuesta array $respuestas
-   * @var $ids ids de las respuestas para hacer la consulta
+   * @var $ids id's de las respuestas para hacer la consulta
    * @var $sql consulta concatenada para todos los votos
    * @var Respuesta $respuesta
+   * @return bool
    */
   public function getAllRespuestasLikes(
     $respuestas
@@ -36,7 +37,6 @@ class RespuestaDAO {
           $sql.=" id_respuesta= ? or";
         array_push($ids, $respuestas[$i]->getIdRespuesta());
       }
-
       $stmt = $this->db->prepare($sql);
       if($stmt->execute($ids)){
         foreach($stmt as $voto){
@@ -64,7 +64,7 @@ class RespuestaDAO {
   }
     /**
      * @param $idUsuario
-     * @return PDOStatement
+     * @return array
      */
     public function getAllRespuestasUsuario(
       $idUsuario
@@ -72,9 +72,23 @@ class RespuestaDAO {
       $stmt = $this->db->prepare(
         "SELECT * FROM respuestas WHERE user_id= ?"
         );
-      if($stmt->execute(array(
-        $idUsuario
-        ))) return $stmt; //Cambiar
+      if($stmt->execute(array( $idUsuario))){
+        $ret = array();
+        foreach($stmt as $respuesta){
+          array_push(
+            $ret,
+            new Respuesta(
+              $respuesta["id"],
+              $respuesta["idpost"],
+              $respuesta["cuerpo"],
+              $respuesta["created"],
+              $respuesta["user_id"],
+              NULL
+            )
+          );
+        }
+        return ret;
+      }
     }
 
   /**

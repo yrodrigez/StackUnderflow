@@ -4,10 +4,12 @@ require_once(__DIR__."/../../core/ViewManager.php");
 $view = ViewManager::getInstance();
 $posts = $view->getVariable("posts");
 $titulo= $view->getVariable("titulo");
+
 /**
  * @var Post $post
  * @var Tag $tag
  */
+
 ?>
 
 <!--SEARCHBAR-->

@@ -22,4 +22,4 @@ class PDOConnection {
     return self::$db_singleton;
   }
 }
-?>
+

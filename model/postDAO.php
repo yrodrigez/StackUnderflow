@@ -18,7 +18,7 @@ class PostDAO {
 
     /**
      * @param $userId
-     * @return  
+     * @return  Post array
      */
     public function getAllUserPosts(
       $userId
@@ -33,7 +33,17 @@ class PostDAO {
       foreach($stmt as $post){
         array_push(
           $posts,
-          $this->fill($post["id"]));
+          new Post(
+           $post["id"],
+           $post["titulo"],
+           $post["contestada"],
+           $post["cuerpo"],
+           $post["numvisitas"],
+           $post["created"],
+           $post["user_id"],
+           NULL
+          )
+        );
       }
       return $posts;
     }
@@ -46,11 +56,23 @@ class PostDAO {
    * @return array
    */
   public function getPostsSinContestar(){
-    $stmt= $this->db->prepare("SELECT id FROM posts WHERE contestada= ?");
+    $stmt= $this->db->prepare("SELECT * FROM posts WHERE contestada= ?");
     if($stmt->execute(array(0))){
       $posts = array();
-      foreach($stmt as $row) {
-        array_push($posts, $this->fill($row["id"]));
+      foreach($stmt as $post) {
+        array_push(
+            $posts,
+            new Post(
+                $post["id"],
+                $post["titulo"],
+                $post["contestada"],
+                $post["cuerpo"],
+                $post["numvisitas"],
+                $post["created"],
+                $post["user_id"],
+                NULL
+            )
+        );
       }
       return $posts;
     }else{
@@ -67,19 +89,52 @@ class PostDAO {
       $size
       ) {
       $stmt = $this->db->prepare(
-        "SELECT id FROM  posts ORDER BY created DESC"
+        "SELECT * FROM  posts ORDER BY created DESC"
         );
+      $i=0;
       if($stmt->execute()) {
         if ($stmt->rowCount() > $size) {
           $ret = array();
-          for ($i = 0; $i < $size; $i++) {
-            array_push($ret, $this->fill($stmt->fetchColumn()));
+          foreach ($stmt as $post) {
+            array_push(
+              $ret,
+                new Post(
+                    $post["id"],
+                    $post["titulo"],
+                    $post["contestada"],
+                    $post["cuerpo"],
+                    $post["numvisitas"],
+                    $post["created"],
+                    $post["user_id"],
+                    NULL
+                )
+            );
+            if($i < $size)
+              $i++;
+            else
+              break;
           }
           return $ret;
         } else {
           $ret = array();
-          for ($i = 0; $i < $stmt->rowCount(); $i++) {
-            array_push($ret, $this->fill($stmt->fetchColumn()));
+          foreach ($stmt as $post) {
+            array_push(
+                $ret,
+                new Post(
+                    $post["id"],
+                    $post["titulo"],
+                    $post["contestada"],
+                    $post["cuerpo"],
+                    $post["numvisitas"],
+                    $post["created"],
+                    $post["user_id"],
+                    NULL
+                )
+            );
+            if($i < $stmt->rowCount())
+              $i++;
+            else
+              break;
           }
           return $ret;
         }
@@ -96,12 +151,24 @@ class PostDAO {
       $query
     ) {
       $stmt = $this->db->prepare(
-        "SELECT id FROM  posts WHERE titulo LIKE ? OR cuerpo LIKE ?;"
+        "SELECT * FROM  posts WHERE titulo LIKE ? OR cuerpo LIKE ?;"
         );
       if($stmt->execute(array("%".$query."%", "%".$query."%"))) {
           $ret = array();
           foreach($stmt as $post) {
-            array_push($ret, $this->fill($post["id"]));
+            array_push(
+                $ret,
+                new Post(
+                    $post["id"],
+                    $post["titulo"],
+                    $post["contestada"],
+                    $post["cuerpo"],
+                    $post["numvisitas"],
+                    $post["created"],
+                    $post["user_id"],
+                    NULL
+                )
+            );
           }
           return $ret;
       } else{
@@ -152,13 +219,15 @@ class PostDAO {
       $stmt = $this->db->prepare(
         "UPDATE posts SET titulo= ?, cuerpo= ?, created= ?, contestada= ? WHERE id= ?"
         );
-      return $stmt->execute(array(
-        $post->getTitulo(),
-        $post->getCuerpo(),
-        $post->getFechaCreacion(),
-        $post->getContestada(),
-        $post->getId()
-        ));
+      return $stmt->execute(
+        array(
+          $post->getTitulo(),
+          $post->getCuerpo(),
+          $post->getFechaCreacion(),
+          $post->getContestada(),
+          $post->getId()
+        )
+      );
     }
 
     public function aumentarVisitas(
@@ -182,7 +251,7 @@ class PostDAO {
       ) {
       $stmt = $this->db->prepare(
         "SELECT * FROM posts WHERE id= ?"
-        );
+      );
 
       if ($stmt->execute(array($idPost))){
         if($stmt->rowCount() > 0){
