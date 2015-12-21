@@ -49,7 +49,7 @@ class UsuarioDAO {
    * 
    * @param string $username The username of the user we want to retrieve
    * @throws PDOException if a database error occurs
-   * @return User The user with the specified Username, NULL if its not found
+   * @return Usuario The user with the specified Username, NULL if its not found
    */
   public function getUser(
         $username
@@ -80,7 +80,7 @@ class UsuarioDAO {
   /**
    * Gets the user specified by the id
    * 
-   * @param id $id The username of the user we want to retrieve
+   * @param $id $id The username of the user we want to retrieve
    * @throws PDOException if a database error occurs
    * @return Usuario The user with the specified id, NULL if its not found
    */
@@ -138,7 +138,7 @@ class UsuarioDAO {
    * Gets all the users in the database
    * 
    * @throws PDOException if a database error occurs
-   * @return Array of Users An array with all the users inside it, else Null
+   * @return array of Users An array with all the users inside it, else Null
    */
   public function getAllUsers() {
     $users = array();
@@ -210,6 +210,10 @@ class UsuarioDAO {
     return $stmt->execute(array($idUser));
   }
 
+  /**
+   * @param $usuario
+   * @return bool
+   */
   public function isValid (
       $usuario
   ) {
@@ -220,6 +224,10 @@ class UsuarioDAO {
       return $stmt->fetchColumn() > 0;
     }
 
+  /**
+   * @param $usuario
+   * @return bool
+   */
   public function exists (
       $usuario
   ) {
@@ -234,6 +242,11 @@ class UsuarioDAO {
       }
   }
 
+  /**
+   * @param $idUsuario string correspondiente al usuario
+   * @param $idRespuesta string respuesta en la que se quiere comprobas si ha votado o no
+   * @return int 0 en caso de que no haya votado, 1 en otro caso
+   */
   public function noHaVotado(
       $idUsuario,
       $idRespuesta
