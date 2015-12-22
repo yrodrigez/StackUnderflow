@@ -7,6 +7,6 @@
   <img src="img/banderitas/latino.png" class="languageIcon"> <?= i18n("Venezolano") ?>
   </a></li>
   <li><a href="index.php?controller=language&amp;action=change&amp;lang=en">
-  <img src="img/banderitas/'murica.png" class="languageIcon"><?= i18n("'Muricano") ?>
+  <img src="img/banderitas/'murica.png" class="languageIcon"> <?= i18n("Gringo") ?>
   </a></li>
 </ul>

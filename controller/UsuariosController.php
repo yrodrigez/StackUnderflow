@@ -56,7 +56,7 @@ class UsuariosController extends BaseController {
 				$this->view->redirect("posts", "index");
 			} else {
 				$msg = array();
-                array_push($msg, array("error", i18n("Datos de sesión inválidos")));
+        array_push($msg, array("error", i18n("Datos de sesión inválidos")));
 				$this->view->setFlash($msg);
 				$this->view->redirect("posts", "index");
 			}
@@ -101,7 +101,15 @@ class UsuariosController extends BaseController {
 				$user->setFotoPath($this->userDAO->fill($_SESSION["user"])->getFotoPath());
 			}
 
-			$this->userDAO->modificarUser($user);
+			if($this->userDAO->modificarUser($user)){
+				$msg= array();
+        array_push($msg, array("success", "Datos editados correctamente"));
+        $this->view->setFlash($msg);
+			}else{
+        $msg= array();
+        array_push($msg,  array("success","OoOoOps, ha pasado algo malo"));
+        $this->view->setFlash($msg);
+      }
 
 			$user->setPosts($this->postsDao->getAllUserPosts($user->getId()));
 			$this->view->setVariable("usuario", $user);

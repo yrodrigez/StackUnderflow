@@ -174,25 +174,23 @@ class UsuarioDAO {
    */
   public function modificarUser(
     $user
-    ) {
-        if($user->getFotoPath() != NULL) {
-            $stmt = $this->db->prepare("UPDATE users Set email = ?,
-                                                     foto = ?,
-                                                     descripcion = ? WHERE id = ?;");
-            return $stmt->execute(array($user->getEmail(),
-                $user->getFotoPath(),
-                $user->getDescripcion(),
-                $user->getId())
-            );
-        }else{
-            $stmt = $this->db->prepare("UPDATE users Set email = ?,
-                                                     descripcion = ? WHERE id = ?;");
-            return $stmt->execute(array($user->getEmail(),
-                $user->getDescripcion(),
-                $user->getId())
-            );
-        }
-
+  ){
+    $stmt = $this->db->prepare("UPDATE users SET email = ?,
+                                                   descripcion = ?,
+                                                   password= ?,
+                                                   name=?,
+                                                   foto= ?
+                                                   WHERE id = ?;");
+    return $stmt->execute(
+      array(
+        $user->getEmail(),
+        $user->getDescripcion(),
+        strval($user->getPassword()),
+        $user->getNombre(),
+        $user->getFotoPath(),
+        $user->getId()
+      )
+    );
   }
 
   /**

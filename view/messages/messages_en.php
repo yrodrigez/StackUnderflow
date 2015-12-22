@@ -65,7 +65,8 @@
     "Editar"=> "Edit",
     "Idiomas"=>"Languages",
     "Venezolano" => "Spanish",
-    "'Muricano" => "'Murican",
+    "Gringo" => "'Murican",
     "No hay ninguna pregunta" => "There's no posts",
+    "Modificar" => "Modify"
 
   );
