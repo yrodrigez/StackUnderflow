@@ -67,6 +67,8 @@
     "Venezolano" => "Spanish",
     "Gringo" => "'Murican",
     "No hay ninguna pregunta" => "There's no posts",
-    "Modificar" => "Modify"
+    "Modificar" => "Modify",
+    "Usted no es el creador de este post, ¡PAYASO!"=>"You're not the creator of this post, you CLOWN!",
+    "Post modificado correctamente"=>"Post modified correctly"
 
   );

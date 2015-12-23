@@ -26,6 +26,8 @@ class PostsController extends BaseController
 {
   private $postDAO;
   private $tagDAO;
+  private $usuarioDAO;
+  private $respuestaDAO;
   const HOT_POST_SIZE = 10;
 
   public function __construct()
@@ -156,18 +158,53 @@ class PostsController extends BaseController
       if($post->getIdUsuario() == $_SESSION["user"]){
         $post->setCuerpo($_POST["cuerpo"]);
         $post->setFechaCreacion(date("Y-m-d H:i:s",time()));
+
         $this->postDAO->edit($post);
+
         $msg = array();
         array_push($msg, array("success", i18n("Post modificado correctamente")));
         $this->view->setFlash($msg);
+
         $this->view();
       }else{
         //no es el usuario creador
         $msg = array();
-        array_push($msg, array("error", i18n("Usted no es el creador de este post, PAYASO!")));
+        array_push($msg, array("error", i18n("Usted no es el creador de este post, ¡PAYASO!")));
         $this->view->setFlash($msg);
         $this->view->redirectToReferer();
       }
     }
+    $this->view->redirectToReferer();
+  }
+
+  public function modifyRespuesta(){
+    if(isset($_SESSION["user"])
+      && isset($_GET["id"])
+      && isset($_POST["cuerpo"])
+    ){
+      $respuesta= $this->respuestaDAO->fill($_GET["id"]);
+      if($respuesta->getUserId() == $_SESSION["user"]) {
+        $postContenedor = $this->respuestaDAO->dameMiPost($respuesta->getIdRespuesta());
+        $respuesta->setCuerpo($_POST["cuerpo"]);
+        if($this->respuestaDAO->modify($respuesta)){
+          $msg = array();
+          array_push($msg, array("success", i18n("Post modificado correctamente")));
+          $this->view->setFlash($msg);
+        }else{
+          $msg = array();
+          array_push($msg, array("error", i18n("No se ha podido guardar la modificación")));
+          $this->view->setFlash($msg);
+        }
+        $_GET["id"] = $postContenedor->getId();
+        $this->view();
+      } else {
+        //no es el usuario creador
+        $msg = array();
+        array_push($msg, array("error", i18n("Usted no es el creador de este post, ¡PAYASO!")));
+        $this->view->setFlash($msg);
+        $this->view->redirectToReferer();
+      }
+    }
+    $this->view->redirectToReferer();
   }
 }

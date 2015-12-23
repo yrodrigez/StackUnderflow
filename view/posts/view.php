@@ -45,7 +45,7 @@ $respuestas = $view->getVariable("respuestas");
             <!-- Fin textArea -->
             <!-- BOTON Enviar -->
             <div  class ="row">
-              <div id="preguntaDiv" class="preguntaContainer col-lg-3 col-md-3 col-sm-3 col-xs-4">
+              <div id="preguntaDiv" class="preguntaContainer col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <input type="submit" class="btn btn-primary btn-modificar" value="<?= i18n("Modificar");?>">
               </div>
             </div>
@@ -87,72 +87,108 @@ $respuestas = $view->getVariable("respuestas");
       echo "<div class='col-md-12'>".i18n("Esta pregunta no tiene respuestas")."</div>";
     } else {
       foreach ($respuestas as $respuesta) { ?>
-        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 w">
-          <img
-            alt="<?= i18n("Foto de usuario");?>"
-            class="img-responsive img-circle sizePhotoAnswer"
-            src="img/users/<?=$respuesta->getUsuarioCreador()->getFotoPath(); ?>"/>
-        </div>
-        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-8 whiteBackground caja-post-respuesta">
-          <p align="justify">
-            <?= $respuesta->getCuerpo(); ?>
-          </p>
-          <div class="row">
-            <div class="col-md-12 likes">
-              <a href="index.php?controller=respuestas&action=addLike&id=<?=$respuesta->getIdRespuesta()?>">
-                <label class="glyphicon glyphicon-thumbs-up">
-                  <?= $respuesta->getLikes(); ?>
-                </label></a>
-              <a href="index.php?controller=respuestas&action=addDislike&id=<?=$respuesta->getIdRespuesta();?>">
-                <label class="glyphicon glyphicon-thumbs-down">
-                  <?= $respuesta->getDislikes(); ?>
-                </label></a>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 w">
+              <img
+                alt="<?= i18n("Foto de usuario");?>"
+                class="img-responsive img-circle sizePhotoAnswer"
+                src="img/users/<?=$respuesta->getUsuarioCreador()->getFotoPath(); ?>"/>
             </div>
-          </div>
-          <div class="row">
-            <div class="usuarioRespuesta col-md-12">
+            <div class="col-lg-10 col-md-10 col-sm-9 col-xs-8 whiteBackground caja-post-respuesta">
+              <?php
+              if(
+                isset($_GET["editRespuesta"]) &&
+                isset($_SESSION["user"])
+              ){
+                if(
+                  $_SESSION["user"] == $respuesta->getUsuarioCreador()->getId() &&
+                  $_GET["editRespuesta"] == $respuesta->getIdRespuesta()
+                ){
+                  ?>
+                  <form action='?controller=posts&action=modifyRespuesta&id=<?=$respuesta->getIdRespuesta()?>' method="POST">
+                    <div class="col-md-12 textBox">
+                      <textarea  name="cuerpo" rows="10" required="true"><?=$respuesta->getCuerpo() ?></textarea>
+                    </div>
+                    <!-- Fin textArea -->
+                    <!-- BOTON Enviar -->
+                    <div  class ="row">
+                      <div id="preguntaDiv" class="div-modificar col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <input type="submit" class="btn btn-primary btn-modificar" value="<?= i18n("Modificar");?>">
+                      </div>
+                    </div>
+                  </form>
+                  <?php
+                }
+              } else {
+                ?>
+                <p align="justify">
+                  <?= $respuesta->getCuerpo(); ?>
+                </p>
+                <?php
+              }
+              ?>
+              <div class="row">
+                <div class="col-md-12 likes">
+                  <a href="index.php?controller=respuestas&action=addLike&id=<?=$respuesta->getIdRespuesta()?>">
+                    <label class="glyphicon glyphicon-thumbs-up">
+                      <?= $respuesta->getLikes(); ?>
+                    </label></a>
+                  <a href="index.php?controller=respuestas&action=addDislike&id=<?=$respuesta->getIdRespuesta();?>">
+                    <label class="glyphicon glyphicon-thumbs-down">
+                      <?= $respuesta->getDislikes(); ?>
+                    </label></a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="usuarioRespuesta col-md-12">
 				<span>
-					<?php echo sprintf(i18n("Respondido por: %s, el dia %s"),
+					<?php
+          echo sprintf(i18n("Respondido por: %s, el dia %s"),
             $respuesta->getUsuarioCreador()->getUsername(),
-            $respuesta->getFechaCreacion());//revisar que no tenga la hora...?>
+            $respuesta->getFechaCreacion());
+          ?>
 				</span>
+                </div>
+              </div>
+              <?php
+              if(isset($_GET["editRespuesta"])){
+                if(isset($_SESSION["user"]) && $_GET["editRespuesta"] != $respuesta->getIdRespuesta()){
+                  if($respuesta->getUserId() == $_SESSION["user"]) { ?>
+                    <div class="row">
+                      <div class="col-md-12 div-modificar">
+                        <a class="btn btn-default btn-modificar"
+                           href="?controller=posts&action=view&id=<?= $post->getId() ?>&editRespuesta=<?= $respuesta->getIdRespuesta() ?>"
+                        >
+                          <?= i18n("Modificar") ?>
+                        </a>
+                      </div>
+                    </div>
+                    <?php
+                  }
+                }
+              }else{
+                if(isset($_SESSION["user"])){
+                  if($respuesta->getUserId() == $_SESSION["user"]) { ?>
+                    <div class="row">
+                      <div class="col-md-12 div-modificar">
+                        <a class="btn btn-default btn-modificar"
+                           href="?controller=posts&action=view&id=<?= $post->getId() ?>&editRespuesta=<?= $respuesta->getIdRespuesta() ?>"
+                        >
+                          <?= i18n("Modificar") ?>
+                        </a>
+                      </div>
+                    </div>
+                    <?php
+                  }
+                }
+              }
+              ?>
             </div>
           </div>
-          <?php
-          if(isset($_GET["editRespuesta"])){
-            if(isset($_SESSION["user"]) && $_GET["editRespuesta"] != $respuesta->getIdRespuesta()){
-              if($respuesta->getUserId() == $_SESSION["user"]) { ?>
-                <div class="row">
-                  <div class="col-md-12 div-modificar">
-                    <a class="btn btn-default btn-modificar"
-                       href="?controller=posts&action=view&id=<?= $post->getId() ?>&editRespuesta=<?= $respuesta->getIdRespuesta() ?>"
-                    >
-                      <?= i18n("Modificar") ?>
-                    </a>
-                  </div>
-                </div>
-                <?php
-              }
-            }
-          }else{
-            if(isset($_SESSION["user"])){
-              if($respuesta->getUserId() == $_SESSION["user"]) { ?>
-                <div class="row">
-                  <div class="col-md-12 div-modificar">
-                    <a class="btn btn-default btn-modificar"
-                       href="?controller=posts&action=view&id=<?= $post->getId() ?>&editRespuesta=<?= $respuesta->getIdRespuesta() ?>"
-                    >
-                      <?= i18n("Modificar") ?>
-                    </a>
-                  </div>
-                </div>
-                <?php
-              }
-            }
-          }
-          ?>
         </div>
         <?php
+
       }
     } ?>
   </div>

@@ -210,16 +210,16 @@ class RespuestaDAO {
   }
 
   /**
-   * @param $idPost correspondiente para su busqueda
+   * @param $idRespuesta correspondiente para su busqueda
    * @return Post el post al que pertenece esta respuesta.
    */
   public function dameMiPost(
-      $idPost
+    $idRespuesta
   ) {
     $stmt= $this->db->prepare(
         "SELECT posts.* from posts, respuestas where respuestas.idpost=posts.id and respuestas.id= ?"
     );
-    $stmt->execute(array($idPost));
+    $stmt->execute(array($idRespuesta));
     $row= $stmt->fetch(PDO::FETCH_ASSOC);
     return new Post(
       $row["id"],
@@ -274,36 +274,34 @@ class RespuestaDAO {
 
   /**
    * @param $id string
-   * @return array
+   * @return Respuesta
    */
   public function fill(
     $id
   ) {
     $stmt = $this->db->prepare("SELECT * FROM respuestas WHERE id= ?;");
-    $stmt->execute($id);
+    $stmt->execute(array($id));
     $respuestas= array();
     if($stmt->rowCount()>0) {
       foreach (
-          $stmt as $respuesta
+        $stmt as $respuesta
       ) {
         $votos = $this->getTotalVotes($respuesta["id"]);
         if ($votos == NULL) {
           $votos = array(0, 0);
         }
-        array_push(
-          $respuestas,
-          new Respuesta(
-            $respuesta["id"],
-            $respuesta["idpost"],
-            $respuesta["cuerpo"],
-            $respuesta["created"],
-            $respuesta["user_id"],
-            $votos
-          )
+        return new Respuesta(
+          $respuesta["id"],
+          $respuesta["idpost"],
+          $respuesta["cuerpo"],
+          $respuesta["created"],
+          $respuesta["user_id"],
+          $votos
         );
       }
       return $respuestas;
     }
+    return NULL;
   }
 
 
@@ -369,6 +367,23 @@ class RespuestaDAO {
   ) {
     $stmt= $this->db->prepare("INSERT INTO votos(id_user, id_respuesta, votos) VALUES (?,?,?)");
     return $stmt->execute(array($idUser,$idRespuesta, -1));
+  }
+
+  /**
+   * @param $respuesta Respuesta
+   * @return bool
+   */
+  public function modify(
+    $respuesta
+  ) {
+    $stmt= $this->db->prepare("UPDATE respuestas SET created= ?, cuerpo= ? WHERE id= ? ");
+    return $stmt->execute(
+      array(
+        $respuesta->getFechaCreacion(),
+        $respuesta->getCuerpo(),
+        $respuesta->getIdRespuesta()
+      )
+    );
   }
 
 
