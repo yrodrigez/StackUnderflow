@@ -100,11 +100,11 @@ $respuestas = $view->getVariable("respuestas");
               if(
                 isset($_GET["editRespuesta"]) &&
                 isset($_SESSION["user"])
-              ){
+              ) {
                 if(
                   $_SESSION["user"] == $respuesta->getUsuarioCreador()->getId() &&
                   $_GET["editRespuesta"] == $respuesta->getIdRespuesta()
-                ){
+                ) {
                   ?>
                   <form action='?controller=posts&action=modifyRespuesta&id=<?=$respuesta->getIdRespuesta()?>' method="POST">
                     <div class="col-md-12 textBox">
@@ -118,6 +118,12 @@ $respuestas = $view->getVariable("respuestas");
                       </div>
                     </div>
                   </form>
+                  <?php
+                } else {
+                  ?>
+                  <p align="justify">
+                    <?= $respuesta->getCuerpo(); ?>
+                  </p>
                   <?php
                 }
               } else {

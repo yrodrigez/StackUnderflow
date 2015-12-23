@@ -184,8 +184,9 @@ class PostsController extends BaseController
     ){
       $respuesta= $this->respuestaDAO->fill($_GET["id"]);
       if($respuesta->getUserId() == $_SESSION["user"]) {
-        $postContenedor = $this->respuestaDAO->dameMiPost($respuesta->getIdRespuesta());
+
         $respuesta->setCuerpo($_POST["cuerpo"]);
+        $respuesta->setFechaCreacion(date("Y-m-d H:i:s",time()));
         if($this->respuestaDAO->modify($respuesta)){
           $msg = array();
           array_push($msg, array("success", i18n("Post modificado correctamente")));
@@ -195,7 +196,7 @@ class PostsController extends BaseController
           array_push($msg, array("error", i18n("No se ha podido guardar la modificación")));
           $this->view->setFlash($msg);
         }
-        $_GET["id"] = $postContenedor->getId();
+        $_GET["id"] = $respuesta->getIdPost();
         $this->view();
       } else {
         //no es el usuario creador

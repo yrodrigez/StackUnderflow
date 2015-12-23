@@ -268,7 +268,7 @@ class ViewManager {
    * @param string $queryString An optional query string
    * @return void
    */
-  public function redirectToReferer($queryString=NULL) {    
+  public function redirectToReferer($queryString=NULL) {
     header("Location: ".$_SERVER["HTTP_REFERER"].(isset($queryString)?"&$queryString":""));
     die();
   }
