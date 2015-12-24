@@ -155,4 +155,35 @@ class TagDAO{
     return NULL;
 	}
 
+  public function getAllPostsByTag(
+   $idTag
+  ){
+    $posts= array();
+
+    $stmt= $this->db->prepare(
+      "SELECT posts.*
+       FROM post_tag, tags, posts
+       WHERE post_tag.tag_id=tags.id
+       AND post_tag.post_id=posts.id
+       AND post_tag.tag_id= ?"
+    );
+    $stmt->execute(array($idTag));
+    foreach ($stmt as $post) {
+      array_push(
+        $posts,
+        new Post(
+          $post["id"],
+          $post["titulo"],
+          $post["contestada"],
+          $post["cuerpo"],
+          $post["numvisitas"],
+          $post["created"],
+          $post["user_id"],
+          NULL
+          )
+      );
+    }
+    return $posts;
+  }
+
 }

@@ -47,12 +47,12 @@ $titulo= $view->getVariable("titulo");
 		</div>
 		<div class="row tags col-lg-12 col-md-12 col-sm-3 col-xs-12 hidden-xs">
 			<?php foreach($post->getTags() as $tag): ?>
-				<a href="#"><span class="tag">&nbsp<?= $tag->getTag() ?>&nbsp</span></a>
+				<a href="?controller=posts&action=findByTag&id=<?= $tag->getId() ?>"><span class="tag">&nbsp<?= $tag->getTag() ?>&nbsp</span></a>
 			<?php endforeach; ?>
 		</div>
 		<div class="tags col-lg-12 col-md-12 col-sm-12 col-xs-12 visible-xs hidden-md hidden-lg">
 			<?php foreach($post->getTags() as $tag): ?>
-				<a href="#"><span class="tag">&nbsp<?= $tag->getTag() ?>&nbsp</span></a>
+				<a href="?controller=posts&action=findByTag&id=<?= $tag->getId() ?>"><span class="tag">&nbsp<?= $tag->getTag() ?>&nbsp</span></a>
 			<?php endforeach; ?>
 		</div>
 		<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12 botonera-xs visible-xs">

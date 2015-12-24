@@ -144,7 +144,7 @@ class PostsController extends BaseController
       $post->setTags($this->tagDAO->getAllPostTags($post->getId()));
     }
     $this->view->setVariable("posts", $posts);
-    $this->view->setVariable("titulo", "Sin contestar");
+    $this->view->setVariable("titulo", i18n("Sin contestar"));
     $this->view->render("posts","index");
   }
 
@@ -208,4 +208,16 @@ class PostsController extends BaseController
     }
     $this->view->redirectToReferer();
   }
+
+  public function findByTag(){
+    $posts= $this->tagDAO->getAllPostsByTag($_GET["id"]);
+    $tag= $this->tagDAO->getTag($_GET["id"]);
+    foreach($posts as $post){
+      $post->setTags($this->tagDAO->getAllPostTags($post->getId()));
+    }
+    $this->view->setVariable("posts", $posts);
+    $this->view->setVariable("titulo", i18n("Preguntas etiquetadas con: ").$tag->getTag());
+    $this->view->render("posts","index");
+  }
+
 }
