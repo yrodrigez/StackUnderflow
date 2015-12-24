@@ -1,15 +1,7 @@
-#msg-container {
-	position: fixed;
-	top: 10px;
-	right: 10px;
-	z-index: 1;
-}
-
 .btn-modificar{
 	background-color: #0f0f0f;
 	color: white;
 	font-weight: bold;
-	display: none;
 }
 
 .btn-modificar:hover{
@@ -21,13 +13,11 @@
 .div-modificar {
  	text-align: right;
 	margin-bottom: 10px;
-
-
+	display: none;
 }
 
-.caja-post-respuesta:hover .btn-modificar{
+.caja-post-respuesta:hover .div-modificar{
 	display: block;
-	padding-top: 0;
 }
 
 .languageIcon {
@@ -326,7 +316,7 @@ a.loginButton:hover{
 }
 
 .titleMenuLogged{
-	font-family: "Press Start 2P";
+	font-family: 'Press Start 2P';
 	font-size: 15px;
 	width:100%;
 	color:black;

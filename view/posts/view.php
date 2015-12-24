@@ -5,9 +5,6 @@ $view = ViewManager::getInstance();
 $post = $view->getVariable("post");
 $autor = $view->getVariable("autor");
 $respuestas = $view->getVariable("respuestas");
-
-
-
 /**
  * @var Respuesta $respuesta
  * @var Post $post
@@ -44,11 +41,11 @@ $respuestas = $view->getVariable("respuestas");
             </div>
             <!-- Fin textArea -->
             <!-- BOTON Enviar -->
-            <div  class ="row">
-              <div id="preguntaDiv" class="preguntaContainer col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+              <div id="preguntaDiv" class="div-modificar col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <input type="submit" class="btn btn-primary btn-modificar" value="<?= i18n("Modificar");?>">
               </div>
-            </div>
+
           </form>
         </div>
       <?php endif; ?>
@@ -194,7 +191,6 @@ $respuestas = $view->getVariable("respuestas");
           </div>
         </div>
         <?php
-
       }
     } ?>
   </div>
