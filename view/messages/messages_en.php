@@ -47,7 +47,7 @@
     "Preguntado por: %s" => "Asked by: %s",
     "Esta pregunta no tiene respuestas" => "This post hasn't been answered yet",
     "Foto de usuario" => "User's picture",
-    "Respondido por: %s, el dia %s" => "Answered by: %s, the day %s",
+    "Respondido por: %s, modificado: %s" => "Answered by: %s, modified: %s",
     "Visitas" => "Views",
     "Enviar" => "Send",
     "Respuestas" => "Answers",
@@ -71,5 +71,6 @@
     "Usted no es el creador de este post, ¡PAYASO!"=>"You're not the creator of this post, you CLOWN!",
     "Post modificado correctamente"=>"Post modified correctly",
     "No se ha podido guardar la modificación"=> "Oops!. Couldn't save the changes",
-    "Preguntas etiquetadas con: "=>"Posts tagged with: "
+    "Preguntas etiquetadas con: "=>"Posts tagged with: ",
+    "Última modificación: %s" => "Modified: %s"
   );

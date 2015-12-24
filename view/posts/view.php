@@ -42,9 +42,9 @@ $respuestas = $view->getVariable("respuestas");
             <!-- Fin textArea -->
             <!-- BOTON Enviar -->
 
-              <div id="preguntaDiv" class="div-modificar col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <input type="submit" class="btn btn-primary btn-modificar" value="<?= i18n("Modificar");?>">
-              </div>
+            <div id="preguntaDiv" class="div-modificar col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <input type="submit" class="btn btn-primary btn-modificar" value="<?= i18n("Modificar");?>">
+            </div>
 
           </form>
         </div>
@@ -58,6 +58,16 @@ $respuestas = $view->getVariable("respuestas");
         </div>
       </div>
     <?php endif ?>
+    <div class="row">
+      <div class="usuarioRespuesta col-md-12">
+        <span>
+					<?php
+          echo sprintf(i18n("Última modificación: %s"),
+            $post->getFechaCreacion());
+          ?>
+        </span>
+      </div>
+    </div>
     <?php
     if(isset($_SESSION["user"]) && !isset($_GET["editPost"])):
       if($post->getIdUsuario() == $_SESSION["user"]): ?>
@@ -147,7 +157,7 @@ $respuestas = $view->getVariable("respuestas");
                 <div class="usuarioRespuesta col-md-12">
 				<span>
 					<?php
-          echo sprintf(i18n("Respondido por: %s, el dia %s"),
+          echo sprintf(i18n("Respondido por: %s, modificado: %s"),
             $respuesta->getUsuarioCreador()->getUsername(),
             $respuesta->getFechaCreacion());
           ?>
